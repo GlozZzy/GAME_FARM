@@ -1,0 +1,384 @@
+fileFormatVersion: 2
+guid: ce00fedd09e7b3546bd9b591e89d72b6
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -6351676205071823688
+    second: farm-set-isometric-basic-elements-260nw-539571601_0
+  - first:
+      213: 243052092229730986
+    second: farm-set-isometric-basic-elements-260nw-539571601_1
+  - first:
+      213: 99154118002872925
+    second: farm-set-isometric-basic-elements-260nw-539571601_2
+  - first:
+      213: -4133421730181666203
+    second: farm-set-isometric-basic-elements-260nw-539571601_3
+  - first:
+      213: -4715925292622223911
+    second: farm-set-isometric-basic-elements-260nw-539571601_4
+  - first:
+      213: 3757370237184897918
+    second: farm-set-isometric-basic-elements-260nw-539571601_5
+  - first:
+      213: -1473263147525472232
+    second: farm-set-isometric-basic-elements-260nw-539571601_6
+  - first:
+      213: -1689294470734380317
+    second: farm-set-isometric-basic-elements-260nw-539571601_7
+  - first:
+      213: 7475666647239199667
+    second: farm-set-isometric-basic-elements-260nw-539571601_8
+  - first:
+      213: -1436636886032594981
+    second: farm-set-isometric-basic-elements-260nw-539571601_9
+  - first:
+      213: -5537531675235339096
+    second: farm-set-isometric-basic-elements-260nw-539571601_10
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: farm-set-isometric-basic-elements-260nw-539571601_0
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 207
+        width: 83
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8bc8464e4205ad7a0800000000000000
+      internalID: -6351676205071823688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: farm-set-isometric-basic-elements-260nw-539571601_1
+      rect:
+        serializedVersion: 2
+        x: 93
+        y: 207
+        width: 85
+        height: 67
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa2c443179e7f5300800000000000000
+      internalID: 243052092229730986
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: farm-set-isometric-basic-elements-260nw-539571601_2
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 208
+        width: 84
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d52149d1524406100800000000000000
+      internalID: 99154118002872925
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: farm-set-isometric-basic-elements-260nw-539571601_3
+      rect:
+        serializedVersion: 2
+        x: 266
+        y: 208
+        width: 84
+        height: 68
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 56a24a116d223a6c0800000000000000
+      internalID: -4133421730181666203
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: farm-set-isometric-basic-elements-260nw-539571601_4
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 149
+        width: 84
+        height: 52
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9d5e8f1beeaad8eb0800000000000000
+      internalID: -4715925292622223911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: farm-set-isometric-basic-elements-260nw-539571601_5
+      rect:
+        serializedVersion: 2
+        x: 95
+        y: 82
+        width: 84
+        height: 77
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e73f705c25cd42430800000000000000
+      internalID: 3757370237184897918
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: farm-set-isometric-basic-elements-260nw-539571601_6
+      rect:
+        serializedVersion: 2
+        x: 10
+        y: 82
+        width: 83
+        height: 54
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 810021719faed8be0800000000000000
+      internalID: -1473263147525472232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: farm-set-isometric-basic-elements-260nw-539571601_7
+      rect:
+        serializedVersion: 2
+        x: 265
+        y: 82
+        width: 85
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3e288de01ab6e88e0800000000000000
+      internalID: -1689294470734380317
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: farm-set-isometric-basic-elements-260nw-539571601_8
+      rect:
+        serializedVersion: 2
+        x: 49
+        y: 26
+        width: 84
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bb8de73537eeb760800000000000000
+      internalID: 7475666647239199667
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: farm-set-isometric-basic-elements-260nw-539571601_9
+      rect:
+        serializedVersion: 2
+        x: 135
+        y: 26
+        width: 83
+        height: 51
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd7cdc02d5a001ce0800000000000000
+      internalID: -1436636886032594981
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: farm-set-isometric-basic-elements-260nw-539571601_10
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 27
+        width: 169
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a4bf1dc74cb623b0800000000000000
+      internalID: -5537531675235339096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
