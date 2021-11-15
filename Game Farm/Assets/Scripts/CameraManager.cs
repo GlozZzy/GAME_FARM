@@ -2,9 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Camera : MonoBehaviour
+public class CameraManager : MonoBehaviour
 {
-
+    public float MaxSize;
+    public float MinSize;
 
     // Update is called once per frame
     void Update()
@@ -32,5 +33,17 @@ public class Camera : MonoBehaviour
             dir.x = 0.03f;
         }
         transform.position += dir;
+
+
+        if (Input.GetAxis("Mouse ScrollWheel") > 0f) // forward
+        {
+            if (Camera.main.orthographicSize > MinSize)
+                Camera.main.orthographicSize -= 0.2f;
+        }
+        else if (Input.GetAxis("Mouse ScrollWheel") < 0f) // backwards
+        {
+            if (Camera.main.orthographicSize < MaxSize)
+                Camera.main.orthographicSize += 0.2f;
+        }
     }
 }
