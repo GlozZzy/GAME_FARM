@@ -31,9 +31,6 @@ public class Camera : MonoBehaviour
         {
             dir.x = 0.03f;
         }
-
-  
-
         transform.position += dir;
     }
 }
