@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2977336240659627513}
   - component: {fileID: 7121052827880745004}
   m_Layer: 0
-  m_Name: GardenBed
+  m_Name: EmptyPlant
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25,7 +25,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2271664621438790938}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -6.873, y: -2.419, z: 0}
+  m_LocalPosition: {x: -5.45, y: -3.36, z: 0}
   m_LocalScale: {x: 2.2419887, y: 1.9446478, z: 1.7996}
   m_Children: []
   m_Father: {fileID: 0}
