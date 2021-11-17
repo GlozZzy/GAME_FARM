@@ -2,13 +2,8 @@
 #
 # Get latest from https://github.com/github/gitignore/blob/master/Unity.gitignore
 #
-<<<<<<< HEAD
 [Ll]ibrary/
 [Tt]emp/
-=======
-/[Ll]ibrary/
-/[Tt]emp/
->>>>>>> 4086691e5361f9ffb5de8c196159c93dae6b7a25
 /[Oo]bj/
 /[Bb]uild/
 /[Bb]uilds/
