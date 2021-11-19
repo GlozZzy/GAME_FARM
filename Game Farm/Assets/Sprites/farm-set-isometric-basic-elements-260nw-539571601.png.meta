@@ -35,6 +35,21 @@ TextureImporter:
   - first:
       213: -5537531675235339096
     second: farm-set-isometric-basic-elements-260nw-539571601_10
+  - first:
+      213: -5721216163508544270
+    second: farm-set-isometric-basic-elements-260nw-539571601_11
+  - first:
+      213: 7891984880296130112
+    second: farm-set-isometric-basic-elements-260nw-539571601_12
+  - first:
+      213: -4676226925730873229
+    second: farm-set-isometric-basic-elements-260nw-539571601_13
+  - first:
+      213: 2065043601107596647
+    second: farm-set-isometric-basic-elements-260nw-539571601_14
+  - first:
+      213: -8581029779518954768
+    second: farm-set-isometric-basic-elements-260nw-539571601_15
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -223,10 +238,10 @@ TextureImporter:
       name: farm-set-isometric-basic-elements-260nw-539571601_4
       rect:
         serializedVersion: 2
-        x: 305
-        y: 149
-        width: 84
-        height: 52
+        x: 52
+        y: 147
+        width: 83
+        height: 57
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -246,8 +261,8 @@ TextureImporter:
         serializedVersion: 2
         x: 95
         y: 82
-        width: 84
-        height: 77
+        width: 83
+        height: 76
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -307,9 +322,9 @@ TextureImporter:
       name: farm-set-isometric-basic-elements-260nw-539571601_8
       rect:
         serializedVersion: 2
-        x: 49
+        x: 50
         y: 26
-        width: 84
+        width: 83
         height: 50
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -351,7 +366,7 @@ TextureImporter:
         serializedVersion: 2
         x: 221
         y: 27
-        width: 169
+        width: 83
         height: 55
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
@@ -362,6 +377,111 @@ TextureImporter:
       bones: []
       spriteID: 8a4bf1dc74cb623b0800000000000000
       internalID: -5537531675235339096
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: farm-set-isometric-basic-elements-260nw-539571601_11
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 27
+        width: 83
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2fc99da26382a90b0800000000000000
+      internalID: -5721216163508544270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: farm-set-isometric-basic-elements-260nw-539571601_12
+      rect:
+        serializedVersion: 2
+        x: 305
+        y: 149
+        width: 83
+        height: 51
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 046fdc26f66f58d60800000000000000
+      internalID: 7891984880296130112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: farm-set-isometric-basic-elements-260nw-539571601_13
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 149
+        width: 84
+        height: 55
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 370c1b20364ba1fb0800000000000000
+      internalID: -4676226925730873229
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: farm-set-isometric-basic-elements-260nw-539571601_14
+      rect:
+        serializedVersion: 2
+        x: 136
+        y: 149
+        width: 85
+        height: 50
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76536b1d63288ac10800000000000000
+      internalID: 2065043601107596647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: farm-set-isometric-basic-elements-260nw-539571601_15
+      rect:
+        serializedVersion: 2
+        x: 179
+        y: 82
+        width: 84
+        height: 71
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0f269b831ee0ae880800000000000000
+      internalID: -8581029779518954768
       vertices: []
       indices: 
       edges: []
