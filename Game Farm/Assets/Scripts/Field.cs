@@ -20,6 +20,7 @@ public class Field : MonoBehaviour
         plant = transform.GetChild(0).GetComponent<SpriteRenderer>();
         plantCollider = transform.GetChild(0).GetComponent<BoxCollider2D>();
         player = transform.parent.GetComponent<Player>();
+        print(player);
     }
 
     // Update is called once per frame
@@ -38,6 +39,7 @@ public class Field : MonoBehaviour
     }
     private void OnMouseDown()
     {
+        if (MenuManager.GameIsPaused) return;
         if (isPlanted)
         {
             if (plantStage == plantStages.Length - 1) Harvest();
@@ -53,6 +55,7 @@ public class Field : MonoBehaviour
         isPlanted = false;
         plant.gameObject.SetActive(false);
         player.Transaction(20);
+        player.GetExp(10);
     }
 
     private void Plant()

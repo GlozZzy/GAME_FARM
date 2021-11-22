@@ -6,23 +6,38 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-    public int money = 100;
-    public Text moneyTxt;
+    public int money;
+    int exp = 0;
+    int lvl = 100;
+    public Text MoneyTxt;
+    public Text ExpTxt;
+
+
     // Start is called before the first frame update
-    void Start()
+    void FixedUpdate()
     {
-        moneyTxt.text = "$" + money;
+        MoneyTxt.text = $"{money}";
+        ExpTxt.text = $"{exp} / {lvl}";
     }
 
     // Update is called once per frame
     public void Transaction(int value)
     {
         money += value;
-        moneyTxt.text = "$" + money;
     }
 
-    public void OpenMenu()
+    public void GetExp(int value)
     {
-        SceneManager.LoadScene(0);
+        exp += value;
+        if (exp >= lvl)
+            lvlup();
     }
+
+
+    public void lvlup()
+    {
+        exp = exp % lvl;
+        lvl = (int)(lvl * 1.2);
+    }
+    
 }
