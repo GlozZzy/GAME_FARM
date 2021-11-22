@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -19,5 +20,9 @@ public class Player : MonoBehaviour
         money += value;
         moneyTxt.text = "$" + money;
     }
-    
+
+    public void OpenMenu()
+    {
+        SceneManager.LoadScene(0);
+    }
 }

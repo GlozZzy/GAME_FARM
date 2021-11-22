@@ -15,4 +15,9 @@ public class WareHouse : MonoBehaviour
     {
         
     }
+
+    private void OnMouseDown()
+    {
+        Debug.Log("Вы кликнули по Складу, поздравляю!");
+    }
 }

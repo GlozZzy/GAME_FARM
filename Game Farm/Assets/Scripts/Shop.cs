@@ -15,4 +15,9 @@ public class Shop : MonoBehaviour
     {
         
     }
+
+    private void OnMouseDown()
+    {
+        Debug.Log("Вы кликнули по магазину, поздравляю!");
+    }
 }

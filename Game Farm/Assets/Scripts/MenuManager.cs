@@ -6,8 +6,6 @@ using UnityEngine.SceneManagement;
 public class MenuManager : MonoBehaviour
 {
     public static bool GameIsPaused = false;
-    public GameObject Menu;
-    public GameObject Picture;
 
     // Start is called before the first frame update
     void Start()
@@ -27,16 +25,12 @@ public class MenuManager : MonoBehaviour
 
     public void ResumeGame()
     {
-        Menu.SetActive(false);
-        Picture.SetActive(false);
-        GameIsPaused = false;
+        SceneManager.LoadScene(1);
     }
 
     public void PauseGame()
     {
-        Menu.SetActive(true);
-        Picture.SetActive(true);
-        GameIsPaused = true;
+        SceneManager.LoadScene(0);
     }
 
     public void NewGame()
