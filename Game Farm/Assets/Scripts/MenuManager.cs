@@ -8,11 +8,12 @@ public class MenuManager : MonoBehaviour
     public static bool GameIsPaused = false;
     public GameObject Menu;
     public GameObject Picture;
+    public GameObject PlayerInfo;
 
-    // Start is called before the first frame update
+
     void Start()
     {
-        
+        ResumeGame();
     }
 
     // Update is called once per frame
@@ -28,6 +29,7 @@ public class MenuManager : MonoBehaviour
     public void ResumeGame()
     {
         Menu.SetActive(false);
+        PlayerInfo.SetActive(true);
         Picture.SetActive(false);
         GameIsPaused = false;
     }
@@ -35,13 +37,14 @@ public class MenuManager : MonoBehaviour
     public void PauseGame()
     {
         Menu.SetActive(true);
+        PlayerInfo.SetActive(false);
         Picture.SetActive(true);
         GameIsPaused = true;
     }
 
     public void NewGame()
     {
-        print("New Game");
+        SceneManager.LoadScene(0);
     }
 
     public void SaveGame()

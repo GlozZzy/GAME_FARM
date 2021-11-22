@@ -15,4 +15,10 @@ public class Shop : MonoBehaviour
     {
         
     }
+
+    private void OnMouseDown()
+    {
+        if (MenuManager.GameIsPaused) return;
+        Debug.Log("Вы кликнули по магазину, поздравляю!");
+    }
 }
