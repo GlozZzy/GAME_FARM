@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -5164946780467338316}
   - component: {fileID: -8064842761651624050}
   - component: {fileID: -8529133712503800831}
+  - component: {fileID: 1807925142354337095}
   m_Layer: 0
   m_Name: Blocked
   m_TagString: Untagged
@@ -101,7 +102,7 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
+    pivot: {x: 0.5, y: 0.08850791}
     oldSize: {x: 1.3125, y: 0.859375}
     newSize: {x: 1.3125, y: 0.859375}
     adaptiveTilingThreshold: 0.5
@@ -110,16 +111,16 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.64013404, y: 0.057457387}
-      - {x: 0.0013849363, y: 0.4296875}
-      - {x: -0.003663838, y: 0.4296875}
-      - {x: -0.6495769, y: 0.058351338}
-      - {x: -0.6429039, y: -0.060466588}
-      - {x: -0.007000372, y: -0.41634136}
-      - {x: 0.0003273189, y: -0.42635095}
-      - {x: 0.002933532, y: -0.41389883}
-      - {x: -0.0077183247, y: -0.42626297}
-      - {x: 0.6429039, y: -0.050859973}
+    - - {x: 0.64013404, y: 0.39728653}
+      - {x: -0.0018826518, y: 0.782587}
+      - {x: -0.006931424, y: 0.7793194}
+      - {x: -0.6495769, y: 0.41125083}
+      - {x: -0.6527067, y: 0.30550325}
+      - {x: 0.009337559, y: -0.0634419}
+      - {x: 0.016665254, y: -0.057113484}
+      - {x: 0.009468704, y: -0.06099932}
+      - {x: 0.0086196065, y: -0.060293153}
+      - {x: 0.6429039, y: 0.3053071}
 --- !u!50 &-8064842761651624050
 Rigidbody2D:
   serializedVersion: 4
@@ -153,3 +154,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 389e774a241086649bc8a3b25bffc09e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &1807925142354337095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5400345550288243416}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67ec66c2b67e0d441862d92795c0e9a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  plantStages: []
+  isBlocked: 1

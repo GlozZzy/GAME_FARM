@@ -7,26 +7,27 @@ public class Field : MonoBehaviour
 {
     bool isPlanted = false;
     SpriteRenderer plant;
-    BoxCollider2D plantCollider;
     Player player;
 
     public Sprite[] plantStages;
+    public bool isBlocked;
+
     int plantStage = 0;
     float timeBtwStages = 5f;
     float timer;
+
     // Start is called before the first frame update
     void Start()
     {
-        plant = transform.GetChild(0).GetComponent<SpriteRenderer>();
-        plantCollider = transform.GetChild(0).GetComponent<BoxCollider2D>();
+        if (!isBlocked)
+            plant = transform.GetChild(0).GetComponent<SpriteRenderer>();
         player = transform.parent.GetComponent<Player>();
-        print(player);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (isPlanted) 
+        if (isPlanted && !isBlocked) 
         { 
             timer -= Time.deltaTime;
             if (timer < 0 && plantStage < plantStages.Length - 1)
@@ -40,6 +41,13 @@ public class Field : MonoBehaviour
     private void OnMouseDown()
     {
         if (MenuManager.GameIsPaused) return;
+
+        if (isBlocked)
+        {
+            print("Click on Blocked Cell");
+            return;
+        }
+        
         if (isPlanted)
         {
             if (plantStage == plantStages.Length - 1) Harvest();
@@ -73,8 +81,6 @@ public class Field : MonoBehaviour
     private void UpdatePlant()
     {
         plant.sprite = plantStages[plantStage];
-        plantCollider.size = plant.sprite.bounds.size;
-        plantCollider.offset = new Vector2(0, plant.bounds.size.y/2);
     }
 
 }

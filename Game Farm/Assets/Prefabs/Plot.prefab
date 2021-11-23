@@ -103,7 +103,7 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.49631178, y: 0.052453022}
+    pivot: {x: 0.4963118, y: 0.052453022}
     oldSize: {x: 1.296875, y: 0.859375}
     newSize: {x: 1.296875, y: 0.859375}
     adaptiveTilingThreshold: 0.5
@@ -134,6 +134,7 @@ MonoBehaviour:
   - {fileID: 7891984880296130112, guid: ce00fedd09e7b3546bd9b591e89d72b6, type: 3}
   - {fileID: -1436636886032594981, guid: ce00fedd09e7b3546bd9b591e89d72b6, type: 3}
   - {fileID: -4133421730181666203, guid: ce00fedd09e7b3546bd9b591e89d72b6, type: 3}
+  isBlocked: 0
 --- !u!50 &1818018465968439376
 Rigidbody2D:
   serializedVersion: 4
@@ -178,7 +179,6 @@ GameObject:
   - component: {fileID: 1818018467124183059}
   - component: {fileID: 1818018467124183058}
   - component: {fileID: 58935116710533853}
-  - component: {fileID: 281170555752336781}
   m_Layer: 0
   m_Name: Plant
   m_TagString: Untagged
@@ -258,7 +258,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1818018467124183057}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -287,29 +287,3 @@ PolygonCollider2D:
       - {x: 0.6484375, y: 0.328125}
       - {x: 0.63847417, y: 0.44120067}
       - {x: 0.29510373, y: 0.64100456}
---- !u!61 &281170555752336781
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1818018467124183057}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0.3984375}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
-    oldSize: {x: 1.296875, y: 0.796875}
-    newSize: {x: 1.296875, y: 0.796875}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.296875, y: 0.796875}
-  m_EdgeRadius: 0
