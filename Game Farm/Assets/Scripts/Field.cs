@@ -8,7 +8,7 @@ public class Field : MonoBehaviour
     bool isPlanted = false;
     SpriteRenderer plant;
     Player player;
-    Canvas CanvasMenu;
+    CellMenu cellMenu;
 
     public Sprite[] plantStages;
     public bool isBlocked;
@@ -23,10 +23,7 @@ public class Field : MonoBehaviour
         if (!isBlocked)
         {
             plant = transform.GetChild(0).GetComponent<SpriteRenderer>();
-            CanvasMenu = GameObject.Find("CellMenu").GetComponent<Canvas>();
         }
-        else
-            CanvasMenu = GameObject.Find("BlockedCellMenu").GetComponent<Canvas>();
         player = GameObject.Find("PlayerInfo").GetComponent<Player>();
     }
 
@@ -60,7 +57,7 @@ public class Field : MonoBehaviour
             return;
         }
 
-        Plant();
+        OpenMenu();
     }
 
     private void Harvest()
@@ -92,12 +89,13 @@ public class Field : MonoBehaviour
 
     public void OpenMenu()
     {
-        CanvasMenu.enabled = true;
+        print(this);
+        cellMenu.Open(this);
     }
 
     public void CloseMenu()
     {
-        CanvasMenu.enabled = false;
+        cellMenu.Close();
     }
 
 
