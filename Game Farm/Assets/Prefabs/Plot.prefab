@@ -103,7 +103,7 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.4963118, y: 0.052453022}
+    pivot: {x: 0.5, y: 0.05}
     oldSize: {x: 1.296875, y: 0.859375}
     newSize: {x: 1.296875, y: 0.859375}
     adaptiveTilingThreshold: 0.5
@@ -135,6 +135,7 @@ MonoBehaviour:
   - {fileID: -1436636886032594981, guid: ce00fedd09e7b3546bd9b591e89d72b6, type: 3}
   - {fileID: -4133421730181666203, guid: ce00fedd09e7b3546bd9b591e89d72b6, type: 3}
   isBlocked: 0
+  CanvasMenu: {fileID: 0}
 --- !u!50 &1818018465968439376
 Rigidbody2D:
   serializedVersion: 4
@@ -267,7 +268,7 @@ PolygonCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0}
+    pivot: {x: 0.5, y: -0.05}
     oldSize: {x: 1.296875, y: 0.796875}
     newSize: {x: 1.296875, y: 0.796875}
     adaptiveTilingThreshold: 0.5

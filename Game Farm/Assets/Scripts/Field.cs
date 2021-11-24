@@ -8,6 +8,7 @@ public class Field : MonoBehaviour
     bool isPlanted = false;
     SpriteRenderer plant;
     Player player;
+    Canvas CanvasMenu;
 
     public Sprite[] plantStages;
     public bool isBlocked;
@@ -20,8 +21,13 @@ public class Field : MonoBehaviour
     void Start()
     {
         if (!isBlocked)
+        {
             plant = transform.GetChild(0).GetComponent<SpriteRenderer>();
-        player = transform.parent.GetComponent<Player>();
+            CanvasMenu = GameObject.Find("CellMenu").GetComponent<Canvas>();
+        }
+        else
+            CanvasMenu = GameObject.Find("BlockedCellMenu").GetComponent<Canvas>();
+        player = GameObject.Find("PlayerInfo").GetComponent<Player>();
     }
 
     // Update is called once per frame
@@ -47,17 +53,16 @@ public class Field : MonoBehaviour
             print("EnlargeTheTerritory");
             return;
         }
-        
+
         if (isPlanted)
         {
             if (plantStage == plantStages.Length - 1) Harvest();
+            return;
+        }
 
-        }
-        else if (10 <= player.money)
-        {
-            Plant();
-        }
+        Plant();
     }
+
     private void Harvest()
     {
         isPlanted = false;
@@ -66,21 +71,34 @@ public class Field : MonoBehaviour
         player.GetExp(10);
     }
 
-    private void Plant()
+    public void Plant()
     {
-        isPlanted = true;
-        plantStage = 0;
-        UpdatePlant();
-        timer = timeBtwStages;
-        plant.gameObject.SetActive(true);
-        player.Transaction(-10);
-
-
+        if (10 <= player.money)
+        {
+            isPlanted = true;
+            plantStage = 0;
+            UpdatePlant();
+            timer = timeBtwStages;
+            plant.gameObject.SetActive(true);
+            player.Transaction(-10);
+        }
     }
 
     private void UpdatePlant()
     {
         plant.sprite = plantStages[plantStage];
     }
+
+
+    public void OpenMenu()
+    {
+        CanvasMenu.enabled = true;
+    }
+
+    public void CloseMenu()
+    {
+        CanvasMenu.enabled = false;
+    }
+
 
 }
