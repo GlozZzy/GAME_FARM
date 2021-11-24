@@ -8103,8 +8103,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1818018465968439340, guid: 6ffdefed5e76c6544aba266eee680b52, type: 3}
-        m_TargetAssemblyTypeName: Field, Assembly-CSharp
+      - m_Target: {fileID: 279848404}
+        m_TargetAssemblyTypeName: CellMenu, Assembly-CSharp
         m_MethodName: Plant
         m_Mode: 1
         m_Arguments:
