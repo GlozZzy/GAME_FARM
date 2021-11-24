@@ -28,6 +28,7 @@ public class CellMenu : MonoBehaviour
     public void Plant()
     {
         field.Plant();
+        Close();
     }
 
     public void Close()

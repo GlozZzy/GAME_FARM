@@ -89,12 +89,13 @@ public class Field : MonoBehaviour
 
     public void OpenMenu()
     {
-        print(this);
+        cellMenu = GameObject.Find("CellMenu").GetComponent<CellMenu>();
         cellMenu.Open(this);
     }
 
     public void CloseMenu()
     {
+        cellMenu = GameObject.Find("CellMenu").GetComponent<CellMenu>();
         cellMenu.Close();
     }
 
