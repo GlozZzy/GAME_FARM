@@ -8,7 +8,7 @@ public class Field : MonoBehaviour
     bool isPlanted = false;
     SpriteRenderer plant;
     Player player;
-    Canvas CanvasMenu;
+    CellMenu cellMenu;
 
     public Sprite[] plantStages;
     public bool isBlocked;
@@ -23,10 +23,7 @@ public class Field : MonoBehaviour
         if (!isBlocked)
         {
             plant = transform.GetChild(0).GetComponent<SpriteRenderer>();
-            CanvasMenu = GameObject.Find("CellMenu").GetComponent<Canvas>();
         }
-        else
-            CanvasMenu = GameObject.Find("BlockedCellMenu").GetComponent<Canvas>();
         player = GameObject.Find("PlayerInfo").GetComponent<Player>();
     }
 
@@ -48,19 +45,14 @@ public class Field : MonoBehaviour
     {
         if (MenuManager.GameIsPaused) return;
 
-        if (isBlocked)
-        {
-            print("EnlargeTheTerritory");
-            return;
-        }
-
         if (isPlanted)
         {
             if (plantStage == plantStages.Length - 1) Harvest();
             return;
         }
 
-        Plant();
+        if (!isBlocked) OpenMenu();
+        else OpenBlockedMenu();
     }
 
     private void Harvest()
@@ -89,16 +81,20 @@ public class Field : MonoBehaviour
         plant.sprite = plantStages[plantStage];
     }
 
-
     public void OpenMenu()
     {
-        CanvasMenu.enabled = true;
+        cellMenu = GameObject.Find("CellMenu").GetComponent<CellMenu>();
+        cellMenu.Open(this);
     }
 
-    public void CloseMenu()
+    public void OpenBlockedMenu()
     {
-        CanvasMenu.enabled = false;
+        cellMenu = GameObject.Find("BlockedCellMenu").GetComponent<CellMenu>();
+        cellMenu.Open(this);
     }
 
-
+    public void Enlarge()
+    {
+        print("EnlargeTheTerritory");
+    }
 }
