@@ -45,19 +45,14 @@ public class Field : MonoBehaviour
     {
         if (MenuManager.GameIsPaused) return;
 
-        if (isBlocked)
-        {
-            print("EnlargeTheTerritory");
-            return;
-        }
-
         if (isPlanted)
         {
             if (plantStage == plantStages.Length - 1) Harvest();
             return;
         }
 
-        OpenMenu();
+        if (!isBlocked) OpenMenu();
+        else OpenBlockedMenu();
     }
 
     private void Harvest()
@@ -86,18 +81,20 @@ public class Field : MonoBehaviour
         plant.sprite = plantStages[plantStage];
     }
 
-
     public void OpenMenu()
     {
         cellMenu = GameObject.Find("CellMenu").GetComponent<CellMenu>();
         cellMenu.Open(this);
     }
 
-    public void CloseMenu()
+    public void OpenBlockedMenu()
     {
-        cellMenu = GameObject.Find("CellMenu").GetComponent<CellMenu>();
-        cellMenu.Close();
+        cellMenu = GameObject.Find("BlockedCellMenu").GetComponent<CellMenu>();
+        cellMenu.Open(this);
     }
 
-
+    public void Enlarge()
+    {
+        print("EnlargeTheTerritory");
+    }
 }

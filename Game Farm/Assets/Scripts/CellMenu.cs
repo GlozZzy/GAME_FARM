@@ -31,6 +31,12 @@ public class CellMenu : MonoBehaviour
         Close();
     }
 
+    public void Enlarge()
+    {
+        field.Enlarge();
+        Close();
+    }
+
     public void Close()
     {
         canvas.enabled = false;
