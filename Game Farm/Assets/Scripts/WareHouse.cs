@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class WareHouse : MonoBehaviour
 {
+    public Canvas CanvasMenu;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +21,16 @@ public class WareHouse : MonoBehaviour
     private void OnMouseDown()
     {
         if (MenuManager.GameIsPaused) return;
-        Debug.Log("Вы кликнули по Складу, поздравляю!");
+        OpenMenu();
+    }
+
+    public void OpenMenu()
+    {
+        CanvasMenu.enabled = true;
+    }
+
+    public void CloseMenu()
+    {
+        CanvasMenu.enabled = false;
     }
 }

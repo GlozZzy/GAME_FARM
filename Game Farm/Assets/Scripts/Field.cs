@@ -44,7 +44,7 @@ public class Field : MonoBehaviour
 
         if (isBlocked)
         {
-            print("Click on Blocked Cell");
+            print("EnlargeTheTerritory");
             return;
         }
         
