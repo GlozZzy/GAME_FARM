@@ -16,7 +16,8 @@ public class CellMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
+        if (field) field.GetComponent<SpriteRenderer>().color = new Color(0.6f, 0.6f, 0.6f, 1f); 
     }
 
     public void Open(Field f)
@@ -40,5 +41,6 @@ public class CellMenu : MonoBehaviour
     public void Close()
     {
         canvas.enabled = false;
+        field = null;
     }
 }

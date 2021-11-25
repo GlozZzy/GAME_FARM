@@ -30,6 +30,7 @@ public class Field : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        GetComponent<SpriteRenderer>().color = Color.white;
         if (isPlanted && !isBlocked) 
         { 
             timer -= Time.deltaTime;
