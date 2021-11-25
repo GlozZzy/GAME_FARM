@@ -2,23 +2,28 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MenuManager : MonoBehaviour
 {
-    public static bool GameIsPaused = false;
-    public GameObject Menu;
-    public GameObject Picture;
+    public static bool GameIsPaused = true;
     public GameObject PlayerInfo;
+
+    private bool firstlaunch = true;
 
 
     void Start()
     {
-        ResumeGame();
+
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        if (firstlaunch) GameObject.Find("ContinueBtn").GetComponent<Button>().interactable = false;
+        else GameObject.Find("ContinueBtn").GetComponent<Button>().interactable = true;
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (GameIsPaused) ResumeGame();
@@ -28,23 +33,23 @@ public class MenuManager : MonoBehaviour
 
     public void ResumeGame()
     {
-        Menu.SetActive(false);
+        GetComponent<Canvas>().enabled = false;
         PlayerInfo.SetActive(true);
-        Picture.SetActive(false);
         GameIsPaused = false;
     }
 
     public void PauseGame()
     {
-        Menu.SetActive(true);
+        GetComponent<Canvas>().enabled = true;
         PlayerInfo.SetActive(false);
-        Picture.SetActive(true);
         GameIsPaused = true;
     }
 
     public void NewGame()
     {
-        SceneManager.LoadScene(0);
+        print("NewGame");
+        firstlaunch = false;
+        ResumeGame();
     }
 
     public void SaveGame()
