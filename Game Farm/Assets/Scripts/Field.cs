@@ -66,14 +66,13 @@ public class Field : MonoBehaviour
 
     public void Plant()
     {
-        if (10 <= player.money)
+        if (player.Transaction(-10))
         {
             isPlanted = true;
             plantStage = 0;
             UpdatePlant();
             timer = timeBtwStages;
             plant.gameObject.SetActive(true);
-            player.Transaction(-10);
         }
     }
 

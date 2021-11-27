@@ -21,9 +21,14 @@ public class Player : MonoBehaviour
     }
 
     // Update is called once per frame
-    public void Transaction(int value)
+    public bool Transaction(int value)
     {
-        money += value;
+        if (money + value >= 0)
+        {
+            money += value;
+            return true;
+        }
+        else return false;
     }
 
     public void GetExp(int value)
