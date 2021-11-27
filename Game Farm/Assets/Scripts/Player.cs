@@ -28,7 +28,11 @@ public class Player : MonoBehaviour
             money += value;
             return true;
         }
-        else return false;
+        else
+        {
+            print("NotEnoughtMoney");
+            return false;
+        }
     }
 
     public void GetExp(int value)

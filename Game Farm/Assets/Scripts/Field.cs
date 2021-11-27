@@ -8,7 +8,7 @@ public class Field : MonoBehaviour
     bool isPlanted = false;
     SpriteRenderer plant;
     Player player;
-    CellMenu cellMenu;
+    FieldMenu cellMenu;
 
     public Sprite[] plantStages;
     public bool isBlocked;
@@ -83,13 +83,13 @@ public class Field : MonoBehaviour
 
     public void OpenMenu()
     {
-        cellMenu = GameObject.Find("CellMenu").GetComponent<CellMenu>();
+        cellMenu = GameObject.Find("CellMenu").GetComponent<FieldMenu>();
         cellMenu.Open(this);
     }
 
     public void OpenBlockedMenu()
     {
-        cellMenu = GameObject.Find("BlockedCellMenu").GetComponent<CellMenu>();
+        cellMenu = GameObject.Find("BlockedCellMenu").GetComponent<FieldMenu>();
         cellMenu.Open(this);
     }
 
