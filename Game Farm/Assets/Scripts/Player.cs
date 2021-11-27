@@ -30,7 +30,7 @@ public class Player : MonoBehaviour
         }
         else
         {
-            print("NotEnoughtMoney");
+            print("NotEnoughMoney");
             return false;
         }
     }
