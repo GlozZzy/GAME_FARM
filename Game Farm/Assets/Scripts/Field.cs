@@ -16,10 +16,12 @@ public class Field : MonoBehaviour
     int plantStage = 0;
     float timeBtwStages = 5f;
     float timer;
+    public bool choosen;
 
     // Start is called before the first frame update
     void Start()
     {
+        choosen = false;
         if (!isBlocked)
         {
             plant = transform.GetChild(0).GetComponent<SpriteRenderer>();
@@ -30,7 +32,7 @@ public class Field : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GetComponent<SpriteRenderer>().color = Color.white;
+        //if (!choosen) GetComponent<SpriteRenderer>().color = Color.white;
         if (isPlanted && !isBlocked) 
         { 
             timer -= Time.deltaTime;
@@ -42,6 +44,8 @@ public class Field : MonoBehaviour
             }
         }
     }
+
+
     private void OnMouseDown()
     {
         if (MenuManager.GameIsPaused) return;
@@ -83,7 +87,8 @@ public class Field : MonoBehaviour
 
     public void OpenMenu()
     {
-        cellMenu = GameObject.Find("CellMenu").GetComponent<FieldMenu>();
+        cellMenu = GameObject.Find("FieldMenu").GetComponent<FieldMenu>();
+        choosen = true;
         cellMenu.Open(this);
     }
 

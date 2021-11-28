@@ -16,12 +16,12 @@ public class FieldMenu : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (field) field.GetComponent<SpriteRenderer>().color = new Color(0.6f, 0.6f, 0.6f, 1f); 
+        if (field) field.GetComponent<SpriteRenderer>().color = new Color(0.6f, 0.6f, 0.6f, 1f);
     }
 
     public void Open(Field f)
     {
+        if (field) field.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
         canvas.enabled = true;
         field = f;
     }
@@ -40,6 +40,7 @@ public class FieldMenu : MonoBehaviour
 
     public void Close()
     {
+        field.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
         canvas.enabled = false;
         field = null;
     }
