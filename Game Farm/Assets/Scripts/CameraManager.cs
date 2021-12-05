@@ -19,10 +19,10 @@ public class CameraManager : MonoBehaviour
     {
         dir.x = dir.y = dir.z = 0;
 
-        if (Input.GetKey(KeyCode.W)) dir.y = 0.03f;
-        if (Input.GetKey(KeyCode.S)) dir.y = -0.03f;
-        if (Input.GetKey(KeyCode.A)) dir.x = -0.03f;
-        if (Input.GetKey(KeyCode.D)) dir.x = 0.03f;
+        if (Input.GetKey(KeyCode.W)) dir.y = 0.1f;
+        if (Input.GetKey(KeyCode.S)) dir.y = -0.1f;
+        if (Input.GetKey(KeyCode.A)) dir.x = -0.1f;
+        if (Input.GetKey(KeyCode.D)) dir.x = 0.1f;
 
         transform.position += dir;
 
