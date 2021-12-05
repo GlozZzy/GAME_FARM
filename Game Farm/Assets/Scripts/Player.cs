@@ -47,6 +47,7 @@ public class Player : MonoBehaviour
     {
         exp = exp % lvl;
         lvl = (int)(lvl * 1.2);
+        print("LevelUp");
     }
     
 }
