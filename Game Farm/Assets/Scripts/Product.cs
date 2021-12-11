@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Product : MonoBehaviour
 {
+    public string Pname;
+    public int price;
+    public string description;
+
+
     // Start is called before the first frame update
     void Start()
     {
