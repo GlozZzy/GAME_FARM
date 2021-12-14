@@ -6,12 +6,32 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-    public int money;
-    int exp = 0;
-    int lvl = 100;
+    public int money = 100;
+    public int exp = 0;
+    public int lvl = 100;
     public Text MoneyTxt;
     public Text ExpTxt;
 
+    public void SavePlayer()
+    {
+        SaveSystem.SavePlayer(this);
+    }
+    public void LoadPlayer()
+    {
+        PlayerData data = SaveSystem.LoadPlayer();
+
+        money = data.money;
+        exp = data.exp;
+        lvl = data.lvl;
+    }
+    public void ResetPlayer()
+    {
+        SaveSystem.ResetData();
+
+        money = 100;
+        exp = 0;
+        lvl = 100;
+    }
 
     // Start is called before the first frame update
     void FixedUpdate()
