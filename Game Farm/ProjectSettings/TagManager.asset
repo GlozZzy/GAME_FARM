@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Money
   - Exp
+  - WarehouseCarrot
   layers:
   - Default
   - TransparentFX

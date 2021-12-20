@@ -782,7 +782,7 @@ GameObject:
   - component: {fileID: 130906399}
   m_Layer: 5
   m_Name: Carrot
-  m_TagString: Untagged
+  m_TagString: WarehouseCarrot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4417,7 +4417,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &783280982
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10865,7 +10865,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 21e9bc15a45ffc748beb59dd706a941d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
+  player: {fileID: 853675278}
   CanvasMenu: {fileID: 1194751162}
   spaceText: {fileID: 577197437}
   maxspace: 10
