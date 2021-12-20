@@ -54,10 +54,22 @@ public class WareHouse : MonoBehaviour
         else print("NotEnougt money");
     }
 
-    public void AddProduct(Product product)
+    public bool AddProduct(Product product)
     {
-        products.Add(product);
-        curspace++;
+        if (curspace < maxspace)
+        {
+            products.Add(product);
+
+            string a = "Warehouse" + product.name;
+            GameObject obj = GameObject.FindGameObjectWithTag(a);
+            var textcount = obj.transform.Find("count");
+            int count = int.Parse(textcount.gameObject.GetComponent<Text>().text.Split(' ')[1]);
+            textcount.gameObject.GetComponent<Text>().text = "count: " + (count + 1);
+
+            curspace++;
+            return true;
+        }
+        else return false;
     }
 
     public void SellProduct(Text product)
@@ -69,8 +81,17 @@ public class WareHouse : MonoBehaviour
         if (ind >= 0) 
         {
             player.Transaction(products[ind].price);
+
+            string a = "Warehouse" + products[ind].name;
+            GameObject obj = GameObject.FindGameObjectWithTag(a);
+            var textcount = obj.transform.Find("count");
+            int count = int.Parse(textcount.gameObject.GetComponent<Text>().text.Split(' ')[1]);
+            textcount.gameObject.GetComponent<Text>().text = "count: " + (count - 1);
+
             curspace--;
             products.RemoveAt(ind);
+
+            
         }
     }
 }
