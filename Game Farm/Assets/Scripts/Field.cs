@@ -19,14 +19,23 @@ public class Field : MonoBehaviour
     public bool choosen;
 
     // Start is called before the first frame update
+    //Важная информация!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+    //я нахуй удалил все занятые поля с изначальной карты. Теперь у каждого поля есть 5 возможных спрайтов. 0 спрайт - спрайт заблок поля (желтого поля). 1 спрайт - спрайт разблок поля (зеленое поле)
+    //остальные спрайты как и раньше просто показывают разные стадии роста растения 
+
     void Start()
     {
         choosen = false;
+        plant = GetComponent<SpriteRenderer>();
+        player = FindObjectOfType<Player>();
         if (!isBlocked)
         {
-            plant = transform.GetChild(0).GetComponent<SpriteRenderer>();
+            plant.sprite = plantStages[1];
+        } 
+        else
+        {
+            plant.sprite = plantStages[0];
         }
-        player = GameObject.Find("PlayerInfo").GetComponent<Player>();
     }
 
     // Update is called once per frame
@@ -63,9 +72,10 @@ public class Field : MonoBehaviour
     private void Harvest()
     {
         isPlanted = false;
-        plant.gameObject.SetActive(false);
         player.Transaction(20);
         player.GetExp(10);
+        plantStage = 1;
+        UpdatePlant();
     }
 
     public void Plant()
@@ -73,10 +83,15 @@ public class Field : MonoBehaviour
         if (player.Transaction(-10))
         {
             isPlanted = true;
-            plantStage = 0;
+            plantStage = 2;
             UpdatePlant();
             timer = timeBtwStages;
-            plant.gameObject.SetActive(true);
+        }
+        else
+        {
+            cellMenu = GameObject.Find("NotEnoughMoney").GetComponent<FieldMenu>();
+            choosen = true;
+            cellMenu.Open(this);
         }
     }
 
@@ -100,6 +115,46 @@ public class Field : MonoBehaviour
 
     public void Enlarge()
     {
-        print("EnlargeTheTerritory");
+        if (player.Transaction(-10)) //проверка хватает ли бабла
+        {
+            choosen = false; //снимаем выделение
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position + new Vector3(0.375f, 0.65f, 0.0375f), 0.01f); //проверка есть ли объект по таким-то координатам
+            if (colliders.Length == 0)
+            {
+                GameObject newFieldRU = Instantiate(gameObject, transform.position + new Vector3(0.65f, 0.375f, 0.0375f), transform.rotation);//создаем копию объекта
+                newFieldRU.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f); //меняем цвет на обычный, без этой строчки у новых полей цвет как у выделенных
+            }
+
+            colliders = Physics2D.OverlapCircleAll(transform.position + new Vector3(-0.375f, 0.65f, 0.0375f), 0.01f); //повтор для всех сторон света
+            if (colliders.Length == 0)
+            {
+                GameObject newFieldLU = Instantiate(gameObject, transform.position + new Vector3(-0.65f, 0.375f, 0.0375f), transform.rotation);
+                newFieldLU.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+            }
+
+            colliders = Physics2D.OverlapCircleAll(transform.position + new Vector3(0.375f, 0f), 0.01f);
+            if (colliders.Length == 0)
+            {
+                GameObject newFieldRD = Instantiate(gameObject, transform.position + new Vector3(0.65f, -0.375f, -0.0375f), transform.rotation);
+                newFieldRD.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+            }
+
+            colliders = Physics2D.OverlapCircleAll(transform.position + new Vector3(-0.375f, 0f, 0.0375f), 0.01f);
+            if (colliders.Length == 0)
+            {
+                GameObject newFieldLD = Instantiate(gameObject, transform.position + new Vector3(-0.65f, -0.375f, -0.0375f), transform.rotation);
+                newFieldLD.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+            }
+
+            isBlocked = false; //меняем блок на который тыкали
+            plantStage = 1;
+            plant.sprite = plantStages[plantStage];
+        } 
+        else
+        {
+            cellMenu = GameObject.Find("NotEnoughMoney").GetComponent<FieldMenu>();
+            choosen = true;
+            cellMenu.Open(this);
+        }
     }
 }
