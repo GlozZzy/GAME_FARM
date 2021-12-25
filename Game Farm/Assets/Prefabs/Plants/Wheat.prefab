@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8558659960610370772}
-  - component: {fileID: 6772519487277400448}
+  - component: {fileID: 2537745642913439707}
   m_Layer: 0
   m_Name: Wheat
   m_TagString: Untagged
@@ -31,7 +31,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &6772519487277400448
+--- !u!114 &2537745642913439707
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40,30 +40,20 @@ MonoBehaviour:
   m_GameObject: {fileID: 5317821800761076900}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eeafe139d67136c448a2429a93cb0fd1, type: 3}
+  m_Script: {fileID: 11500000, guid: 40982bd1dcd9729458668ee875b34a7a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  price: 25
-  exp: 20
+  buy_price: 20
+  sell_price: 25
+  exp: 14
   plantStages:
-  - {fileID: 7475666647239199667, guid: ce00fedd09e7b3546bd9b591e89d72b6, type: 3}
+  - {fileID: 7891984880296130112, guid: ce00fedd09e7b3546bd9b591e89d72b6, type: 3}
   - {fileID: -1436636886032594981, guid: ce00fedd09e7b3546bd9b591e89d72b6, type: 3}
   - {fileID: -1689294470734380317, guid: ce00fedd09e7b3546bd9b591e89d72b6, type: 3}
   - {fileID: 99154118002872925, guid: ce00fedd09e7b3546bd9b591e89d72b6, type: 3}
   phases:
-  - 10
-  - 10
-  - 10
-  - 10
-  plantStages:
-  - {fileID: 7475666647239199667, guid: ce00fedd09e7b3546bd9b591e89d72b6, type: 3}
-  - {fileID: -1436636886032594981, guid: ce00fedd09e7b3546bd9b591e89d72b6, type: 3}
-  - {fileID: -1689294470734380317, guid: ce00fedd09e7b3546bd9b591e89d72b6, type: 3}
-  - {fileID: 99154118002872925, guid: ce00fedd09e7b3546bd9b591e89d72b6, type: 3}
-  phases:
-  - 10
-  - 10
-  - 10
-  - 10
-  price: 20
-  exp: 8
+  - 8
+  - 8
+  - 8
+  - 8
+  pname: Wheat

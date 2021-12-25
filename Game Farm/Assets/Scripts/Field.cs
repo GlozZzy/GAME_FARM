@@ -73,7 +73,7 @@ public class Field : MonoBehaviour
         plant.gameObject.SetActive(false);
         if (plantStage == product.plantStages.Length - 2)
         {
-            player.Transaction(product.price);
+            player.Transaction(product.sell_price);
             player.GetExp(product.exp);
             warehouse.AddProduct(product);            
         }
@@ -85,7 +85,7 @@ public class Field : MonoBehaviour
         plantnName = str;
         FieldInstructor(str);
         
-        if (player.Transaction(-10))
+        if (player.Transaction(product.buy_price))
         {
             isPlanted = true;
             plantStage = 0;
@@ -122,12 +122,12 @@ public class Field : MonoBehaviour
         if (t == "Carrot")
         {
             fieildObject = Instantiate(Fields[0], new Vector3(0f, 0f, 0f), Quaternion.identity);
-            product = fieildObject.GetComponent<Carrot>();
+            product = fieildObject.GetComponent<Product>();
         }
         else if (t == "Wheat")
         {
             fieildObject = Instantiate(Fields[1], new Vector3(0f, 0f, 0f), Quaternion.identity);
-            product = fieildObject.GetComponent<Wheat>();
+            product = fieildObject.GetComponent<Product>();
         }
         fieildObject.transform.parent = this.transform;
     }
