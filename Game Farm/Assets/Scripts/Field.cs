@@ -9,14 +9,18 @@ public class Field : MonoBehaviour
     SpriteRenderer plant;
     Player player;
     FieldMenu cellMenu;
-
+    public GameObject[] Fields;
     public Sprite[] plantStages;
+    public float[] phases;
+    public int price = 10;
+    //public Sprite[] plantStages;
     public bool isBlocked;
-
+    string plantnName;
     int plantStage = 0;
     float timeBtwStages = 5f;
     float timer;
     public bool choosen;
+    GameObject fieildObject;
 
     // Start is called before the first frame update
     void Start()
@@ -38,8 +42,8 @@ public class Field : MonoBehaviour
             timer -= Time.deltaTime;
             if (timer < 0 && plantStage < plantStages.Length - 1)
             {
-                timer = timeBtwStages;
                 plantStage++;
+                timer = phases[plantStage];
                 UpdatePlant();
             }
         }
@@ -52,7 +56,7 @@ public class Field : MonoBehaviour
 
         if (isPlanted)
         {
-            if (plantStage == plantStages.Length - 1) Harvest();
+            if (plantStage >= plantStages.Length - 2) Harvest();
             return;
         }
 
@@ -64,18 +68,25 @@ public class Field : MonoBehaviour
     {
         isPlanted = false;
         plant.gameObject.SetActive(false);
-        player.Transaction(20);
-        player.GetExp(10);
+        if (plantStage == plantStages.Length - 2)
+        {
+            player.Transaction(20);
+            player.GetExp(price);
+        }
+        Destroy(fieildObject);
     }
 
-    public void Plant()
+    public void Plant(string str)
     {
+        plantnName = str;
+        FieldInstructor(str);
+        
         if (player.Transaction(-10))
         {
             isPlanted = true;
             plantStage = 0;
             UpdatePlant();
-            timer = timeBtwStages;
+            timer = phases[plantStage];
             plant.gameObject.SetActive(true);
         }
     }
@@ -101,5 +112,30 @@ public class Field : MonoBehaviour
     public void Enlarge()
     {
         print("EnlargeTheTerritory");
+    }
+    private void FieldInstructor(string t)
+    {
+        if (t == "Carrot")
+        {
+            fieildObject = Instantiate(Fields[0], new Vector3(0f, 0f, 0f), Quaternion.identity);
+            plantStages = fieildObject.GetComponent<Carrot>().plantStages;
+            price = fieildObject.GetComponent<Carrot>().price;
+            phases = fieildObject.GetComponent<Carrot>().phases;
+        }
+        else if (t == "Wheat")
+        {
+            fieildObject = Instantiate(Fields[1], new Vector3(0f, 0f, 0f), Quaternion.identity);
+            plantStages = fieildObject.GetComponent<Wheat>().plantStages;
+            price = fieildObject.GetComponent<Wheat>().price;
+            phases = fieildObject.GetComponent<Wheat>().phases;
+        }
+        fieildObject.transform.parent = this.transform;
+    }
+    private void ReleaseField()
+    {
+        plantStages = null;
+        price = 0;
+        phases = null;
+
     }
 }
