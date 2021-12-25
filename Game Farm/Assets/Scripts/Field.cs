@@ -19,7 +19,7 @@ public class Field : MonoBehaviour
     public bool isBlocked;
     string plantnName;
     int plantStage = 0;
-    float timeBtwStages = 5f;
+    //float timeBtwStages = 5f;
     float timer;
     public bool choosen;
 
@@ -85,7 +85,7 @@ public class Field : MonoBehaviour
         plantnName = str;
         FieldInstructor(str);
         
-        if (player.Transaction(product.buy_price))
+        if (player.Transaction(-product.buy_price))
         {
             isPlanted = true;
             plantStage = 0;
