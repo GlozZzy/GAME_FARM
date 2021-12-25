@@ -9,10 +9,12 @@ public class Field : MonoBehaviour
     SpriteRenderer plant;
     Player player;
     FieldMenu cellMenu;
+    // Product fields
     public GameObject[] Fields;
-    public Sprite[] plantStages;
-    public float[] phases;
-    public int price = 10;
+    GameObject fieildObject;
+    Product product;
+    WareHouse warehouse;
+
     //public Sprite[] plantStages;
     public bool isBlocked;
     string plantnName;
@@ -20,7 +22,7 @@ public class Field : MonoBehaviour
     float timeBtwStages = 5f;
     float timer;
     public bool choosen;
-    GameObject fieildObject;
+
 
     // Start is called before the first frame update
     void Start()
@@ -31,6 +33,7 @@ public class Field : MonoBehaviour
             plant = transform.GetChild(0).GetComponent<SpriteRenderer>();
         }
         player = GameObject.Find("PlayerInfo").GetComponent<Player>();
+        warehouse = GameObject.Find("WareHouse").GetComponent<WareHouse>();
     }
 
     // Update is called once per frame
@@ -40,10 +43,10 @@ public class Field : MonoBehaviour
         if (isPlanted && !isBlocked) 
         { 
             timer -= Time.deltaTime;
-            if (timer < 0 && plantStage < plantStages.Length - 1)
+            if (timer < 0 && plantStage < product.plantStages.Length - 1)
             {
                 plantStage++;
-                timer = phases[plantStage];
+                timer = product.phases[plantStage];
                 UpdatePlant();
             }
         }
@@ -56,7 +59,7 @@ public class Field : MonoBehaviour
 
         if (isPlanted)
         {
-            if (plantStage >= plantStages.Length - 2) Harvest();
+            if (plantStage >= product.plantStages.Length - 2) Harvest();
             return;
         }
 
@@ -68,10 +71,11 @@ public class Field : MonoBehaviour
     {
         isPlanted = false;
         plant.gameObject.SetActive(false);
-        if (plantStage == plantStages.Length - 2)
+        if (plantStage == product.plantStages.Length - 2)
         {
-            player.Transaction(20);
-            player.GetExp(price);
+            player.Transaction(product.price);
+            player.GetExp(product.exp);
+            warehouse.AddProduct(product);            
         }
         Destroy(fieildObject);
     }
@@ -86,14 +90,14 @@ public class Field : MonoBehaviour
             isPlanted = true;
             plantStage = 0;
             UpdatePlant();
-            timer = phases[plantStage];
+            timer = product.phases[plantStage];
             plant.gameObject.SetActive(true);
         }
     }
 
     private void UpdatePlant()
     {
-        plant.sprite = plantStages[plantStage];
+        plant.sprite = product.plantStages[plantStage];
     }
 
     public void OpenMenu()
@@ -118,24 +122,17 @@ public class Field : MonoBehaviour
         if (t == "Carrot")
         {
             fieildObject = Instantiate(Fields[0], new Vector3(0f, 0f, 0f), Quaternion.identity);
-            plantStages = fieildObject.GetComponent<Carrot>().plantStages;
-            price = fieildObject.GetComponent<Carrot>().price;
-            phases = fieildObject.GetComponent<Carrot>().phases;
+            product = fieildObject.GetComponent<Carrot>();
         }
         else if (t == "Wheat")
         {
             fieildObject = Instantiate(Fields[1], new Vector3(0f, 0f, 0f), Quaternion.identity);
-            plantStages = fieildObject.GetComponent<Wheat>().plantStages;
-            price = fieildObject.GetComponent<Wheat>().price;
-            phases = fieildObject.GetComponent<Wheat>().phases;
+            product = fieildObject.GetComponent<Wheat>();
         }
         fieildObject.transform.parent = this.transform;
     }
     private void ReleaseField()
     {
-        plantStages = null;
-        price = 0;
-        phases = null;
-
+        product = null;
     }
 }

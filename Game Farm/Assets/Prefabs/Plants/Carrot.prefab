@@ -43,6 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2b4aa8aee8138b6488d7b419530529d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  price: 15
+  exp: 8
   plantStages:
   - {fileID: 7475666647239199667, guid: ce00fedd09e7b3546bd9b591e89d72b6, type: 3}
   - {fileID: -1436636886032594981, guid: ce00fedd09e7b3546bd9b591e89d72b6, type: 3}
@@ -53,3 +55,15 @@ MonoBehaviour:
   - 5
   - 5
   - 5
+  plantStages:
+  - {fileID: 7475666647239199667, guid: ce00fedd09e7b3546bd9b591e89d72b6, type: 3}
+  - {fileID: -1436636886032594981, guid: ce00fedd09e7b3546bd9b591e89d72b6, type: 3}
+  - {fileID: -4133421730181666203, guid: ce00fedd09e7b3546bd9b591e89d72b6, type: 3}
+  - {fileID: 99154118002872925, guid: ce00fedd09e7b3546bd9b591e89d72b6, type: 3}
+  phases:
+  - 5
+  - 5
+  - 5
+  - 5
+  price: 20
+  exp: 8

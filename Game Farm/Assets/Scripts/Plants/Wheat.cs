@@ -2,20 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Wheat : MonoBehaviour
+public class Wheat : Product
 {
-    public Sprite[] plantStages;
-    public float[] phases;
-    public int price = 10;
+    public new Sprite[] plantStages;
+    public new float[] phases;
+    public new int price;
+    public new int exp;
     // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
