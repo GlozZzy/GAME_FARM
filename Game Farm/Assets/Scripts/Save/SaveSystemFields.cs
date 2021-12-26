@@ -47,10 +47,7 @@ public class SaveSystemFields : MonoBehaviour
             }
             while (j != data.Count)
             {
-                print(j);
-                
                 var pl = Instantiate(Resources.Load("Plot", typeof(GameObject)), new Vector3(data[j].px, data[j].py, data[j].pz), Quaternion.identity) as GameObject;
-                print(data[j]);
                 pl.GetComponent<Field>().LoadField(data[j]);
                 pl.transform.parent = Farm.transform;
                 j++;
@@ -63,8 +60,8 @@ public class SaveSystemFields : MonoBehaviour
         if (File.Exists(Application.persistentDataPath + "/fields.anime"))
         {
             File.Delete(Application.persistentDataPath + "/fields.anime");
-            Debug.Log("Data reset complete!");
+            Debug.Log("Fields data reset complete!");
         }
-        else Debug.Log("No save data to delete.");
+        else Debug.Log("No Felds save data to delete.");
     }
 }

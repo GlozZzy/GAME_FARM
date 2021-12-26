@@ -9,8 +9,6 @@ public class MenuManager : MonoBehaviour
     public static bool GameIsPaused = true;
     public GameObject PlayerInfo;
 
-    private bool firstlaunch = true;
-
 
     void Start()
     {

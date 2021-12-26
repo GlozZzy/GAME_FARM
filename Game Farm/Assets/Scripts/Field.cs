@@ -215,12 +215,10 @@ public class Field : MonoBehaviour
         timer = data.timer;
         isPlanted = data.isPlanted;
         isBlocked = data.isBlocked;
-        print(plant);
         if (!isBlocked)
             plant.sprite = plantStages[1];
         else 
             plant.sprite = plantStages[0];
-        print(plant.sprite);
         if (data.nameProduct != null)
         {
             FieldInstructor(data.nameProduct);

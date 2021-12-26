@@ -4,7 +4,7 @@ using UnityEngine;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
-public class SaveSystem
+public class SaveSystemPlayer
 {
     public static void SavePlayer(Player player)
     {

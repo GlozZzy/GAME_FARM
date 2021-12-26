@@ -52,12 +52,12 @@ public class Player : MonoBehaviour
 
     public void SavePlayer()
     {
-        SaveSystem.SavePlayer(this);
+        SaveSystemPlayer.SavePlayer(this);
     }
 
     public void LoadPlayer()
     {
-        PlayerData data = SaveSystem.LoadPlayer();
+        PlayerData data = SaveSystemPlayer.LoadPlayer();
 
         if (data != null)
         {
@@ -69,7 +69,7 @@ public class Player : MonoBehaviour
 
     public void ResetPlayer()
     {
-        SaveSystem.ResetData();
+        SaveSystemPlayer.ResetData();
     }
 
 }
