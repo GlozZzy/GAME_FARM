@@ -21,8 +21,8 @@ public class MenuManager : MonoBehaviour
     void Update()
     {
 
-        if (firstlaunch) GameObject.Find("ContinueBtn").GetComponent<Button>().interactable = false;
-        else GameObject.Find("ContinueBtn").GetComponent<Button>().interactable = true;
+        //if (firstlaunch) GameObject.Find("ContinueBtn").GetComponent<Button>().interactable = false;
+        //else GameObject.Find("ContinueBtn").GetComponent<Button>().interactable = true;
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -47,9 +47,7 @@ public class MenuManager : MonoBehaviour
 
     public void NewGame()
     {
-        print("NewGame");
-        firstlaunch = false;
-        ResumeGame();
+        SceneManager.LoadScene(0);
     }
 
     public void SaveGame()

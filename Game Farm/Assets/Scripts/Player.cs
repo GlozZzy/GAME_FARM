@@ -7,8 +7,8 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
     public int money;
-    int exp = 0;
-    int lvl = 100;
+    public int exp = 0;
+    public int lvl = 100;
     public Text MoneyTxt;
     public Text ExpTxt;
 
@@ -49,5 +49,27 @@ public class Player : MonoBehaviour
         lvl = (int)(lvl * 1.2);
         print("LevelUp");
     }
-    
+
+    public void SavePlayer()
+    {
+        SaveSystem.SavePlayer(this);
+    }
+
+    public void LoadPlayer()
+    {
+        PlayerData data = SaveSystem.LoadPlayer();
+
+        if (data != null)
+        {
+            money = data.money;
+            exp = data.exp;
+            lvl = data.lvl;
+        }
+    }
+
+    public void ResetPlayer()
+    {
+        SaveSystem.ResetData();
+    }
+
 }

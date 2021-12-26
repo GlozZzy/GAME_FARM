@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: -4132791113574337993}
   m_Layer: 0
   m_Name: Plot
-  m_TagString: Untagged
+  m_TagString: Plot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -136,7 +136,6 @@ MonoBehaviour:
   - {fileID: -4676226925730873229, guid: ce00fedd09e7b3546bd9b591e89d72b6, type: 3}
   - {fileID: -5721216163508544270, guid: ce00fedd09e7b3546bd9b591e89d72b6, type: 3}
   isBlocked: 1
-  choosen: 0
 --- !u!50 &1818018465968439376
 Rigidbody2D:
   serializedVersion: 4

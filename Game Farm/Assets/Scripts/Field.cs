@@ -5,7 +5,8 @@ using UnityEngine;
 
 public class Field : MonoBehaviour
 {
-    bool isPlanted = false;
+    [System.NonSerialized]
+    public bool isPlanted = false;
     SpriteRenderer plant;
     Player player;
     FieldMenu cellMenu;
@@ -13,14 +14,18 @@ public class Field : MonoBehaviour
     // Product fields
     public GameObject[] Fields;
     GameObject fieildObject;
-    Product product;
+    [System.NonSerialized]
+    public Product product;
     WareHouse warehouse;
 
     public Sprite[] plantStages;
     public bool isBlocked;
 
-    int plantStage = 0;
-    float timer;
+    [System.NonSerialized]
+    public int plantStage = 0;
+    [System.NonSerialized]
+    public float timer;
+    [System.NonSerialized]
     public bool choosen;
 
     // Start is called before the first frame update
@@ -191,5 +196,40 @@ public class Field : MonoBehaviour
     private void ReleaseField()
     {
         product = null;
+    }
+
+    public void SaveField()
+    {
+        SaveSystemFields.SaveField(this);
+    }
+
+    public void LoadFields()
+    {
+        SaveSystemFields.LoadField();
+    }
+
+    public void LoadField(FieldData data)
+    {
+        Start();
+        plantStage = data.stage;
+        timer = data.timer;
+        isPlanted = data.isPlanted;
+        isBlocked = data.isBlocked;
+        print(plant);
+        if (!isBlocked)
+            plant.sprite = plantStages[1];
+        else 
+            plant.sprite = plantStages[0];
+        print(plant.sprite);
+        if (data.nameProduct != null)
+        {
+            FieldInstructor(data.nameProduct);
+            plant.sprite = product.plantStages[plantStage];
+        }
+    }
+
+    public void ResetField()
+    {
+        SaveSystemFields.ResetData();
     }
 }

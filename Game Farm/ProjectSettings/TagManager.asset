@@ -6,6 +6,10 @@ TagManager:
   tags:
   - Money
   - Exp
+  - WarehouseWheat
+  - WarehouseCarrot
+  - Farm
+  - Plot
   layers:
   - Default
   - TransparentFX
