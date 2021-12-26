@@ -78,7 +78,7 @@ public class Field : MonoBehaviour
     private void Harvest()
     {
         isPlanted = false;
-        plant.gameObject.SetActive(false);
+        plant.sprite = plantStages[1];
         if (plantStage == product.plantStages.Length - 2)
         {
             player.Transaction(product.sell_price);
@@ -150,6 +150,7 @@ public class Field : MonoBehaviour
             {
                 GameObject newFieldRU = Instantiate(gameObject, transform.position + new Vector3(0.65f, 0.375f, 0.0375f), transform.rotation);//создаем копию объекта
                 newFieldRU.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f); //меняем цвет на обычный, без этой строчки у новых полей цвет как у выделенных
+                newFieldRU.transform.parent = this.transform.parent;
             }
 
             colliders = Physics2D.OverlapCircleAll(transform.position + new Vector3(-0.375f, 0.65f, 0.0375f), 0.01f); //повтор для всех сторон света
@@ -157,6 +158,7 @@ public class Field : MonoBehaviour
             {
                 GameObject newFieldLU = Instantiate(gameObject, transform.position + new Vector3(-0.65f, 0.375f, 0.0375f), transform.rotation);
                 newFieldLU.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+                newFieldLU.transform.parent = this.transform.parent;
             }
 
             colliders = Physics2D.OverlapCircleAll(transform.position + new Vector3(0.375f, 0f), 0.01f);
@@ -164,6 +166,7 @@ public class Field : MonoBehaviour
             {
                 GameObject newFieldRD = Instantiate(gameObject, transform.position + new Vector3(0.65f, -0.375f, -0.0375f), transform.rotation);
                 newFieldRD.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+                newFieldRD.transform.parent = this.transform.parent;
             }
 
             colliders = Physics2D.OverlapCircleAll(transform.position + new Vector3(-0.375f, 0f, 0.0375f), 0.01f);
@@ -171,6 +174,7 @@ public class Field : MonoBehaviour
             {
                 GameObject newFieldLD = Instantiate(gameObject, transform.position + new Vector3(-0.65f, -0.375f, -0.0375f), transform.rotation);
                 newFieldLD.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+                newFieldLD.transform.parent = this.transform.parent;
             }
 
             isBlocked = false; //меняем блок на который тыкали
