@@ -27,10 +27,6 @@ public class Player : MonoBehaviour
     public void ResetPlayer()
     {
         SaveSystem.ResetData();
-
-        money = 100;
-        exp = 0;
-        lvl = 100;
     }
 
     // Start is called before the first frame update

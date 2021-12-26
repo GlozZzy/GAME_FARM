@@ -46,7 +46,7 @@ public class MenuManager : MonoBehaviour
 
     public void NewGame()
     {
-        print("NewGame");
+        SceneManager.LoadScene(0);
         firstlaunch = false;
         ResumeGame();
     }

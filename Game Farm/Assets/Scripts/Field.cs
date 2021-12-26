@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
 public class Field : MonoBehaviour
 {
     public bool isPlanted = false;
@@ -34,9 +33,9 @@ public class Field : MonoBehaviour
         isPlanted = data.isPlanted;
         if (data.isActive) plant.gameObject.SetActive(true);
     }
-    public void ResetPlayer()
+    public void ResetField()
     {
-        SaveSystem.ResetData();
+        SaveSystemFields.ResetData();
     }
 
     // Start is called before the first frame update

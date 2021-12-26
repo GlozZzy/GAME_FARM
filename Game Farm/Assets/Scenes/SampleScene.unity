@@ -5514,7 +5514,6 @@ GameObject:
   - component: {fileID: 993707409}
   - component: {fileID: 993707412}
   - component: {fileID: 993707411}
-  - component: {fileID: 993707410}
   - component: {fileID: 993707413}
   m_Layer: 0
   m_Name: Farm
@@ -5594,18 +5593,6 @@ Transform:
   m_Father: {fileID: 1868170178}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &993707410
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 993707408}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bb75425843528804594a978f25f744eb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!483693784 &993707411
 TilemapRenderer:
   m_ObjectHideFlags: 0
@@ -8589,6 +8576,18 @@ MonoBehaviour:
       - m_Target: {fileID: 853675278}
         m_TargetAssemblyTypeName: Player, Assembly-CSharp
         m_MethodName: ResetPlayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 905210967}
+        m_TargetAssemblyTypeName: Field, Assembly-CSharp
+        m_MethodName: ResetField
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
