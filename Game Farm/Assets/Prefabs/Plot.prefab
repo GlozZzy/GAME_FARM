@@ -130,15 +130,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 67ec66c2b67e0d441862d92795c0e9a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Fields:
+  - {fileID: 4259170786468505874, guid: d15fac55bcae10141a8d61da262edc07, type: 3}
+  - {fileID: 5317821800761076900, guid: c36858555452bad439a7ac8e4a115831, type: 3}
   plantStages:
   - {fileID: -4676226925730873229, guid: ce00fedd09e7b3546bd9b591e89d72b6, type: 3}
   - {fileID: -5721216163508544270, guid: ce00fedd09e7b3546bd9b591e89d72b6, type: 3}
-  - {fileID: 7891984880296130112, guid: ce00fedd09e7b3546bd9b591e89d72b6, type: 3}
-  - {fileID: -1436636886032594981, guid: ce00fedd09e7b3546bd9b591e89d72b6, type: 3}
-  - {fileID: -4133421730181666203, guid: ce00fedd09e7b3546bd9b591e89d72b6, type: 3}
   isBlocked: 1
   choosen: 0
-  available: 0
 --- !u!50 &1818018465968439376
 Rigidbody2D:
   serializedVersion: 4

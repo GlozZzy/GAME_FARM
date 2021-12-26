@@ -26,9 +26,9 @@ public class FieldMenu : MonoBehaviour
         field = f;
     }
 
-    public void Plant()
+    public void Plant(string str)
     {
-        field.Plant();
+        field.Plant(str);
         Close();
     }
 
