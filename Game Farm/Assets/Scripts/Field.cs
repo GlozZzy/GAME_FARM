@@ -5,34 +5,34 @@ using UnityEngine;
 
 public class Field : MonoBehaviour
 {
-    bool isPlanted = false;
+    public bool isPlanted = false;
     public SpriteRenderer plant;
     Player player;
     FieldMenu cellMenu;
-
-    //--------------------------------
-    /*public GameObject farm;
-    public List<SpriteRenderer> listOfFields = new List<SpriteRenderer>();*/
 
     public Sprite[] plantStages;
     public bool isBlocked;
 
     public int plantStage = 0;
-    float timeBtwStages = 1f;       //--------------------------------------------
-    float timer;
+    float timeBtwStages = 10f;       //--------------------------------------------
+    public float timer;
     public bool choosen;
 
     public void SaveField()
     {
         SaveSystemFields.SaveField(this);
     }
-    public void LoadField()
+    public void LoadFields()
     {
-        FieldData data = SaveSystemFields.LoadField();
-
+        SaveSystemFields.LoadField();
+    }
+    public void LoadField(FieldData data)
+    {
         plantStage = data.stage;
-        plant = data.plant;
         plant.sprite = plantStages[plantStage];
+        timer = data.timer;
+        isPlanted = data.isPlanted;
+        if (data.isActive) plant.gameObject.SetActive(true);
     }
     public void ResetPlayer()
     {
@@ -42,11 +42,6 @@ public class Field : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        //сохранение всех клеток             //--------------------------------
-        /*for (int i = 0; i < farm.transform.childCount; i++)
-        {
-            listOfFields.Add(farm.transform.GetChild(i).GetComponent<SpriteRenderer>());
-        }*/
 
         choosen = false;
         if (!isBlocked)
@@ -134,5 +129,10 @@ public class Field : MonoBehaviour
     {
         print("pp: " + plantStages.Length);
        // p.sprite = plantStages[state];
+    }
+
+    public bool isActive()
+    {
+        return plant.gameObject.activeSelf;
     }
 }

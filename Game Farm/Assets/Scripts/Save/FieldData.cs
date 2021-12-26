@@ -6,11 +6,16 @@ using UnityEngine;
 public class FieldData
 {
     public int stage;
-    public SpriteRenderer plant;
+    public float timer;
+    public bool isActive;
+    public bool isPlanted;
 
     public FieldData(Field field)
     {
         stage = field.plantStage;
-        plant = field.plant;
+        timer = field.timer;
+        isActive = field.isActive();
+        isPlanted = field.isPlanted;
+
     }
 }

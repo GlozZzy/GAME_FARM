@@ -4,21 +4,28 @@ using UnityEngine;
 using System.IO;
 using System.Runtime.Serialization.Formatters.Binary;
 
-public class SaveSystemFields
+public class SaveSystemFields : MonoBehaviour
 {
     public static void SaveField(Field field)
     {
+        List<FieldData> listOfFields = new List<FieldData>();
+        var Farm = GameObject.FindGameObjectsWithTag("Farm");
+
+        for (int i = 0; i < Farm[0].transform.childCount; i++)
+            if (Farm[0].transform.GetChild(i).name == "Plot") {    
+                //добавл€ем в список все Plot
+                listOfFields.Add(new FieldData(Farm[0].transform.GetChild(i).GetComponent<Field>()));
+            }
+
         BinaryFormatter formatter = new BinaryFormatter();
         string pathFieldInfo = Application.persistentDataPath + "/fields.anime"; //путь, куда файл сохран€етс€
         FileStream stream = new FileStream(pathFieldInfo, FileMode.Create);
 
-        FieldData data = new FieldData(field);
-
-        formatter.Serialize(stream, data);
+        formatter.Serialize(stream, listOfFields);
         stream.Close();
     }
 
-    public static FieldData LoadField()
+    public static void LoadField()
     {
         string pathFieldInfo = Application.persistentDataPath + "/fields.anime";
         if (File.Exists(pathFieldInfo))
@@ -26,15 +33,16 @@ public class SaveSystemFields
             BinaryFormatter formatter = new BinaryFormatter();
             FileStream stream = new FileStream(pathFieldInfo, FileMode.Open);
 
-            FieldData data = formatter.Deserialize(stream) as FieldData;
+            List<FieldData> data = formatter.Deserialize(stream) as List<FieldData>;
             stream.Close();
 
-            return data;
-        }
-        else
-        {
-            Debug.LogError("Save file is not found in " + pathFieldInfo);
-            return null;
+            var Farm = GameObject.FindGameObjectsWithTag("Farm");
+            for (int i = 0, j = 0; i < Farm[0].transform.childCount; i++)
+                if (Farm[0].transform.GetChild(i).name == "Plot" )
+                {              
+                    Farm[0].transform.GetChild(i).GetComponent<Field>().LoadField(data[j]); 
+                    j++;
+                }
         }
     }
     public static void ResetData()
