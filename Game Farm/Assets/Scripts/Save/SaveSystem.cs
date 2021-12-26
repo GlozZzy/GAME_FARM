@@ -33,7 +33,7 @@ public class SaveSystem
         }
         else
         {
-            Debug.LogError("Save file is not found in " + pathPlayerInfo);
+            Debug.Log("Save file is not found in " + pathPlayerInfo);
             return null;
         }
     }

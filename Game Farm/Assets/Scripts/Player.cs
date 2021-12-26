@@ -20,9 +20,12 @@ public class Player : MonoBehaviour
     {
         PlayerData data = SaveSystem.LoadPlayer();
 
-        money = data.money;
-        exp = data.exp;
-        lvl = data.lvl;
+        if (data != null)
+        {
+            money = data.money;
+            exp = data.exp;
+            lvl = data.lvl;
+        }
     }
     public void ResetPlayer()
     {

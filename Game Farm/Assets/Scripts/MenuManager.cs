@@ -9,8 +9,6 @@ public class MenuManager : MonoBehaviour
     public static bool GameIsPaused = true;
     public GameObject PlayerInfo;
 
-    private bool firstlaunch = true;
-
     void Start()
     {
        
@@ -47,8 +45,6 @@ public class MenuManager : MonoBehaviour
     public void NewGame()
     {
         SceneManager.LoadScene(0);
-        firstlaunch = false;
-        ResumeGame();
     }
 
     public void SaveGame()  
