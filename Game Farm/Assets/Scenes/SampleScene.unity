@@ -945,6 +945,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 905210967}
+        m_TargetAssemblyTypeName: Field, Assembly-CSharp
+        m_MethodName: LoadFields
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &166504459
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4878,6 +4890,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1818018467124183057, guid: 6ffdefed5e76c6544aba266eee680b52, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ffdefed5e76c6544aba266eee680b52, type: 3}
 --- !u!1 &873244316
@@ -5162,6 +5178,17 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ffdefed5e76c6544aba266eee680b52, type: 3}
+--- !u!114 &905210967 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1818018465968439340, guid: 6ffdefed5e76c6544aba266eee680b52, type: 3}
+  m_PrefabInstance: {fileID: 1534731910}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67ec66c2b67e0d441862d92795c0e9a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &919391833 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 562795083662686412, guid: 3aeb179b023cce347945de7463e87117, type: 3}
@@ -5488,9 +5515,10 @@ GameObject:
   - component: {fileID: 993707412}
   - component: {fileID: 993707411}
   - component: {fileID: 993707410}
+  - component: {fileID: 993707413}
   m_Layer: 0
   m_Name: Farm
-  m_TagString: Untagged
+  m_TagString: Farm
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -5578,8 +5606,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bb75425843528804594a978f25f744eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  farm: {fileID: 993707408}
-  listOfFields: []
 --- !u!483693784 &993707411
 TilemapRenderer:
   m_ObjectHideFlags: 0
@@ -5666,6 +5692,18 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!114 &993707413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 993707408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68275a0ab5f70734fa1421fa49e55439, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &996554175
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7156,6 +7194,18 @@ MonoBehaviour:
       - m_Target: {fileID: 853675278}
         m_TargetAssemblyTypeName: Player, Assembly-CSharp
         m_MethodName: SavePlayer
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 905210967}
+        m_TargetAssemblyTypeName: Field, Assembly-CSharp
+        m_MethodName: SaveField
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
