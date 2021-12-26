@@ -4,20 +4,15 @@ using UnityEngine;
 
 public class Product : MonoBehaviour
 {
-    public string Pname;
-    public int price;
-    public string description;
+
+    public int buy_price;
+    public int sell_price;
+    public int exp;
+
+    //Plant;s Fieilds
+    public Sprite[] plantStages;
+    public float[] phases;
+    public string pname;
 
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

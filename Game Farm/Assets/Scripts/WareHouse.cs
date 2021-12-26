@@ -60,7 +60,7 @@ public class WareHouse : MonoBehaviour
         {
             products.Add(product);
 
-            string a = "Warehouse" + product.name;
+            string a = "Warehouse" + product.pname;
             GameObject obj = GameObject.FindGameObjectWithTag(a);
             var textcount = obj.transform.Find("count");
             int count = int.Parse(textcount.gameObject.GetComponent<Text>().text.Split(' ')[1]);
@@ -68,6 +68,7 @@ public class WareHouse : MonoBehaviour
 
             curspace++;
             return true;
+
         }
         else return false;
     }
@@ -76,13 +77,13 @@ public class WareHouse : MonoBehaviour
     {
         int ind = -1;
         for (int i = 0; i < products.Count; i++)
-            if (products[i].name == product.text)
+            if (products[i].pname == product.text)
                 ind = i;
         if (ind >= 0) 
         {
-            player.Transaction(products[ind].price);
+            player.Transaction(products[ind].sell_price);
 
-            string a = "Warehouse" + products[ind].name;
+            string a = "Warehouse" + products[ind].pname;
             GameObject obj = GameObject.FindGameObjectWithTag(a);
             var textcount = obj.transform.Find("count");
             int count = int.Parse(textcount.gameObject.GetComponent<Text>().text.Split(' ')[1]);
