@@ -3815,6 +3815,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Plot
       objectReference: {fileID: 0}
+    - target: {fileID: 1818018465968439340, guid: 6ffdefed5e76c6544aba266eee680b52, type: 3}
+      propertyPath: plantStages.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1818018465968439340, guid: 6ffdefed5e76c6544aba266eee680b52, type: 3}
+      propertyPath: plantStages.Array.data[3]
+      value: 
+      objectReference: {fileID: 3757370237184897918, guid: ce00fedd09e7b3546bd9b591e89d72b6, type: 3}
     - target: {fileID: 1818018465968439343, guid: 6ffdefed5e76c6544aba266eee680b52, type: 3}
       propertyPath: m_RootOrder
       value: 26
@@ -4818,6 +4826,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: Plot
       objectReference: {fileID: 0}
+    - target: {fileID: 1818018465968439340, guid: 6ffdefed5e76c6544aba266eee680b52, type: 3}
+      propertyPath: choosen
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1818018465968439340, guid: 6ffdefed5e76c6544aba266eee680b52, type: 3}
+      propertyPath: isBlocked
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1818018465968439343, guid: 6ffdefed5e76c6544aba266eee680b52, type: 3}
       propertyPath: m_RootOrder
       value: 20
@@ -5471,6 +5487,7 @@ GameObject:
   - component: {fileID: 993707409}
   - component: {fileID: 993707412}
   - component: {fileID: 993707411}
+  - component: {fileID: 993707410}
   m_Layer: 0
   m_Name: Farm
   m_TagString: Untagged
@@ -5549,6 +5566,20 @@ Transform:
   m_Father: {fileID: 1868170178}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &993707410
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 993707408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bb75425843528804594a978f25f744eb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  farm: {fileID: 993707408}
+  listOfFields: []
 --- !u!483693784 &993707411
 TilemapRenderer:
   m_ObjectHideFlags: 0
@@ -7939,6 +7970,10 @@ PrefabInstance:
     - target: {fileID: 1818018465968439339, guid: 6ffdefed5e76c6544aba266eee680b52, type: 3}
       propertyPath: m_Name
       value: Plot
+      objectReference: {fileID: 0}
+    - target: {fileID: 1818018465968439340, guid: 6ffdefed5e76c6544aba266eee680b52, type: 3}
+      propertyPath: plantStage
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1818018465968439343, guid: 6ffdefed5e76c6544aba266eee680b52, type: 3}
       propertyPath: m_RootOrder

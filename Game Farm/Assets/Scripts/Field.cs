@@ -6,21 +6,48 @@ using UnityEngine;
 public class Field : MonoBehaviour
 {
     bool isPlanted = false;
-    SpriteRenderer plant;
+    public SpriteRenderer plant;
     Player player;
     FieldMenu cellMenu;
+
+    //--------------------------------
+    /*public GameObject farm;
+    public List<SpriteRenderer> listOfFields = new List<SpriteRenderer>();*/
 
     public Sprite[] plantStages;
     public bool isBlocked;
 
-    int plantStage = 0;
-    float timeBtwStages = 5f;
+    public int plantStage = 0;
+    float timeBtwStages = 1f;       //--------------------------------------------
     float timer;
     public bool choosen;
+
+    public void SaveField()
+    {
+        SaveSystemFields.SaveField(this);
+    }
+    public void LoadField()
+    {
+        FieldData data = SaveSystemFields.LoadField();
+
+        plantStage = data.stage;
+        plant = data.plant;
+        plant.sprite = plantStages[plantStage];
+    }
+    public void ResetPlayer()
+    {
+        SaveSystem.ResetData();
+    }
 
     // Start is called before the first frame update
     void Start()
     {
+        //сохранение всех клеток             //--------------------------------
+        /*for (int i = 0; i < farm.transform.childCount; i++)
+        {
+            listOfFields.Add(farm.transform.GetChild(i).GetComponent<SpriteRenderer>());
+        }*/
+
         choosen = false;
         if (!isBlocked)
         {
@@ -101,5 +128,11 @@ public class Field : MonoBehaviour
     public void Enlarge()
     {
         print("EnlargeTheTerritory");
+    }
+
+    public void ChangeState(int state, SpriteRenderer p)
+    {
+        print("pp: " + plantStages.Length);
+       // p.sprite = plantStages[state];
     }
 }

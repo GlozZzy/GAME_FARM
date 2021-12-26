@@ -11,17 +11,16 @@ public class MenuManager : MonoBehaviour
 
     private bool firstlaunch = true;
 
-
     void Start()
     {
-
+       
     }
 
     // Update is called once per frame
     void Update()
     {
 
-        //if (firstlaunch) GameObject.Find("ContinueBtn").GetComponent<Button>().interactable = false;
+        //if (firstlaunch) GameObject.Find("ContinueBtn").GetComponent<Button>().interactable = false;      //-----------------
         //else GameObject.Find("ContinueBtn").GetComponent<Button>().interactable = true;
 
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -52,9 +51,9 @@ public class MenuManager : MonoBehaviour
         ResumeGame();
     }
 
-    public void SaveGame()
+    public void SaveGame()  
     {
-        print("SaveGame");
+        print("SaveGame on: " + Application.persistentDataPath);
     }
 
     public void Settings()
@@ -64,7 +63,7 @@ public class MenuManager : MonoBehaviour
 
     public void QuitGame()
     {
-        SaveGame();
+        SaveGame();     
         Application.Quit();
     }
 }

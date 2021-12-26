@@ -9,8 +9,8 @@ public class SaveSystem
     public static void SavePlayer(Player player)
     {
         BinaryFormatter formatter = new BinaryFormatter();
-        string path = Application.persistentDataPath + "/player.anime";
-        FileStream stream = new FileStream(path, FileMode.Create);
+        string pathPlayerInfo = Application.persistentDataPath + "/player.anime"; //путь, куда файл сохраняется
+        FileStream stream = new FileStream(pathPlayerInfo, FileMode.Create);
 
         PlayerData data = new PlayerData(player);
 
@@ -20,11 +20,11 @@ public class SaveSystem
 
     public static PlayerData LoadPlayer()
     {
-        string path = Application.persistentDataPath + "/player.anime";
-        if (File.Exists(path))
+        string pathPlayerInfo = Application.persistentDataPath + "/player.anime";
+        if (File.Exists(pathPlayerInfo))
         {
             BinaryFormatter formatter = new BinaryFormatter();
-            FileStream stream = new FileStream(path, FileMode.Open);
+            FileStream stream = new FileStream(pathPlayerInfo, FileMode.Open);
 
             PlayerData data = formatter.Deserialize(stream) as PlayerData;
             stream.Close();
@@ -33,7 +33,7 @@ public class SaveSystem
         }
         else
         {
-            Debug.LogError("Save file is not found in " + path);
+            Debug.LogError("Save file is not found in " + pathPlayerInfo);
             return null;
         }
     }
@@ -44,6 +44,6 @@ public class SaveSystem
             File.Delete(Application.persistentDataPath + "/player.anime");
             Debug.Log("Data reset complete!");
         }
-        else Debug.LogError("No save data to delete.");
+        else Debug.Log("No save data to delete.");
     }
 }
