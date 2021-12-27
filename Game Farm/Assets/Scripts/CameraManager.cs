@@ -8,7 +8,6 @@ public class CameraManager : MonoBehaviour
     public float MaxSize;
     public float MinSize;
     Vector3 dir;
-    private Vector3 ResetCamera;
     private Vector3 Origin;
     private Vector3 diff;
     private bool Drag = false;
@@ -17,7 +16,6 @@ public class CameraManager : MonoBehaviour
     private void Start()
     {
         dir = new Vector3(0, 0, 0);
-        ResetCamera = Camera.main.transform.position;
     }
     void Update()
     {
