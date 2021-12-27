@@ -27,7 +27,7 @@ public class Field : MonoBehaviour
     public float timer;
     [System.NonSerialized]
     public bool choosen;
-
+    bool started = false;
     // Start is called before the first frame update
     //Важная информация!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     //я нахуй удалил все занятые поля с изначальной карты. Теперь у каждого поля есть 5 возможных спрайтов. 0 спрайт - спрайт заблок поля (желтого поля). 1 спрайт - спрайт разблок поля (зеленое поле)
@@ -35,6 +35,7 @@ public class Field : MonoBehaviour
 
     void Start()
     {
+        if (started) return;
         choosen = false;
         plant = GetComponent<SpriteRenderer>();
         player = FindObjectOfType<Player>();
@@ -208,21 +209,21 @@ public class Field : MonoBehaviour
         SaveSystemFields.LoadField();
     }
 
-    public void LoadField(FieldData data)
+    public void LoadField(FieldData data, bool start = false)
     {
+        isBlocked = data.isBlocked;
         Start();
+        started = true;
+
+
         plantStage = data.stage;
         timer = data.timer;
         isPlanted = data.isPlanted;
-        isBlocked = data.isBlocked;
-        if (!isBlocked)
-            plant.sprite = plantStages[1];
-        else 
-            plant.sprite = plantStages[0];
         if (data.nameProduct != null)
         {
             FieldInstructor(data.nameProduct);
             plant.sprite = product.plantStages[plantStage];
+            
         }
     }
 

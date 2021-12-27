@@ -48,7 +48,7 @@ public class SaveSystemFields : MonoBehaviour
             while (j != data.Count)
             {
                 var pl = Instantiate(Resources.Load("Plot", typeof(GameObject)), new Vector3(data[j].px, data[j].py, data[j].pz), Quaternion.identity) as GameObject;
-                pl.GetComponent<Field>().LoadField(data[j]);
+                pl.GetComponent<Field>().LoadField(data[j],true);
                 pl.transform.parent = Farm.transform;
                 j++;
             }

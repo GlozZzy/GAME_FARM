@@ -52,8 +52,8 @@ MonoBehaviour:
   - {fileID: -4133421730181666203, guid: ce00fedd09e7b3546bd9b591e89d72b6, type: 3}
   - {fileID: 99154118002872925, guid: ce00fedd09e7b3546bd9b591e89d72b6, type: 3}
   phases:
-  - 4
-  - 4
-  - 4
-  - 4
+  - 8
+  - 8
+  - 8
+  - 8
   pname: Carrot
