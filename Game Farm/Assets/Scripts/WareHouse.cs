@@ -67,6 +67,7 @@ public class WareHouse : MonoBehaviour
             textcount.gameObject.GetComponent<Text>().text = "count: " + (count + 1);
 
             curspace++;
+            spaceText.text = "Space: " + curspace + "/" + maxspace;
             return true;
         }
         else return false;
@@ -89,6 +90,7 @@ public class WareHouse : MonoBehaviour
             textcount.gameObject.GetComponent<Text>().text = "count: " + (count - 1);
 
             curspace--;
+            spaceText.text = "Space: " + curspace + "/" + maxspace;
             products.RemoveAt(ind);
         }
     }
