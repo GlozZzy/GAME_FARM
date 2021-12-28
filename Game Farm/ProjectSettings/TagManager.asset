@@ -10,6 +10,12 @@ TagManager:
   - WarehouseCarrot
   - Farm
   - Plot
+  - Carrot
+  - Wheat
+  - Cheese
+  - Milk
+  - Chicken
+  - Cow
   layers:
   - Default
   - TransparentFX

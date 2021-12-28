@@ -9,7 +9,7 @@ public class WareHouse : MonoBehaviour
     public Canvas CanvasMenu;
     public Text spaceText;
     public int maxspace;
-
+    public Canvas NEM;
     private int curspace;
     private List<Product> products;
 
@@ -58,13 +58,14 @@ public class WareHouse : MonoBehaviour
     {
         if (curspace < maxspace)
         {
-            products.Add(product);
-
+            
+            GameObject obj = GameObject.FindGameObjectWithTag(product.pname);
+            ProductInfo inf = obj.GetComponent<ProductInfo>();
+            inf.count++;
             string a = "Warehouse" + product.pname;
-            GameObject obj = GameObject.FindGameObjectWithTag(a);
-            var textcount = obj.transform.Find("count");
-            int count = int.Parse(textcount.gameObject.GetComponent<Text>().text.Split(' ')[1]);
-            textcount.gameObject.GetComponent<Text>().text = "count: " + (count + 1);
+            GameObject obj1 = GameObject.FindGameObjectWithTag(a);
+            var textcount = obj1.transform.Find("count");
+            textcount.gameObject.GetComponent<Text>().text = "count: " + (inf.count);
 
             curspace++;
             return true;
@@ -74,22 +75,36 @@ public class WareHouse : MonoBehaviour
 
     public void SellProduct(Text product)
     {
-        int ind = -1;
-        for (int i = 0; i < products.Count; i++)
-            if (products[i].pname == product.text)
-                ind = i;
-        if (ind >= 0)
+
+
+
+        
+        GameObject obj = GameObject.FindGameObjectWithTag(product.text);
+        ProductInfo inf = obj.GetComponent<ProductInfo>();
+        inf.count--;
+        string a = "Warehouse" + product.text;
+        GameObject obj1 = GameObject.FindGameObjectWithTag(a);
+        var textcount = obj1.transform.Find("count");
+        textcount.gameObject.GetComponent<Text>().text = "count: " + (inf.count);
+        player.money += inf.sell_price;
+        curspace--;
+        
+        
+    }
+    public void BuyProducts(ProductInfo inf)
+    {
+        if (inf.buy_price <= player.money)
         {
-            player.Transaction(products[ind].sell_price);
+            inf.count++;
+            string a = "Warehouse" + inf.name;
+            GameObject obj1 = GameObject.FindGameObjectWithTag(a);
+            var textcount = obj1.transform.Find("count");
+            textcount.gameObject.GetComponent<Text>().text = "count: " + (inf.count);
 
-            string a = "Warehouse" + products[ind].pname;
-            GameObject obj = GameObject.FindGameObjectWithTag(a);
-            var textcount = obj.transform.Find("count");
-            int count = int.Parse(textcount.gameObject.GetComponent<Text>().text.Split(' ')[1]);
-            textcount.gameObject.GetComponent<Text>().text = "count: " + (count - 1);
-
-            curspace--;
-            products.RemoveAt(ind);
+            player.money -= inf.buy_price;
+            curspace++;
         }
+        else
+            NEM.enabled = true;
     }
 }
