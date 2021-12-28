@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class WareHouse : MonoBehaviour
+public class WareHouse : MonoBehaviour, IPointerClickHandler
 {
     public Player player;
     public Canvas CanvasMenu;
@@ -28,11 +29,6 @@ public class WareHouse : MonoBehaviour
 
     }
 
-    private void OnMouseDown()
-    {
-        if (MenuManager.GameIsPaused) return;
-        OpenMenu();
-    }
 
     public void OpenMenu()
     {
@@ -93,5 +89,11 @@ public class WareHouse : MonoBehaviour
             spaceText.text = "Space: " + curspace + "/" + maxspace;
             products.RemoveAt(ind);
         }
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (MenuManager.GameIsPaused) return;
+        OpenMenu();
     }
 }

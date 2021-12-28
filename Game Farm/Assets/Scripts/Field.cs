@@ -1,9 +1,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
-
-public class Field : MonoBehaviour
+public class Field : MonoBehaviour, IPointerClickHandler
 {
     [System.NonSerialized]
     public bool isPlanted = false;
@@ -66,9 +66,9 @@ public class Field : MonoBehaviour
         }
     }
 
-
-    private void OnMouseDown()
+    public void OnPointerClick(PointerEventData eventData)
     {
+        Debug.Log("Hello");
         if (MenuManager.GameIsPaused) return;
 
         if (isPlanted)
@@ -80,6 +80,7 @@ public class Field : MonoBehaviour
         if (!isBlocked) OpenMenu();
         else OpenBlockedMenu();
     }
+
 
     private void Harvest()
     {
@@ -231,4 +232,5 @@ public class Field : MonoBehaviour
     {
         SaveSystemFields.ResetData();
     }
+
 }
