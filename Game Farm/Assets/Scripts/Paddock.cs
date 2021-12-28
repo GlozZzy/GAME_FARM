@@ -1,14 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-public class Paddock : MonoBehaviour
+using UnityEngine.EventSystems;
+public class Paddock : MonoBehaviour, IPointerClickHandler
 {
     PaddockMenu paddockMenu;
+    [System.NonSerialized]
+    public Animals animal;
+    public float timer;
     // Start is called before the first frame update
     void Start()
     {
-        
+        animal = GetComponent<Animals>();   
     }
 
     // Update is called once per frame
@@ -16,15 +19,15 @@ public class Paddock : MonoBehaviour
     {
         
     }
-    private void OnMouseDown()
-    {
-        Debug.Log("Hello");
-        OpenMenu();
-    }
     public void OpenMenu()
     {
         paddockMenu = FindObjectOfType<PaddockMenu>();
         
         paddockMenu.Open(this);
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        OpenMenu();
     }
 }

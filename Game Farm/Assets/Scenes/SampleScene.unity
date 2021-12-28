@@ -736,8 +736,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1978391373}
-        m_TargetAssemblyTypeName: WareHouse, Assembly-CSharp
+      - m_Target: {fileID: 418503253}
+        m_TargetAssemblyTypeName: PaddockMenu, Assembly-CSharp
         m_MethodName: CloseMenu
         m_Mode: 1
         m_Arguments:
@@ -948,13 +948,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1978391373}
-        m_TargetAssemblyTypeName: WareHouse, Assembly-CSharp
-        m_MethodName: SellProduct
-        m_Mode: 2
+      - m_Target: {fileID: 418503253}
+        m_TargetAssemblyTypeName: PaddockMenu, Assembly-CSharp
+        m_MethodName: KillAnimal
+        m_Mode: 1
         m_Arguments:
-          m_ObjectArgument: {fileID: 908048797}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -3041,6 +3041,7 @@ GameObject:
   - component: {fileID: 418503251}
   - component: {fileID: 418503250}
   - component: {fileID: 418503249}
+  - component: {fileID: 418503253}
   m_Layer: 5
   m_Name: PaddockMenu
   m_TagString: Untagged
@@ -3150,6 +3151,18 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &418503253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 418503247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cae0ee6ca1de3214fa2cbc4bd8807d84, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &422643657
 GameObject:
   m_ObjectHideFlags: 0
@@ -3646,7 +3659,7 @@ GameObject:
   - component: {fileID: 497778591}
   - component: {fileID: 497778590}
   m_Layer: 5
-  m_Name: Expand
+  m_Name: Collect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3716,9 +3729,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1978391373}
-        m_TargetAssemblyTypeName: WareHouse, Assembly-CSharp
-        m_MethodName: Expand
+      - m_Target: {fileID: 418503253}
+        m_TargetAssemblyTypeName: PaddockMenu, Assembly-CSharp
+        m_MethodName: Collect
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -3928,6 +3941,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -4014,6 +4028,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56666c5a40171f54783dd416a44f42bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EventMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_MaxRayIntersections: 0
 --- !u!1 &521408461
 GameObject:
   m_ObjectHideFlags: 0
@@ -7491,7 +7521,7 @@ GameObject:
   - component: {fileID: 982981273}
   - component: {fileID: 982981272}
   m_Layer: 5
-  m_Name: Carrot
+  m_Name: Kill
   m_TagString: WarehouseCarrot
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -9221,13 +9251,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1978391373}
-        m_TargetAssemblyTypeName: WareHouse, Assembly-CSharp
-        m_MethodName: SellProduct
-        m_Mode: 2
+      - m_Target: {fileID: 418503253}
+        m_TargetAssemblyTypeName: PaddockMenu, Assembly-CSharp
+        m_MethodName: Release
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -10166,13 +10196,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1978391373}
-        m_TargetAssemblyTypeName: WareHouse, Assembly-CSharp
-        m_MethodName: SellProduct
-        m_Mode: 2
+      - m_Target: {fileID: 418503253}
+        m_TargetAssemblyTypeName: PaddockMenu, Assembly-CSharp
+        m_MethodName: AddAnimal
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
@@ -10440,7 +10470,7 @@ GameObject:
   - component: {fileID: 1375557006}
   - component: {fileID: 1375557005}
   m_Layer: 5
-  m_Name: Wheat (2)
+  m_Name: AddRelease
   m_TagString: WarehouseWheat
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12362,11 +12392,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2091031324391869433, guid: 0db1ba4e9570b8549b020b3e6f889187, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.99
+      value: -11.042
       objectReference: {fileID: 0}
     - target: {fileID: 2091031324391869433, guid: 0db1ba4e9570b8549b020b3e6f889187, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.01
+      value: 0.506
       objectReference: {fileID: 0}
     - target: {fileID: 2091031324391869433, guid: 0db1ba4e9570b8549b020b3e6f889187, type: 3}
       propertyPath: m_LocalPosition.z
@@ -13028,7 +13058,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1911415253}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
@@ -15042,13 +15072,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1978391373}
-        m_TargetAssemblyTypeName: WareHouse, Assembly-CSharp
-        m_MethodName: SellProduct
-        m_Mode: 2
+      - m_Target: {fileID: 418503253}
+        m_TargetAssemblyTypeName: PaddockMenu, Assembly-CSharp
+        m_MethodName: FeedAnimal
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.UI.Text, UnityEngine.UI
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: 
