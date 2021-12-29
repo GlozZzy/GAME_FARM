@@ -3163,6 +3163,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cae0ee6ca1de3214fa2cbc4bd8807d84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  count: {fileID: 2108248612}
+  price: {fileID: 2077928358}
+  capacity: {fileID: 1755471630}
 --- !u!1 &422643657
 GameObject:
   m_ObjectHideFlags: 0

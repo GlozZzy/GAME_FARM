@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PaddockMenu : MonoBehaviour
 {
@@ -9,12 +10,18 @@ public class PaddockMenu : MonoBehaviour
     Canvas canvas;
     Player player;
     FieldMenu cellMenu;
+    public Text count;
+    public Text price;
+    public Text capacity;
+    WareHouse warehouse;
+
     //Template product;
 
     void Start()
     {
         canvas = GetComponent<Canvas>();
         player = FindObjectOfType<Player>();
+        warehouse = FindObjectOfType<WareHouse>();
     }
 
     // Update is called once per frame
@@ -22,12 +29,19 @@ public class PaddockMenu : MonoBehaviour
     {
         if (paddock)
         {
-
+            capacity.text = "Space: " + paddock.products.Count + "/10";
+            price.text = 10 + "";
+            count.text = "count" + paddock.numOfAnimals + "/10";
         }
     }
     public void Collect()
     {
-
+        for (int i = 0; i < paddock.products.Count; i++)
+        {
+            var product = new Product();
+            product.pname = paddock.animal.productName;
+            warehouse.AddProduct(product);
+        }
     }
 
     public void CloseMenu()
@@ -44,11 +58,11 @@ public class PaddockMenu : MonoBehaviour
     }
     public void AddAnimal()
     {
-        if (paddock.animal.numOfAnimals < 10)
+        if (paddock.numOfAnimals < 10)
         {
             if (player.Transaction(-paddock.animal.addAnimalPrice))
             {
-                paddock.animal.numOfAnimals++;
+                paddock.numOfAnimals++;
             }
             else
             {
@@ -58,14 +72,22 @@ public class PaddockMenu : MonoBehaviour
     }
     public void FeedAnimal()
     {
-        if (paddock.animal.numOfAnimals >0)
-        {
-            paddock.animal.numOfAnimals--;
-        }
+        //warehouse.GetProduct(paddock.numOfAniamls);
+        paddock.hungry_timer = paddock.animal.hungryTime;
+
     }
     public void KillAnimal()
     {
-        paddock.timer = paddock.animal.hungryTime;
+        if (paddock.numOfAnimals > 0)
+        {
+            paddock.numOfAnimals--;
+        }
+        paddock.hungry_timer = paddock.animal.hungryTime;
+        var product = new Product();
+        product.pname = paddock.animal.meatName;
+        warehouse.AddProduct(product);
+
+
     }
     public void Open(Paddock p)
     {

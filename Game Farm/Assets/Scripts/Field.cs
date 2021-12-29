@@ -71,6 +71,7 @@ public class Field : MonoBehaviour, IPointerClickHandler
     {
         isPlanted = false;
         plant.sprite = plantStages[1];
+
         if (plantStage == product.plantStages.Length - 2)
         {
             player.Transaction(product.sell_price);

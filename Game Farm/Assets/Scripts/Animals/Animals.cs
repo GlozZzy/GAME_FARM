@@ -4,20 +4,13 @@ using UnityEngine;
 
 public class Animals : MonoBehaviour
 {
-    public float productCreationTime;
-    public int numOfAnimals;
+    public float productCreationTime = 20;
+
     public float hungryTime;
     public int feedPrice;
     public int addAnimalPrice;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    public string productName;
+    public Sprite sprite;
+    public string meatName;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }
