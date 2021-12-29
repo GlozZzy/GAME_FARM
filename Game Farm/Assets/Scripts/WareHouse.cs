@@ -93,6 +93,7 @@ public class WareHouse : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        if (eventData.button != PointerEventData.InputButton.Left) return;
         if (MenuManager.GameIsPaused) return;
         OpenMenu();
     }

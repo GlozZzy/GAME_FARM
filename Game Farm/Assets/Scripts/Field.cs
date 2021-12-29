@@ -68,7 +68,7 @@ public class Field : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        Debug.Log("Hello");
+        if (eventData.button != PointerEventData.InputButton.Left) return;
         if (MenuManager.GameIsPaused) return;
 
         if (isPlanted)
