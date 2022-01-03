@@ -2020,16 +2020,12 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.00691678, y: -0.010638913}
-      - {x: -0.04145376, y: -0.035463035}
-      - {x: -0.28563887, y: -0.18610194}
-      - {x: -0.39081505, y: -0.24482413}
-      - {x: -0.40145394, y: -0.34453696}
-      - {x: -0.0047128387, y: -0.5664537}
-      - {x: 0.08790736, y: -0.53099066}
-      - {x: 0.405, y: -0.35099065}
-      - {x: 0.39790738, y: -0.25900933}
-      - {x: 0.15372209, y: -0.10837044}
+    - - {x: -0.006916781, y: 0.2737748}
+      - {x: -0.40109947, y: 0.041603915}
+      - {x: -0.4030742, y: -0.059491962}
+      - {x: 0.009199109, y: -0.29069728}
+      - {x: 0.4040791, y: -0.060123205}
+      - {x: 0.40447596, y: 0.02989769}
 --- !u!212 &218099336
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4125,6 +4121,7 @@ GameObject:
   - component: {fileID: 519420031}
   - component: {fileID: 519420029}
   - component: {fileID: 519420030}
+  - component: {fileID: 519420033}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -4211,6 +4208,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &519420033
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 519420028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56666c5a40171f54783dd416a44f42bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EventMask:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_MaxRayIntersections: 0
 --- !u!1 &520703334
 GameObject:
   m_ObjectHideFlags: 0
@@ -16772,13 +16785,12 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.0052146297, y: -0.02417165}
-      - {x: 0.39960966, y: -0.25108185}
-      - {x: 0.40519658, y: -0.3504888}
-      - {x: 0.0103315385, y: -0.56645685}
-      - {x: -0.4079441, y: -0.3424375}
-      - {x: -0.405, y: -0.22}
-      - {x: -0.405, y: -0.22}
+    - - {x: -0.0052146297, y: 0.2749215}
+      - {x: 0.39960966, y: 0.027827084}
+      - {x: 0.39969182, y: -0.055065542}
+      - {x: 0.0066616805, y: -0.2820431}
+      - {x: -0.40243927, y: -0.052518994}
+      - {x: -0.3994952, y: 0.03872472}
 --- !u!50 &2136142608
 Rigidbody2D:
   serializedVersion: 4
