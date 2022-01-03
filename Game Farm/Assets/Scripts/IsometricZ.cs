@@ -7,12 +7,11 @@ public class IsometricZ : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.y / 100);
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        transform.position = new Vector3(transform.position.x, transform.position.y, transform.position.y / 100);
     }
 }
