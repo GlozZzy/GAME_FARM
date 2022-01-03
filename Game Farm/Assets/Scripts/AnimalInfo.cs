@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class AnimalInfo : MonoBehaviour
 {
-    public string name;
+    public string Aname;
     public int exp;
     
 }

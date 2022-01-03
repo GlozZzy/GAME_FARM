@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ProductInfo : MonoBehaviour
 {
-    public string name;
+    public string Pname;
     public int buy_price;
     public int sell_price;
     public int exp;

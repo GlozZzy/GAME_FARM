@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 1010764755498487352}
   - component: {fileID: 2045465925044723482}
   - component: {fileID: 2045465925044723461}
+  - component: {fileID: 3990523121135304745}
   - component: {fileID: 2045465925044723463}
   m_Layer: 0
   m_Name: WareHouse
@@ -140,6 +141,18 @@ PolygonCollider2D:
       - {x: 0.30773038, y: 4.3979316}
       - {x: 1.2766503, y: 4.437928}
       - {x: 2.1754115, y: 4.148832}
+--- !u!114 &3990523121135304745
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2956849279362106709}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 389e774a241086649bc8a3b25bffc09e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2045465925044723463
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -156,3 +169,4 @@ MonoBehaviour:
   CanvasMenu: {fileID: 0}
   spaceText: {fileID: 0}
   maxspace: 10
+  NEM: {fileID: 0}
