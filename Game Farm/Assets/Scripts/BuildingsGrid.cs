@@ -8,19 +8,13 @@ public class BuildingsGrid: MonoBehaviour
     public Vector2Int GridSize = new Vector2Int(10, 10);
     public Player player;
     private Building flyingBuilding;
-    private Camera mainCamera;
     public Canvas NEM;
-
-    private void Awake()
-    {
-        mainCamera = Camera.main;
-    }
 
     public void StartPlacingBuilding(Building buildingPrefab)
     {
         if (buildingPrefab.buy_price <= player.money)
         {
-            Shop.enabled = false;
+            Shop.gameObject.SetActive(false);
             if (flyingBuilding != null)
             {
                 Destroy(flyingBuilding.gameObject);

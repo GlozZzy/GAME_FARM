@@ -39,6 +39,7 @@ public class Shop : MonoBehaviour
     private void OnMouseDown()
     {
         if (MenuManager.GameIsPaused) return;
+        CanvasMenu.gameObject.SetActive(true);
         OpenMenu();
     }
 
