@@ -16,6 +16,13 @@ TagManager:
   - Milk
   - Chicken
   - Cow
+  - Egg
+  - CowMeat
+  - ChickenMeat
+  - WarehouseMilk
+  - WarehouseEgg
+  - WarehouseChickenMeat
+  - WarehouseCowMeat
   layers:
   - Default
   - TransparentFX

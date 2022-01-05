@@ -75,9 +75,6 @@ public class WareHouse : MonoBehaviour
 
     public void SellProduct(Text product)
     {
-
-
-
         
         GameObject obj = GameObject.FindGameObjectWithTag(product.text);
         ProductInfo inf = obj.GetComponent<ProductInfo>();
@@ -88,7 +85,6 @@ public class WareHouse : MonoBehaviour
         textcount.gameObject.GetComponent<Text>().text = "count: " + (inf.count);
         player.money += inf.sell_price;
         curspace--;
-        
         
     }
     public void BuyProducts(ProductInfo inf)
@@ -106,5 +102,23 @@ public class WareHouse : MonoBehaviour
         }
         else
             NEM.enabled = true;
+    }
+
+    public bool TakeProduct(string productName, int count)
+    {
+        GameObject obj = GameObject.FindGameObjectWithTag(productName);
+        ProductInfo inf = obj.GetComponent<ProductInfo>();
+        if (inf.count >= count) {
+            inf.count-= count;
+            string a = "Warehouse" + productName;
+            GameObject obj1 = GameObject.FindGameObjectWithTag(a);
+            var textcount = obj1.transform.Find("count");
+            textcount.gameObject.GetComponent<Text>().text = "count: " + (inf.count);
+            player.money += inf.sell_price;
+            curspace -= count;
+            return true;
+        }
+
+        return false;
     }
 }

@@ -19,11 +19,15 @@ public class FieldMenu : MonoBehaviour
         if (field) field.GetComponent<SpriteRenderer>().color = new Color(0.6f, 0.6f, 0.6f, 1f);
     }
 
-    public void Open(Field f)
+    public void Open(Field f=null)
     {
-        if (field) field.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+        if (field)
+        {
+            field.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+            field = f;
+        }
         canvas.enabled = true;
-        field = f;
+
     }
 
     public void Plant(string str)
@@ -40,8 +44,12 @@ public class FieldMenu : MonoBehaviour
 
     public void Close()
     {
-        field.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+        if (field)
+        {
+            field.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+            field = null;
+        }
         canvas.enabled = false;
-        field = null;
+        
     }
 }
