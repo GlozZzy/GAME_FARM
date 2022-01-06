@@ -7112,7 +7112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d2c43b5dd80fa945be4ca19786ae249, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  money: 100
+  money: 0
   exp: 0
   lvl: 100
   MoneyTxt: {fileID: 138886694}
@@ -10405,8 +10405,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Pname: 
-  buy_price: 228
-  sell_price: 228
+  buy_price: 0
+  sell_price: 0
   exp: 0
   count: 0
 --- !u!1 &1272141515
@@ -16723,6 +16723,7 @@ GameObject:
   - component: {fileID: 2136142607}
   - component: {fileID: 2136142611}
   - component: {fileID: 2136142606}
+  - component: {fileID: 2136142612}
   - component: {fileID: 2136142605}
   m_Layer: 0
   m_Name: Cow
@@ -16887,6 +16888,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 389e774a241086649bc8a3b25bffc09e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2136142612
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2136142604}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d313751a477f024ba3f1594818c825a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2141153507
