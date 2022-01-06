@@ -22,12 +22,10 @@ public class FieldMenu : MonoBehaviour
     public void Open(Field f=null)
     {
         if (field)
-        {
             field.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
-            field = f;
-        }
         canvas.enabled = true;
-
+        if (f)
+            field = f;
     }
 
     public void Plant(string str)
