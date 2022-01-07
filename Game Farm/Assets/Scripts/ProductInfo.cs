@@ -28,11 +28,11 @@ public class ProductInfo : MonoBehaviour
                 iter = 0;
             }
             w0 = price.GetPar(w0);
-            Debug.Log(w0);
+            
             buy_price = price.GetNewP(buy_price, w0);
-            Debug.Log(buy_price);
+            
             sell_price = 0.97 * buy_price;
-            Debug.Log(iter);
+            
         }
         iter++;
     }

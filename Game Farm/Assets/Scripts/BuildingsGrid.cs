@@ -42,10 +42,34 @@ public class BuildingsGrid: MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            if (flyingBuilding)
+            int s = 0;
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(flyingBuilding.transform.position, 0.2f);
+            if (colliders.Length==4)
             {
-                flyingBuilding.colaider.enabled = true;
-                PlaceFlyingBuilding(flyingBuilding.transform.position.x, flyingBuilding.transform.position.y);
+                Debug.Log("4");
+                foreach (Collider2D col in colliders)
+                {
+                    if (col.GetComponentInParent<Field>().isBlocked == false && col.GetComponentInParent<Field>().isPlanted == false)
+                        s++;
+                    Debug.Log(col.GetComponentInParent<Field>().transform.position);
+                }
+                if(s==4)
+                {
+
+                    foreach (Collider2D col in colliders)
+                    {
+                        col.GetComponentInParent<Field>().isBlocked = true;
+                        col.GetComponentInParent<Field>().Check();
+                        if (flyingBuilding)
+                        {
+                            flyingBuilding.colaider.enabled = true;
+                            flyingBuilding.GetComponentInChildren<SpriteRenderer>().enabled = false;
+                            PlaceFlyingBuilding(flyingBuilding.transform.position.x, flyingBuilding.transform.position.y);
+                        }
+                    }
+                }
+
+               
             }
         }
 
