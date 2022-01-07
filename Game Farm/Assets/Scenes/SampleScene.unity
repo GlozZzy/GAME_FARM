@@ -214,6 +214,7 @@ GameObject:
   m_Component:
   - component: {fileID: 14543118}
   - component: {fileID: 14543119}
+  - component: {fileID: 14543120}
   m_Layer: 0
   m_Name: Wheat
   m_TagString: Wheat
@@ -252,6 +253,18 @@ MonoBehaviour:
   sell_price: 0
   exp: 0
   count: 0
+--- !u!114 &14543120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 14543117}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d313751a477f024ba3f1594818c825a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &36022998 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1818018465968439343, guid: 6ffdefed5e76c6544aba266eee680b52, type: 3}
@@ -531,6 +544,7 @@ GameObject:
   - component: {fileID: 75245870}
   - component: {fileID: 75245873}
   - component: {fileID: 75245869}
+  - component: {fileID: 75245874}
   - component: {fileID: 75245868}
   m_Layer: 0
   m_Name: bakery
@@ -684,6 +698,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 389e774a241086649bc8a3b25bffc09e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &75245874
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 75245867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d313751a477f024ba3f1594818c825a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &80399452
@@ -1966,6 +1992,7 @@ GameObject:
   - component: {fileID: 218099334}
   - component: {fileID: 218099339}
   - component: {fileID: 218099340}
+  - component: {fileID: 218099341}
   - component: {fileID: 218099338}
   m_Layer: 0
   m_Name: Chicken
@@ -2130,6 +2157,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 389e774a241086649bc8a3b25bffc09e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &218099341
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 218099333}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d313751a477f024ba3f1594818c825a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &223692005
@@ -9959,6 +9998,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1204757746}
   - component: {fileID: 1204757747}
+  - component: {fileID: 1204757748}
   m_Layer: 0
   m_Name: Milk
   m_TagString: Milk
@@ -9997,6 +10037,18 @@ MonoBehaviour:
   sell_price: 0
   exp: 0
   count: 0
+--- !u!114 &1204757748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1204757745}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d313751a477f024ba3f1594818c825a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1210157865
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -10371,6 +10423,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1265646749}
   - component: {fileID: 1265646750}
+  - component: {fileID: 1265646751}
   m_Layer: 0
   m_Name: Carrot
   m_TagString: Carrot
@@ -10409,6 +10462,18 @@ MonoBehaviour:
   sell_price: 0
   exp: 0
   count: 0
+--- !u!114 &1265646751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1265646748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d313751a477f024ba3f1594818c825a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1272141515
 GameObject:
   m_ObjectHideFlags: 0
@@ -13663,6 +13728,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1691562935}
   - component: {fileID: 1691562936}
+  - component: {fileID: 1691562937}
   m_Layer: 0
   m_Name: Cheese
   m_TagString: Cheese
@@ -13701,6 +13767,18 @@ MonoBehaviour:
   sell_price: 0
   exp: 0
   count: 0
+--- !u!114 &1691562937
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1691562934}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6d313751a477f024ba3f1594818c825a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1691629485
 GameObject:
   m_ObjectHideFlags: 0
