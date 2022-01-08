@@ -71,7 +71,7 @@ public class Field : MonoBehaviour, IPointerClickHandler
             {
                 deathTimer -= Time.deltaTime;
 
-                if (plantStage != product.plantStages.Length - 1) 
+                if (plantStage < product.plantStages.Length-2) 
                     this.gameObject.transform.GetChild(0).gameObject.SetActive(true);
                 else
                     this.gameObject.transform.GetChild(0).gameObject.SetActive(false);
