@@ -5,15 +5,42 @@ using UnityEngine;
 public class Building : MonoBehaviour
 {
     public Renderer MainRenderer;
-    public int buy_price;
-    public int sell_price;
+    public double buy_price;
+    public double sell_price;
     [System.NonSerialized]
     public Collider2D colaider;
+    Price price;
+    double w0=0;
+    int iter = 0;
+    float timer = 5;
+
 
 
     private void Start()
     {
+        price = gameObject.GetComponent<Price>();
         colaider = gameObject.GetComponent<Collider2D>();
+    }
+
+    public void Update()
+    {
+        timer -= Time.deltaTime;
+        if (timer > 0) return;
+        {
+            timer = 5;
+            iter++;
+            if (iter % 5 == 0)
+            {
+                w0 = 0;
+                iter = 0;
+            }
+            w0 = price.GetPar(w0);
+            
+            buy_price = price.GetNewP(buy_price, w0);
+            
+            sell_price = 0.97 * buy_price;
+
+        }
     }
 
 

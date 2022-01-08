@@ -49,6 +49,17 @@ public class Field : MonoBehaviour, IPointerClickHandler
             plant.sprite = plantStages[0];
         }
     }
+    public void Check()
+    {
+        if (!isBlocked)
+        {
+            plant.sprite = plantStages[1];
+        }
+        else
+        {
+            plant.sprite = plantStages[0];
+        }
+    }
 
     // Update is called once per frame
     void Update()
@@ -154,7 +165,7 @@ public class Field : MonoBehaviour, IPointerClickHandler
             choosen = false; //снимаем выделение
             Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position + new Vector3(0.375f, 0.65f, 0.0375f), 0.01f); //проверка есть ли объект по таким-то координатам
             if (colliders.Length == 0)
-            {
+            { 
                 GameObject newFieldRU = Instantiate(gameObject, transform.position + new Vector3(0.65f, 0.375f, 0.0375f), transform.rotation);//создаем копию объекта
                 newFieldRU.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f); //меняем цвет на обычный, без этой строчки у новых полей цвет как у выделенных
                 newFieldRU.transform.parent = this.transform.parent;
