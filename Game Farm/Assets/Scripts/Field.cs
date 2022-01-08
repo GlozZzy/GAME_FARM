@@ -23,11 +23,20 @@ public class Field : MonoBehaviour, IPointerClickHandler
 
     [System.NonSerialized]
     public int plantStage = 0;
+
     [System.NonSerialized]
-    public float timer;
+    public float growTimer;
+    [System.NonSerialized]
+    public float waterTimer;
+    [System.NonSerialized]
+    public float deathTimer;
+
     [System.NonSerialized]
     public bool choosen;
     bool started = false;
+
+    public float timeTillWater = 10f;
+    public float timeTillDeath = 10f;
     // Start is called before the first frame update
     //Важная информация!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
     //я нахуй удалил все занятые поля с изначальной карты. Теперь у каждого поля есть 5 возможных спрайтов. 0 спрайт - спрайт заблок поля (желтого поля). 1 спрайт - спрайт разблок поля (зеленое поле)
@@ -40,6 +49,8 @@ public class Field : MonoBehaviour, IPointerClickHandler
         plant = GetComponent<SpriteRenderer>();
         player = FindObjectOfType<Player>();
         warehouse = FindObjectOfType<WareHouse>();
+        deathTimer = timeTillDeath;
+        waterTimer = timeTillWater;
         if (!isBlocked)
         {
             plant.sprite = plantStages[1];
@@ -55,13 +66,33 @@ public class Field : MonoBehaviour, IPointerClickHandler
     {
         //if (!choosen) GetComponent<SpriteRenderer>().color = Color.white;
         if (isPlanted && !isBlocked) 
-        { 
-            timer -= Time.deltaTime;
-            if (timer < 0 && plantStage < product.plantStages.Length - 1)
+        {
+            if (waterTimer < 0)
             {
-                plantStage++;
-                timer = product.phases[plantStage];
-                UpdatePlant();
+                deathTimer -= Time.deltaTime;
+
+                if (plantStage != product.plantStages.Length - 1) 
+                    this.gameObject.transform.GetChild(0).gameObject.SetActive(true);
+                else
+                    this.gameObject.transform.GetChild(0).gameObject.SetActive(false);
+
+                if (deathTimer < 0)
+                {
+                    plantStage = product.plantStages.Length - 1;
+                    plant.sprite = product.plantStages[plantStage];
+                }
+            }
+            else
+            {
+                growTimer -= Time.deltaTime;
+                waterTimer -= Time.deltaTime;
+
+                if (growTimer < 0 && plantStage < product.plantStages.Length - 1)
+                {
+                    plantStage++;
+                    growTimer = product.phases[plantStage];
+                    UpdatePlant();
+                }
             }
         }
     }
@@ -73,7 +104,17 @@ public class Field : MonoBehaviour, IPointerClickHandler
 
         if (isPlanted)
         {
-            if (plantStage >= product.plantStages.Length - 2) Harvest();
+            if (waterTimer > 0)
+            {
+                if (plantStage >= product.plantStages.Length - 2) Harvest();
+            }
+            else
+            {
+                if (plantStage != product.plantStages.Length - 1)
+                    Water();
+                else
+                    Harvest();
+            }
             return;
         }
 
@@ -81,6 +122,12 @@ public class Field : MonoBehaviour, IPointerClickHandler
         else OpenBlockedMenu();
     }
 
+    private void Water()
+    {
+        waterTimer = timeTillWater;
+        deathTimer = timeTillDeath;
+        this.gameObject.transform.GetChild(0).gameObject.SetActive(false);
+    }
 
     private void Harvest()
     {
@@ -88,7 +135,7 @@ public class Field : MonoBehaviour, IPointerClickHandler
         plant.sprite = plantStages[1];
         if (plantStage == product.plantStages.Length - 2)
         {
-            player.Transaction(product.sell_price);
+            //player.Transaction(product.sell_price);
             player.GetExp(product.exp);
             warehouse.AddProduct(product);
         }
@@ -104,7 +151,7 @@ public class Field : MonoBehaviour, IPointerClickHandler
             isPlanted = true;
             plantStage = 0;
             UpdatePlant();
-            timer = product.phases[plantStage];
+            growTimer = product.phases[plantStage];
         }
         else
         {
@@ -218,7 +265,9 @@ public class Field : MonoBehaviour, IPointerClickHandler
 
 
         plantStage = data.stage;
-        timer = data.timer;
+        growTimer = data.timer;
+        waterTimer = data.waterTimer;
+        deathTimer = data.deathTimer;
         isPlanted = data.isPlanted;
         if (data.nameProduct != null)
         {

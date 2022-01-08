@@ -7,6 +7,8 @@ public class FieldData
 {
     public int stage;
     public float timer;
+    public float waterTimer;
+    public float deathTimer;
     public bool isPlanted;
     public bool isBlocked;
     public string nameProduct;
@@ -16,7 +18,9 @@ public class FieldData
     public FieldData(Field field)
     {
         stage = field.plantStage;
-        timer = field.timer;
+        timer = field.growTimer;
+        waterTimer = field.waterTimer;
+        deathTimer = field.deathTimer;
         isPlanted = field.isPlanted;
         isBlocked = field.isBlocked;
         if (field.product) nameProduct = field.product.pname;

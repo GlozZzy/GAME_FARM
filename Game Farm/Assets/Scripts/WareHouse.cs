@@ -78,14 +78,16 @@ public class WareHouse : MonoBehaviour
         
         GameObject obj = GameObject.FindGameObjectWithTag(product.text);
         ProductInfo inf = obj.GetComponent<ProductInfo>();
-        inf.count--;
-        string a = "Warehouse" + product.text;
-        GameObject obj1 = GameObject.FindGameObjectWithTag(a);
-        var textcount = obj1.transform.Find("count");
-        textcount.gameObject.GetComponent<Text>().text = "count: " + (inf.count);
-        player.money += inf.sell_price;
-        curspace--;
-        
+        if (inf.count > 0)
+        {
+            inf.count--;
+            string a = "Warehouse" + product.text;
+            GameObject obj1 = GameObject.FindGameObjectWithTag(a);
+            var textcount = obj1.transform.Find("count");
+            textcount.gameObject.GetComponent<Text>().text = "count: " + (inf.count);
+            player.money += inf.sell_price;
+            curspace--;
+        }
     }
     public void BuyProducts(ProductInfo inf)
     {
