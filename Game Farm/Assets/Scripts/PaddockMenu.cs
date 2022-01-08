@@ -14,6 +14,10 @@ public class PaddockMenu : MonoBehaviour
     public Text price;
     public Text capacity;
     public Text foodCount;
+
+    public Text animName;
+    public Text productName;
+
     WareHouse warehouse;
     public Text timeToDie;
     //Template product;
@@ -101,5 +105,8 @@ public class PaddockMenu : MonoBehaviour
         if (paddock) paddock.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
         canvas.enabled = true;
         paddock = p;
+
+        animName.text = paddock.animal.nameAnim;
+        productName.text = paddock.animal.productName;
     }
 }

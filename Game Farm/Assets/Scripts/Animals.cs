@@ -6,6 +6,7 @@ public class Animals : MonoBehaviour
 {
     public float productCreationTime = 20;
 
+    public string nameAnim;
     public float hungryTime;
     public int addAnimalPrice;
     public string productName;
