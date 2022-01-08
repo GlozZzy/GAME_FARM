@@ -11,7 +11,7 @@ public class Paddock : MonoBehaviour, IPointerClickHandler
     public float timer;
     [System.NonSerialized]
     public float hungry_timer;
-    public List<Product> products;
+    public int numOfProducts;
     public int numOfAnimals;
     // Start is called before the first frame update
     void Start()
@@ -28,11 +28,11 @@ public class Paddock : MonoBehaviour, IPointerClickHandler
             return;
         }
         timer -= Time.deltaTime;
-        if (timer < 0 && products.Count < 10)
+        if (timer < 0 && numOfProducts < 10)
         {
-            for(int i=0; i<numOfAnimals && products.Count < 10; i++)
+            for(int i=0; i<numOfAnimals && numOfProducts < 10; i++)
             {
-                products.Add(new Product());
+                numOfProducts++;
             }
             timer = animal.productCreationTime;
 

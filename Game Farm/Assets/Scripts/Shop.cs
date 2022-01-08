@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
-public class Shop : MonoBehaviour
+using UnityEngine.EventSystems;
+public class Shop : MonoBehaviour, IPointerClickHandler
 {
     public Player player;
     public Canvas CanvasMenu;
@@ -37,12 +37,6 @@ public class Shop : MonoBehaviour
         CowPrice.text = "Price:" + (Cow.buy_price);
     }
 
-    private void OnMouseDown()
-    {
-        if (MenuManager.GameIsPaused) return;
-        CanvasMenu.gameObject.SetActive(true);
-        OpenMenu();
-    }
 
     public void OpenMenu()
     {
@@ -101,7 +95,12 @@ public class Shop : MonoBehaviour
     {
         NEM.enabled = true;
     }
-    
-   
-   
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (eventData.button != PointerEventData.InputButton.Left) return;
+        if (MenuManager.GameIsPaused) return;
+        CanvasMenu.gameObject.SetActive(true);
+        OpenMenu();
+    }
 }

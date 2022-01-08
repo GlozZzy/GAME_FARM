@@ -33,18 +33,17 @@ public class BuildingsGrid: MonoBehaviour
 
     private void Update()
     {
+        if (!flyingBuilding) return;
         Vector2 screenPosition = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
         Vector2 worldPosition = Camera.main.ScreenToWorldPoint(screenPosition);
-        if (flyingBuilding != null)
-        {
-            
-            flyingBuilding.transform.position = new Vector2(worldPosition.x - worldPosition.x % 0.65f-0.4f, worldPosition.y - worldPosition.y % 0.375f + 0.125f);
-        }
+        flyingBuilding.transform.position = new Vector2(worldPosition.x - worldPosition.x % 0.65f-0.4f, worldPosition.y - worldPosition.y % 0.375f + 0.125f);
+
 
         if (Input.GetMouseButtonDown(0))
         {
+            
             int s = 0;
-            if (!flyingBuilding) return;
+            
             Collider2D[] colliders = Physics2D.OverlapCircleAll(flyingBuilding.transform.position, 0.2f);
             if (colliders.Length==4)
             {
@@ -71,8 +70,8 @@ public class BuildingsGrid: MonoBehaviour
                     }
                 }
 
-               
             }
+         
         }
         if (Input.GetMouseButtonDown(1))
         {
@@ -80,7 +79,6 @@ public class BuildingsGrid: MonoBehaviour
             flyingBuilding = null;
             Shop.gameObject.SetActive(true);
         }
-
     }
 
 

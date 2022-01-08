@@ -14,7 +14,10 @@ public class PaddockMenu : MonoBehaviour
     public Text price;
     public Text capacity;
     public Text foodCount;
-
+    public GameObject prodSprite;
+    public GameObject animSprite;
+    public GameObject fprodSprite;
+    public Text feedName;
     public Text animName;
     public Text productName;
 
@@ -34,7 +37,7 @@ public class PaddockMenu : MonoBehaviour
     {
         if (paddock)
         {
-            capacity.text = "Space: " + paddock.products.Count + "/10";
+            capacity.text = "Space: " + paddock.numOfProducts + "/10";
             price.text = "Add Animal(-" + paddock.animal.addAnimalPrice +"m)";
             count.text = "count " + paddock.numOfAnimals + "/10";
             foodCount.text = "Feed (" + paddock.numOfAnimals + ")";
@@ -46,12 +49,18 @@ public class PaddockMenu : MonoBehaviour
     }
     public void Collect()
     {
-        for (int i = 0; i < paddock.products.Count; i++)
+        int temp=0;
+        for (int i = 0; i < paddock.numOfProducts; i++)
         {
+            
             var product = new Product();
             product.pname = paddock.animal.productName;
-            warehouse.AddProduct(product);
+            if (warehouse.AddProduct(product) == false)
+                break;
+            temp = i + 1;
+
         }
+        paddock.numOfProducts -= temp;
     }
 
     public void CloseMenu()
@@ -74,6 +83,7 @@ public class PaddockMenu : MonoBehaviour
             {
                 paddock.numOfAnimals++;
                 paddock.hungry_timer = paddock.animal.hungryTime;
+                paddock.timer = paddock.animal.productCreationTime;
             }
             else
             {
@@ -92,11 +102,15 @@ public class PaddockMenu : MonoBehaviour
     {
         if (paddock.numOfAnimals > 0)
         {
-            paddock.numOfAnimals--;
-            paddock.hungry_timer = paddock.animal.hungryTime;
             var product = new Product();
-            product.pname = paddock.animal.meatName;
-            warehouse.AddProduct(product);
+            product.pname = "Meat";
+            if (warehouse.AddProduct(product))
+            {
+                paddock.numOfAnimals--;
+                paddock.hungry_timer = paddock.animal.hungryTime;
+            }
+
+
         }
 
     }
@@ -108,5 +122,8 @@ public class PaddockMenu : MonoBehaviour
 
         animName.text = paddock.animal.nameAnim;
         productName.text = paddock.animal.productName;
+        prodSprite.GetComponent<RawImage>().texture = paddock.animal.textures[0];
+        fprodSprite.GetComponent<RawImage>().texture = paddock.animal.textures[2];
+        feedName.text = paddock.animal.feed;
     }
 }

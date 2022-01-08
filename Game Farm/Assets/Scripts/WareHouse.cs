@@ -2,8 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
-public class WareHouse : MonoBehaviour
+public class WareHouse : MonoBehaviour, IPointerClickHandler
 {
     public Player player;
     public Canvas CanvasMenu;
@@ -19,19 +20,12 @@ public class WareHouse : MonoBehaviour
     {
         curspace = 0;
         products = new List<Product>();
-        spaceText.text = "Space: " + curspace + "/" + maxspace;
     }
 
     // Update is called once per frame
     void Update()
     {
-
-    }
-
-    private void OnMouseDown()
-    {
-        if (MenuManager.GameIsPaused) return;
-        OpenMenu();
+        spaceText.text = "Space: " + curspace + "/" + maxspace;
     }
 
     public void OpenMenu()
@@ -49,7 +43,6 @@ public class WareHouse : MonoBehaviour
         if (player.Transaction(-100))
         {
             maxspace += 10;
-            spaceText.text = "Space: " + curspace + "/" + maxspace;
         }
         else print("NotEnougt money");
     }
@@ -120,5 +113,12 @@ public class WareHouse : MonoBehaviour
         }
 
         return false;
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
+        if (eventData.button != PointerEventData.InputButton.Left) return;
+        if (MenuManager.GameIsPaused) return;
+        OpenMenu();
     }
 }

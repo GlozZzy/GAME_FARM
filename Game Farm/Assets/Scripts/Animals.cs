@@ -10,8 +10,7 @@ public class Animals : MonoBehaviour
     public float hungryTime;
     public int addAnimalPrice;
     public string productName;
-    public Sprite sprite;
-    public string meatName;
+    public Texture[] textures;
     public string feed;
 
 }

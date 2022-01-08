@@ -21,8 +21,8 @@ TagManager:
   - ChickenMeat
   - WarehouseMilk
   - WarehouseEgg
-  - WarehouseChickenMeat
-  - WarehouseCowMeat
+  - Meat
+  - WarehouseMeat
   layers:
   - Default
   - TransparentFX
