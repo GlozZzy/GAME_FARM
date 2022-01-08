@@ -44,7 +44,8 @@ public class BuildingsGrid: MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             int s = 0;
-            Collider2D[] colliders = Physics2D.OverlapCircleAll(flyingBuilding.transform.position, 0.43f);
+            if (!flyingBuilding) return;
+            Collider2D[] colliders = Physics2D.OverlapCircleAll(flyingBuilding.transform.position, 0.2f);
             if (colliders.Length==4)
             {
                 Debug.Log("4");
@@ -72,6 +73,12 @@ public class BuildingsGrid: MonoBehaviour
 
                
             }
+        }
+        if (Input.GetMouseButtonDown(1))
+        {
+            Destroy(flyingBuilding.gameObject);
+            flyingBuilding = null;
+            Shop.gameObject.SetActive(true);
         }
 
     }

@@ -12,6 +12,7 @@ public class Building : MonoBehaviour
     Price price;
     double w0=0;
     int iter = 0;
+    float timer = 5;
 
 
 
@@ -20,11 +21,15 @@ public class Building : MonoBehaviour
         price = gameObject.GetComponent<Price>();
         colaider = gameObject.GetComponent<Collider2D>();
     }
+
     public void Update()
     {
-        if (iter % 100 == 0)
+        timer -= Time.deltaTime;
+        if (timer > 0) return;
         {
-            if (iter >= 500)
+            timer = 5;
+            iter++;
+            if (iter % 5 == 0)
             {
                 w0 = 0;
                 iter = 0;
@@ -34,9 +39,8 @@ public class Building : MonoBehaviour
             buy_price = price.GetNewP(buy_price, w0);
             
             sell_price = 0.97 * buy_price;
-            
+
         }
-        iter++;
     }
 
 

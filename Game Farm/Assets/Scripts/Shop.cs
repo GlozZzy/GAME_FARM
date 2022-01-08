@@ -33,7 +33,8 @@ public class Shop : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        BakPrice.text = "Price:" + (Bakery.buy_price);
+        CowPrice.text = "Price:" + (Cow.buy_price);
     }
 
     private void OnMouseDown()
