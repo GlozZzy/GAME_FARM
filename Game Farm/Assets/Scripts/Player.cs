@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
-    public double money;
+    public int money;
     public int exp = 0;
     public int lvl = 100;
     public Text MoneyTxt;

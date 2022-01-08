@@ -33,52 +33,20 @@ public class BuildingsGrid: MonoBehaviour
 
     private void Update()
     {
-        Vector2 screenPosition = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
-        Vector2 worldPosition = Camera.main.ScreenToWorldPoint(screenPosition);
         if (flyingBuilding != null)
         {
-            
+            Vector2 screenPosition = new Vector2(Input.mousePosition.x, Input.mousePosition.y);
+            Vector2 worldPosition = Camera.main.ScreenToWorldPoint(screenPosition);
             flyingBuilding.transform.position = new Vector2(worldPosition.x - worldPosition.x % 0.65f-0.4f, worldPosition.y - worldPosition.y % 0.375f + 0.125f);
         }
 
         if (Input.GetMouseButtonDown(0))
         {
-            int s = 0;
-            if (!flyingBuilding) return;
-            Collider2D[] colliders = Physics2D.OverlapCircleAll(flyingBuilding.transform.position, 0.2f);
-            if (colliders.Length==4)
+            if (flyingBuilding)
             {
-                Debug.Log("4");
-                foreach (Collider2D col in colliders)
-                {
-                    if (col.GetComponentInParent<Field>().isBlocked == false && col.GetComponentInParent<Field>().isPlanted == false)
-                        s++;
-                    Debug.Log(col.GetComponentInParent<Field>().transform.position);
-                }
-                if (s == 4)
-                {
-
-                    foreach (Collider2D col in colliders)
-                    {
-                        col.GetComponentInParent<Field>().isBlocked = true;
-                        col.GetComponentInParent<Field>().Check();
-
-                    }
-                    if (flyingBuilding)
-                    {
-                        flyingBuilding.colaider.enabled = true;
-                        PlaceFlyingBuilding(flyingBuilding.transform.position.x, flyingBuilding.transform.position.y);
-                    }
-                }
-
-               
+                flyingBuilding.colaider.enabled = true;
+                PlaceFlyingBuilding(flyingBuilding.transform.position.x, flyingBuilding.transform.position.y);
             }
-        }
-        if (Input.GetMouseButtonDown(1))
-        {
-            Destroy(flyingBuilding.gameObject);
-            flyingBuilding = null;
-            Shop.gameObject.SetActive(true);
         }
 
     }
