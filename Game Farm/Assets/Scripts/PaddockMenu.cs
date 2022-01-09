@@ -9,7 +9,6 @@ public class PaddockMenu : MonoBehaviour
     Paddock paddock;
     Canvas canvas;
     Player player;
-    FieldMenu cellMenu;
     public Text count;
     public Text price;
     public Text capacity;
@@ -20,7 +19,6 @@ public class PaddockMenu : MonoBehaviour
     public Text feedName;
     public Text animName;
     public Text productName;
-    FieldMenu cellmenu;
 
     WareHouse warehouse;
     public Text timeToDie;
@@ -31,7 +29,7 @@ public class PaddockMenu : MonoBehaviour
         canvas = GetComponent<Canvas>();
         player = FindObjectOfType<Player>();
         warehouse = FindObjectOfType<WareHouse>();
-        cellmenu = GameObject.Find("NotEnoughProducts").GetComponent<FieldMenu>();
+        
     }
 
     // Update is called once per frame
@@ -59,7 +57,6 @@ public class PaddockMenu : MonoBehaviour
             product.pname = paddock.animal.productName;
             if (warehouse.AddProduct(product) == false)
             {
-                cellmenu.Open();
                 break;
             }
                 temp = i + 1;
@@ -90,11 +87,6 @@ public class PaddockMenu : MonoBehaviour
                 paddock.hungry_timer = paddock.animal.hungryTime;
                 paddock.timer = paddock.animal.productCreationTime;
             }
-            else
-            {
-                cellMenu = GameObject.Find("NotEnoughMoney").GetComponent<FieldMenu>();
-                cellMenu.Open();
-            }
         }
     }
     public void FeedAnimal()
@@ -114,9 +106,6 @@ public class PaddockMenu : MonoBehaviour
                 paddock.numOfAnimals--;
                 paddock.hungry_timer = paddock.animal.hungryTime;
             }
-            else cellmenu.Open();
-
-
         }
 
     }

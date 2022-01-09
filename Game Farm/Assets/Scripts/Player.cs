@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
+using System;
 
 public class Player : MonoBehaviour
 {
@@ -12,16 +13,22 @@ public class Player : MonoBehaviour
     public Text MoneyTxt;
     public Text ExpTxt;
 
+    FieldMenu notEnougthMoney;
+
+    private void Start()
+    {
+        notEnougthMoney = GameObject.Find("NotEnoughMoney").GetComponent<FieldMenu>();
+    }
 
     // Start is called before the first frame update
     void FixedUpdate()
     {
-        MoneyTxt.text = $"{money}";
+        MoneyTxt.text = $"{Math.Round(money, 2)}";
         ExpTxt.text = $"{exp} / {lvl}";
     }
 
     // Update is called once per frame
-    public bool Transaction(int value)
+    public bool Transaction(double value)
     {
         if (money + value >= 0)
         {
@@ -30,7 +37,7 @@ public class Player : MonoBehaviour
         }
         else
         {
-            print("NotEnoughMoney");
+            notEnougthMoney.Open();
             return false;
         }
     }

@@ -8,11 +8,10 @@ public class BuildingsGrid: MonoBehaviour
     public Vector2Int GridSize = new Vector2Int(10, 10);
     public Player player;
     private Building flyingBuilding;
-    public Canvas NEM;
 
     public void StartPlacingBuilding(Building buildingPrefab)
     {
-        if (buildingPrefab.buy_price <= player.money)
+        if (player.Transaction(buildingPrefab.buy_price))
         {
             Shop.gameObject.SetActive(false);
             if (flyingBuilding != null)
@@ -27,8 +26,6 @@ public class BuildingsGrid: MonoBehaviour
                 flyingBuilding.transform.position = new Vector2(0.65f, -0.45f);
             }
         }
-        else
-            NEM.enabled = true;
     }
 
     private void Update()
@@ -41,7 +38,6 @@ public class BuildingsGrid: MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
-            
             int s = 0;
             
             Collider2D[] colliders = Physics2D.OverlapCircleAll(flyingBuilding.transform.position, 0.2f);

@@ -119,7 +119,6 @@ public class Field : MonoBehaviour, IPointerClickHandler
         }
         else
         {
-            cellMenu = GameObject.Find("NotEnoughMoney").GetComponent<FieldMenu>();
             choosen = true;
             cellMenu.Open(this);
         }
@@ -201,7 +200,6 @@ public class Field : MonoBehaviour, IPointerClickHandler
         } 
         else
         {
-            cellMenu = GameObject.Find("NotEnoughMoney").GetComponent<FieldMenu>();
             choosen = true;
             cellMenu.Open(this);
         }

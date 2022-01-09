@@ -13,6 +13,7 @@ public class WareHouse : MonoBehaviour, IPointerClickHandler
     public Canvas NEM;
     private int curspace;
     private List<Product> products;
+    FieldMenu notEnougthSpace;
 
 
     // Start is called before the first frame update
@@ -20,6 +21,7 @@ public class WareHouse : MonoBehaviour, IPointerClickHandler
     {
         curspace = 0;
         products = new List<Product>();
+        notEnougthSpace = GameObject.Find("NotEnoughSpace").GetComponent<FieldMenu>();
     }
 
     // Update is called once per frame
@@ -51,7 +53,7 @@ public class WareHouse : MonoBehaviour, IPointerClickHandler
     {
         if (curspace < maxspace)
         {
-            
+
             GameObject obj = GameObject.FindGameObjectWithTag(product.pname);
             ProductInfo inf = obj.GetComponent<ProductInfo>();
             inf.count++;
@@ -63,7 +65,11 @@ public class WareHouse : MonoBehaviour, IPointerClickHandler
             curspace++;
             return true;
         }
-        else return false;
+        else 
+        {
+            notEnougthSpace.Open();
+            return false;
+        }
     }
 
     public void SellProduct(Text product)
@@ -80,21 +86,26 @@ public class WareHouse : MonoBehaviour, IPointerClickHandler
         curspace--;
         
     }
+
     public void BuyProducts(ProductInfo inf, int number)
     {
-        if (inf.buy_price*number <= player.money)
+        if (curspace + number <= maxspace)
         {
-            inf.count+=number;
-            string a = "Warehouse" + inf.name;
-            GameObject obj1 = GameObject.FindGameObjectWithTag(a);
-            var textcount = obj1.transform.Find("count");
-            textcount.gameObject.GetComponent<Text>().text = "count: " + (inf.count);
+            if (player.Transaction(inf.buy_price * number))
+            {
+                inf.count += number;
+                string a = "Warehouse" + inf.name;
+                GameObject obj1 = GameObject.FindGameObjectWithTag(a);
+                var textcount = obj1.transform.Find("count");
+                textcount.gameObject.GetComponent<Text>().text = "count: " + (inf.count);
 
-            player.money -= inf.buy_price*number;
-            curspace+=number;
+                curspace += number;
+            }
         }
         else
-            NEM.enabled = true;
+        {
+            notEnougthSpace.Open();
+        }
     }
 
     public bool TakeProduct(string productName, int count)
@@ -111,7 +122,6 @@ public class WareHouse : MonoBehaviour, IPointerClickHandler
             curspace -= count;
             return true;
         }
-
         return false;
     }
 
