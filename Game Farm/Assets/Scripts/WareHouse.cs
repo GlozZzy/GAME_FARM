@@ -106,18 +106,27 @@ public class WareHouse : MonoBehaviour
 
     public bool TakeProduct(string productName, int count)
     {
-        GameObject obj = GameObject.FindGameObjectWithTag(productName);
-        ProductInfo inf = obj.GetComponent<ProductInfo>();
-        if (inf.count >= count) {
-            inf.count-= count;
-            string a = "Warehouse" + productName;
-            GameObject obj1 = GameObject.FindGameObjectWithTag(a);
-            var textcount = obj1.transform.Find("count");
-            textcount.gameObject.GetComponent<Text>().text = "count: " + (inf.count);
-            player.money += inf.sell_price;
-            curspace -= count;
-            return true;
+        try
+        {
+            GameObject obj = GameObject.FindGameObjectWithTag(productName);
+            ProductInfo inf = obj.GetComponent<ProductInfo>();
+            if (inf.count >= count)
+            {
+                inf.count -= count;
+                string a = "Warehouse" + productName;
+                GameObject obj1 = GameObject.FindGameObjectWithTag(a);
+                var textcount = obj1.transform.Find("count");
+                textcount.gameObject.GetComponent<Text>().text = "count: " + (inf.count);
+                player.money += inf.sell_price;
+                curspace -= count;
+                return true;
+            }
         }
+        catch
+        {
+            Debug.Log("Нет таких продуктов на складе!");
+        }
+
 
         return false;
     }

@@ -19,7 +19,7 @@ public class FieldData
         timer = field.timer;
         isPlanted = field.isPlanted;
         isBlocked = field.isBlocked;
-        if (field.product) nameProduct = field.product.pname;
+        if (field.product != null) nameProduct = field.product.pname;
 
         px = field.transform.position.x;
         py = field.transform.position.y;
