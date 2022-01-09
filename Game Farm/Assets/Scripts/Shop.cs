@@ -12,12 +12,15 @@ public class Shop : MonoBehaviour, IPointerClickHandler
     public Canvas plan;
     public Canvas prod;
     public Canvas NEM;
-    public Text BakPrice;
-    public Text CowPrice;
-    public Text ChikPrice;
-    public Building Bakery;
-    public Building Cow;
-    public Building Chik;
+    public Canvas BuyMenu;
+    public Text canprice;
+    ProductInfo product;
+    Text BakPrice;
+    Text CowPrice;
+    Text ChikPrice;
+    Building Bakery;
+    Building Cow;
+    Building Chik;
     public BuildingsGrid grid;
     // Start is called before the first frame update
     void Start()
@@ -27,6 +30,14 @@ public class Shop : MonoBehaviour, IPointerClickHandler
         plan.enabled = false;
         prod.enabled = false;
         NEM.enabled = false;
+        
+        BuyMenu.enabled = false;
+        BakPrice = GameObject.FindGameObjectWithTag("BakeryPrice").GetComponent<Text>();
+        CowPrice = GameObject.FindGameObjectWithTag("CowPrice").GetComponent<Text>();
+        ChikPrice = GameObject.FindGameObjectWithTag("ChikPrice").GetComponent<Text>();
+        Bakery = GameObject.FindGameObjectWithTag("Bakery").GetComponent<Building>();
+        Cow = GameObject.FindGameObjectWithTag("Cow").GetComponent<Building>();
+        Chik = GameObject.FindGameObjectWithTag("Chik").GetComponent<Building>();
 
     }
 
@@ -35,6 +46,7 @@ public class Shop : MonoBehaviour, IPointerClickHandler
     {
         BakPrice.text = "Price:" + (Bakery.buy_price);
         CowPrice.text = "Price:" + (Cow.buy_price);
+        ChikPrice.text = "Price:" + (Cow.buy_price);
     }
 
 
@@ -90,6 +102,13 @@ public class Shop : MonoBehaviour, IPointerClickHandler
         ChikPrice.text = "Price:" + (Chik.buy_price);
         CowPrice.text = "Price:" + (Cow.buy_price);
     }
+    public void BuyCan(ProductInfo produc)
+    {
+        product = produc;
+        canprice.text = "Price:" + product.buy_price;
+        BuyMenu.enabled = true;
+
+    }
 
     public void Not()
     {
@@ -102,5 +121,20 @@ public class Shop : MonoBehaviour, IPointerClickHandler
         if (MenuManager.GameIsPaused) return;
         CanvasMenu.gameObject.SetActive(true);
         OpenMenu();
+    }
+    public void BuyProd()
+    {
+        int num = int.Parse(BuyMenu.GetComponentInChildren<InputField>().text);
+        
+        
+        WareHouse ware = GameObject.FindGameObjectWithTag("WareHouse").GetComponent<WareHouse>();
+        ware.BuyProducts(product, num);
+        BuyMenu.enabled = false;
+        BuyMenu.GetComponentInChildren<InputField>().text = "";
+    }
+    public void closeMenu()
+    {
+        BuyMenu.GetComponentInChildren<InputField>().text = "";
+        BuyMenu.enabled = false;
     }
 }

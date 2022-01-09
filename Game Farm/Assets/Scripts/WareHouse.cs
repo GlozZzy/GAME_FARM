@@ -80,18 +80,18 @@ public class WareHouse : MonoBehaviour, IPointerClickHandler
         curspace--;
         
     }
-    public void BuyProducts(ProductInfo inf)
+    public void BuyProducts(ProductInfo inf, int number)
     {
-        if (inf.buy_price <= player.money)
+        if (inf.buy_price*number <= player.money)
         {
-            inf.count++;
+            inf.count+=number;
             string a = "Warehouse" + inf.name;
             GameObject obj1 = GameObject.FindGameObjectWithTag(a);
             var textcount = obj1.transform.Find("count");
             textcount.gameObject.GetComponent<Text>().text = "count: " + (inf.count);
 
-            player.money -= inf.buy_price;
-            curspace++;
+            player.money -= inf.buy_price*number;
+            curspace+=number;
         }
         else
             NEM.enabled = true;

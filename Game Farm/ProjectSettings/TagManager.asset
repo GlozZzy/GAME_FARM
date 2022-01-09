@@ -23,6 +23,10 @@ TagManager:
   - WarehouseEgg
   - Meat
   - WarehouseMeat
+  - BakeryPrice
+  - CowPrice
+  - ChikPrice
+  - WareHouse
   layers:
   - Default
   - TransparentFX
