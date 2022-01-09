@@ -14,6 +14,7 @@ public class WareHouse : MonoBehaviour, IPointerClickHandler
     private int curspace;
     private List<Product> products;
     FieldMenu notEnougthSpace;
+    FieldMenu notEnougthProducts;
 
 
     // Start is called before the first frame update
@@ -22,6 +23,7 @@ public class WareHouse : MonoBehaviour, IPointerClickHandler
         curspace = 0;
         products = new List<Product>();
         notEnougthSpace = GameObject.Find("NotEnoughSpace").GetComponent<FieldMenu>();
+        notEnougthProducts = GameObject.Find("NotEnoughProducts").GetComponent<FieldMenu>();
     }
 
     // Update is called once per frame
@@ -112,8 +114,9 @@ public class WareHouse : MonoBehaviour, IPointerClickHandler
     {
         GameObject obj = GameObject.FindGameObjectWithTag(productName);
         ProductInfo inf = obj.GetComponent<ProductInfo>();
-        if (inf.count >= count) {
-            inf.count-= count;
+        if (inf.count >= count)
+        {
+            inf.count -= count;
             string a = "Warehouse" + productName;
             GameObject obj1 = GameObject.FindGameObjectWithTag(a);
             var textcount = obj1.transform.Find("count");
@@ -122,7 +125,11 @@ public class WareHouse : MonoBehaviour, IPointerClickHandler
             curspace -= count;
             return true;
         }
-        return false;
+        else
+        {
+            notEnougthProducts.Open();
+            return false;
+        }
     }
 
     public void OnPointerClick(PointerEventData eventData)
