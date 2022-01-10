@@ -11,8 +11,11 @@ public class WareHouse : MonoBehaviour, IPointerClickHandler
     public Text spaceText;
     public int maxspace;
     public Canvas NEM;
-    private int curspace;
+    public int curspace;
     private List<Product> products;
+    public List<ProductInfo> listOfObj;//
+    public int[] counts;//
+    GameObject obj;
     FieldMenu notEnougthSpace;
     FieldMenu notEnougthProducts;
 
@@ -24,6 +27,11 @@ public class WareHouse : MonoBehaviour, IPointerClickHandler
         products = new List<Product>();
         notEnougthSpace = GameObject.Find("NotEnoughSpace").GetComponent<FieldMenu>();
         notEnougthProducts = GameObject.Find("NotEnoughProducts").GetComponent<FieldMenu>();
+        obj = GameObject.FindGameObjectWithTag("obj");
+        //listOfObj = new List<ProductInfo>();
+        //listOfObj.Add(obj.transform.GetChild(0).GetComponent<ProductInfo>());
+        print("-------------------obj lenth: " + obj.transform.childCount);
+        counts = new int[obj.transform.childCount-3];
     }
 
     // Update is called once per frame
@@ -76,17 +84,22 @@ public class WareHouse : MonoBehaviour, IPointerClickHandler
 
     public void SellProduct(Text product)
     {
-        
         GameObject obj = GameObject.FindGameObjectWithTag(product.text);
         ProductInfo inf = obj.GetComponent<ProductInfo>();
-        inf.count--;
-        string a = "Warehouse" + product.text;
-        GameObject obj1 = GameObject.FindGameObjectWithTag(a);
-        var textcount = obj1.transform.Find("count");
-        textcount.gameObject.GetComponent<Text>().text = "count: " + (inf.count);
-        player.money += inf.sell_price;
-        curspace--;
-        
+        if (inf.count > 0)
+        {
+            inf.count--;
+            string a = "Warehouse" + product.text;
+            GameObject obj1 = GameObject.FindGameObjectWithTag(a);
+            var textcount = obj1.transform.Find("count");
+            textcount.gameObject.GetComponent<Text>().text = "count: " + (inf.count);
+            player.money += inf.sell_price;
+            curspace--;
+        }
+        else
+        {
+            notEnougthProducts.Open();
+        }
     }
 
     public void BuyProducts(ProductInfo inf, int number)
@@ -137,5 +150,42 @@ public class WareHouse : MonoBehaviour, IPointerClickHandler
         if (eventData.button != PointerEventData.InputButton.Left) return;
         if (MenuManager.GameIsPaused) return;
         OpenMenu();
+    }
+
+    public void SaveWareHouse()
+    {
+        for (int i = 0; i < counts.Length; i++)
+        {
+            counts[i] = obj.transform.GetChild(i).GetComponent<ProductInfo>().count;
+        }
+        SaveSystemWareHouse.SaveWareHouse(this);
+    }
+    public void LoadWareHouse()
+    {
+        WareHouseData data = SaveSystemWareHouse.LoadWareHouse();
+        string[] names = { "Wheat", "Cheese", "Milk", "Carrot", "Meat", "Egg" };
+
+        if (data != null)
+        {
+            maxspace = data.maxspace;
+            //curspace = data.curspace;
+            print("------------counts lenth: " + counts.Length);
+            print("------------data counts lenth: " + data.counts.Length);
+            for (int i=0; i<counts.Length; i++)
+            {
+                var products = new Product();
+                products.pname = names[i];
+                print("--------count is: " + data.counts[i]);
+                counts[i] = data.counts[i];
+                for(int j=0; j<counts[i]; j++)
+                {
+                    this.AddProduct(products);
+                }
+            }
+        }
+    }
+    public void ResetWareHouse()
+    {
+        SaveSystemWareHouse.ResetData();
     }
 }

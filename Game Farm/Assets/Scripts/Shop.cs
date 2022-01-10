@@ -37,7 +37,7 @@ public class Shop : MonoBehaviour, IPointerClickHandler
         ChikPrice = GameObject.FindGameObjectWithTag("ChikPrice").GetComponent<Text>();
         Bakery = GameObject.FindGameObjectWithTag("Bakery").GetComponent<Building>();
         Cow = GameObject.FindGameObjectWithTag("Cow").GetComponent<Building>();
-        Chik = GameObject.FindGameObjectWithTag("Chik").GetComponent<Building>();
+        Chik = GameObject.FindGameObjectWithTag("Chicken").GetComponent<Building>();
 
     }
 

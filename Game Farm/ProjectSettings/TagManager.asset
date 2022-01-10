@@ -27,6 +27,8 @@ TagManager:
   - CowPrice
   - ChikPrice
   - WareHouse
+  - obj
+  - Bakery
   layers:
   - Default
   - TransparentFX
