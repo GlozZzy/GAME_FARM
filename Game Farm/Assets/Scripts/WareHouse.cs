@@ -13,8 +13,10 @@ public class WareHouse : MonoBehaviour, IPointerClickHandler
     public Canvas NEM;
     public int curspace;
     private List<Product> products;
-    public List<ProductInfo> listOfObj;//
-    public int[] counts;//
+    public List<ProductInfo> listOfObj;
+    public int[] counts;
+    public double[] buy_prices;
+    public double[] sell_prices;
     GameObject obj;
     FieldMenu notEnougthSpace;
     FieldMenu notEnougthProducts;
@@ -28,10 +30,9 @@ public class WareHouse : MonoBehaviour, IPointerClickHandler
         notEnougthSpace = GameObject.Find("NotEnoughSpace").GetComponent<FieldMenu>();
         notEnougthProducts = GameObject.Find("NotEnoughProducts").GetComponent<FieldMenu>();
         obj = GameObject.FindGameObjectWithTag("obj");
-        //listOfObj = new List<ProductInfo>();
-        //listOfObj.Add(obj.transform.GetChild(0).GetComponent<ProductInfo>());
-        print("-------------------obj lenth: " + obj.transform.childCount);
-        counts = new int[obj.transform.childCount-3];
+        counts = new int[obj.transform.childCount-3];   //без не продуктов
+        buy_prices = new double[obj.transform.childCount - 3];
+        sell_prices = new double[obj.transform.childCount - 3];
     }
 
     // Update is called once per frame
@@ -63,7 +64,6 @@ public class WareHouse : MonoBehaviour, IPointerClickHandler
     {
         if (curspace < maxspace)
         {
-
             GameObject obj = GameObject.FindGameObjectWithTag(product.pname);
             ProductInfo inf = obj.GetComponent<ProductInfo>();
             inf.count++;
@@ -157,6 +157,8 @@ public class WareHouse : MonoBehaviour, IPointerClickHandler
         for (int i = 0; i < counts.Length; i++)
         {
             counts[i] = obj.transform.GetChild(i).GetComponent<ProductInfo>().count;
+            buy_prices[i] = obj.transform.GetChild(i).GetComponent<ProductInfo>().buy_price;
+            sell_prices[i] = obj.transform.GetChild(i).GetComponent<ProductInfo>().sell_price;
         }
         SaveSystemWareHouse.SaveWareHouse(this);
     }
@@ -168,18 +170,22 @@ public class WareHouse : MonoBehaviour, IPointerClickHandler
         if (data != null)
         {
             maxspace = data.maxspace;
-            //curspace = data.curspace;
-            print("------------counts lenth: " + counts.Length);
-            print("------------data counts lenth: " + data.counts.Length);
+           
+
             for (int i=0; i<counts.Length; i++)
             {
                 var products = new Product();
+                print("byyyu: " + data.buy_prices[i]);
+                print("sellll: " + data.sell_prices[i]);
+
                 products.pname = names[i];
-                print("--------count is: " + data.counts[i]);
                 counts[i] = data.counts[i];
-                for(int j=0; j<counts[i]; j++)
+                buy_prices[i] = data.buy_prices[i];
+                sell_prices[i] = data.sell_prices[i];
+
+                for (int j=0; j<counts[i]; j++)
                 {
-                    this.AddProduct(products);
+                    AddProduct(products);
                 }
             }
         }
