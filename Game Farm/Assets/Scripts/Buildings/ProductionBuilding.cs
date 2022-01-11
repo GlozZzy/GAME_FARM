@@ -37,15 +37,15 @@ public class ProductionBuilding : MonoBehaviour, IPointerClickHandler
             Debug.Log("заказ выполняется");
             currentRecipie = recipie;
             timer = currentRecipie.timeToCreate;
-            /*for (int i = 0; i < currentRecipie.ingridients.Length; i++)
+            for (int i = 0; i < currentRecipie.ingridients.Length; i++)
             {
-                if (!wareHouse.TakeProduct("Warehouse" + currentRecipie.ingridients[i].product.Pname, currentRecipie.ingridients[i].numberOfProducts))
+                if (!wareHouse.TakeProduct(currentRecipie.ingridients[i].product.Pname, currentRecipie.ingridients[i].numberOfProducts))
                 {
                     currentRecipie = null;
                     break;
                 }
                 Debug.Log(currentRecipie.ingridients[i].product.Pname + " Удален");
-            }*/
+            }
             addProduct = true;
         }
     }
