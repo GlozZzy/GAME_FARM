@@ -175,8 +175,6 @@ public class WareHouse : MonoBehaviour, IPointerClickHandler
             for (int i=0; i<counts.Length; i++)
             {
                 var products = new Product();
-                print("byyyu: " + data.buy_prices[i]);
-                print("sellll: " + data.sell_prices[i]);
 
                 products.pname = names[i];
                 counts[i] = data.counts[i];

@@ -225,7 +225,6 @@ public class Field : MonoBehaviour, IPointerClickHandler
         Start();
         started = true;
 
-
         plantStage = data.stage;
         timer = data.timer;
         isPlanted = data.isPlanted;
@@ -233,7 +232,6 @@ public class Field : MonoBehaviour, IPointerClickHandler
         {
             FieldInstructor(data.nameProduct);
             plant.sprite = product.plantStages[plantStage];
-            
         }
     }
 

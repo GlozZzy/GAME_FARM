@@ -14,8 +14,6 @@ public class Building : MonoBehaviour
     int iter = 0;
     float timer = 5;
 
-
-
     private void Start()
     {
         price = gameObject.GetComponent<Price>();

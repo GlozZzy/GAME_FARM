@@ -12,7 +12,8 @@ public class SaveSystemFields : MonoBehaviour
         var Farm = GameObject.FindGameObjectsWithTag("Farm");
 
         for (int i = 0; i < Farm[0].transform.childCount; i++)
-            if (Farm[0].transform.GetChild(i).tag == "Plot") {    
+            if (Farm[0].transform.GetChild(i).tag == "Plot") 
+            {    
                 //добавляем в список все Plot
                 listOfFields.Add(new FieldData(Farm[0].transform.GetChild(i).GetComponent<Field>()));
             }
@@ -38,14 +39,22 @@ public class SaveSystemFields : MonoBehaviour
 
             var Farm = GameObject.FindGameObjectWithTag("Farm");
             int j = 0;
-            for (int i = 0; i < Farm.transform.childCount; i++) {
+            for (int i = 0; i < Farm.transform.childCount; i++) 
+            {
                 if (Farm.transform.GetChild(i).tag == "Plot")
                 {
+                    if (j >= data.Count)
+                    {
+                        Destroy(Farm.transform.GetChild(i).gameObject);
+                        continue;
+                    }
+
                     Farm.transform.GetChild(i).GetComponent<Field>().LoadField(data[j]);
+                    Farm.transform.GetChild(i).transform.position = new Vector3(data[j].px, data[j].py, data[j].pz);
                     j++;
                 }
             }
-            while (j != data.Count)
+            while (j < data.Count)
             {
                 var pl = Instantiate(Resources.Load("Plot", typeof(GameObject)), new Vector3(data[j].px, data[j].py, data[j].pz), Quaternion.identity) as GameObject;
                 pl.GetComponent<Field>().LoadField(data[j],true);

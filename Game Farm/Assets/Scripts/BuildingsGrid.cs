@@ -52,7 +52,6 @@ public class BuildingsGrid: MonoBehaviour
                 }
                 if (s == 4)
                 {
-
                     foreach (Collider2D col in colliders)
                     {
                         col.GetComponentInParent<Field>().isBlocked = true;

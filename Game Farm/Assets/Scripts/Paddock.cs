@@ -35,14 +35,12 @@ public class Paddock : MonoBehaviour, IPointerClickHandler
                 numOfProducts++;
             }
             timer = animal.productCreationTime;
-
         }
         hungry_timer -= Time.deltaTime;
         if (hungry_timer < 0 && numOfAnimals > 0)
         {
             numOfAnimals--;
             hungry_timer = animal.hungryTime;
-
         }
     }
     public void OpenMenu()
@@ -55,5 +53,25 @@ public class Paddock : MonoBehaviour, IPointerClickHandler
     public void OnPointerClick(PointerEventData eventData)
     {
         OpenMenu();
+    }
+
+    public void SavePaddock()
+    {
+        SaveSystemPaddock.SavePaddock(this);
+    }
+    public void LoadPaddocks()
+    {
+        SaveSystemPaddock.LoadPaddock();
+    }
+    public void LoadPaddock(PaddockData data)   
+    {
+        timer = data.timer;
+        numOfProducts = data.numOfProducts;
+        numOfAnimals = data.numOfAnimals;
+        hungry_timer = data.hungry_timer;
+    }
+    public void ResetPaddock()
+    {
+        SaveSystemPaddock.ResetData();
     }
 }
