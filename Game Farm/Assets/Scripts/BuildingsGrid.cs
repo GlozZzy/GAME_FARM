@@ -11,8 +11,8 @@ public class BuildingsGrid: MonoBehaviour
 
     public void StartPlacingBuilding(Building buildingPrefab)
     {
-        if (player.Transaction(buildingPrefab.buy_price))
-        {
+        
+        
             Shop.gameObject.SetActive(false);
             if (flyingBuilding != null)
             {
@@ -25,7 +25,7 @@ public class BuildingsGrid: MonoBehaviour
                 flyingBuilding.MainRenderer.enabled = true;
                 flyingBuilding.transform.position = new Vector2(0.65f, -0.45f);
             }
-        }
+        
     }
 
     private void Update()
@@ -38,6 +38,7 @@ public class BuildingsGrid: MonoBehaviour
 
         if (Input.GetMouseButtonDown(0))
         {
+
             int s = 0;
             
             Collider2D[] colliders = Physics2D.OverlapCircleAll(flyingBuilding.transform.position, 0.2f);
@@ -60,8 +61,17 @@ public class BuildingsGrid: MonoBehaviour
                     }
                     if (flyingBuilding)
                     {
-                        flyingBuilding.colaider.enabled = true;
-                        PlaceFlyingBuilding(flyingBuilding.transform.position.x, flyingBuilding.transform.position.y);
+                        if (player.Transaction(-flyingBuilding.buy_price))
+                        {
+                            flyingBuilding.colaider.enabled = true;
+                            PlaceFlyingBuilding(flyingBuilding.transform.position.x, flyingBuilding.transform.position.y);
+                        }
+                        else
+                        {
+                            Destroy(flyingBuilding.gameObject);
+                            flyingBuilding = null;
+                            Shop.gameObject.SetActive(true);
+                        }
                     }
                 }
 

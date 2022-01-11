@@ -106,7 +106,7 @@ public class WareHouse : MonoBehaviour, IPointerClickHandler
     {
         if (curspace + number <= maxspace)
         {
-            if (player.Transaction(inf.buy_price * number))
+            if (player.Transaction(-inf.buy_price * number))
             {
                 inf.count += number;
                 string a = "Warehouse" + inf.name;

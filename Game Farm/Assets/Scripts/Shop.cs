@@ -15,15 +15,15 @@ public class Shop : MonoBehaviour, IPointerClickHandler
     public Canvas BuyMenu;
     public Text canprice;
     ProductInfo product;
-    Text BakPrice;
-    Text CowPrice;
-    Text ChikPrice;
-    Building Bakery;
-    Building Cow;
-    Building Chik;
+    public Text BakPrice;
+    public Text CowPrice;
+    public Text ChikPrice;
+    public Building Bakery;
+    public Building Cow;
+    public Building Chik;
     public BuildingsGrid grid;
     // Start is called before the first frame update
-    void Start()
+    public void Start()
     {
         buil.enabled = false;
         anim.enabled = false;
@@ -32,21 +32,17 @@ public class Shop : MonoBehaviour, IPointerClickHandler
         NEM.enabled = false;
         
         BuyMenu.enabled = false;
-        BakPrice = GameObject.FindGameObjectWithTag("BakeryPrice").GetComponent<Text>();
-        CowPrice = GameObject.FindGameObjectWithTag("CowPrice").GetComponent<Text>();
-        ChikPrice = GameObject.FindGameObjectWithTag("ChikPrice").GetComponent<Text>();
-        Bakery = GameObject.FindGameObjectWithTag("Bakery").GetComponent<Building>();
-        Cow = GameObject.FindGameObjectWithTag("Cow").GetComponent<Building>();
-        Chik = GameObject.FindGameObjectWithTag("Chicken").GetComponent<Building>();
+       
 
     }
 
     // Update is called once per frame
-    void Update()
+    public void Update()
     {
+        Debug.Log(Cow.buy_price);
         BakPrice.text = "Price:" + (Bakery.buy_price);
         CowPrice.text = "Price:" + (Cow.buy_price);
-        ChikPrice.text = "Price:" + (Cow.buy_price);
+        ChikPrice.text = "Price:" + (Chik.buy_price);
     }
 
 
@@ -73,7 +69,7 @@ public class Shop : MonoBehaviour, IPointerClickHandler
         plan.enabled = false;
         prod.enabled = false;
         NEM.enabled = false;
-        BakPrice.text = "Price:" + (Bakery.buy_price);
+        
 
     }
     public void ProductsMenu()
@@ -94,13 +90,13 @@ public class Shop : MonoBehaviour, IPointerClickHandler
     }
     public void AnimalsMenu()
     {
+        Debug.Log(Cow.buy_price);
         buil.enabled = false;
         anim.enabled = true;
         plan.enabled = false;
         prod.enabled = false;
         NEM.enabled = false;
-        ChikPrice.text = "Price:" + (Chik.buy_price);
-        CowPrice.text = "Price:" + (Cow.buy_price);
+        
     }
     public void BuyCan(ProductInfo produc)
     {
