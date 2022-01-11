@@ -18,6 +18,7 @@ public class Building : MonoBehaviour
 
     private void Start()
     {
+        MainRenderer = GetComponent<Renderer>();
         price = gameObject.GetComponent<Price>();
         colaider = gameObject.GetComponent<Collider2D>();
     }
