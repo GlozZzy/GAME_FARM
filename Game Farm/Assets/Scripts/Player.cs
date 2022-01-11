@@ -10,14 +10,18 @@ public class Player : MonoBehaviour
     public double money;
     public int exp = 0;
     public int lvl = 100;
+    public int lvltemp = 0;
     public Text MoneyTxt;
     public Text ExpTxt;
-
+    public Text LVLTxt;
+    public Text LvlReq;
     FieldMenu notEnougthMoney;
+    public GameObject notEnougthlvl;
 
     private void Start()
     {
         notEnougthMoney = GameObject.Find("NotEnoughMoney").GetComponent<FieldMenu>();
+        
     }
 
     // Start is called before the first frame update
@@ -25,6 +29,7 @@ public class Player : MonoBehaviour
     {
         MoneyTxt.text = $"{Math.Round(money, 2)}";
         ExpTxt.text = $"{exp} / {lvl}";
+        LVLTxt.text = $"{lvltemp}";
     }
 
     // Update is called once per frame
@@ -55,6 +60,7 @@ public class Player : MonoBehaviour
         exp = exp % lvl;
         lvl = (int)(lvl * 1.2);
         print("LevelUp");
+        lvltemp++;
     }
 
     public void SavePlayer()
@@ -71,12 +77,29 @@ public class Player : MonoBehaviour
             money = data.money;
             exp = data.exp;
             lvl = data.lvl;
+            
         }
     }
 
     public void ResetPlayer()
     {
         SaveSystemPlayer.ResetData();
+    }
+    public bool LvlRecuired(int lvlr)
+    {
+        if(lvltemp<lvlr)
+        {
+            Debug.Log("NEKEZ");
+            notEnougthlvl.SetActive(true);
+            LvlReq.text = "Lvl Required:" + lvlr;
+            return false;
+        }
+        return true;
+    }
+
+    public void CloseLvl()
+    {
+        notEnougthlvl.SetActive(false);
     }
 
 }

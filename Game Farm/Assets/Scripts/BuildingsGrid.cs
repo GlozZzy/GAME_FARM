@@ -11,8 +11,8 @@ public class BuildingsGrid: MonoBehaviour
 
     public void StartPlacingBuilding(Building buildingPrefab)
     {
-        
-        
+        if (player.LvlRecuired(buildingPrefab.lvl))
+        {
             Shop.gameObject.SetActive(false);
             if (flyingBuilding != null)
             {
@@ -25,6 +25,7 @@ public class BuildingsGrid: MonoBehaviour
                 flyingBuilding.MainRenderer.enabled = true;
                 flyingBuilding.transform.position = new Vector2(0.65f, -0.45f);
             }
+        }
         
     }
 

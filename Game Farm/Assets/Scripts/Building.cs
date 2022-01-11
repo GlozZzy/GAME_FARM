@@ -13,6 +13,7 @@ public class Building : MonoBehaviour
     double w0=0;
     int iter = 0;
     float timer = 5;
+    public int lvl;
 
     private void Start()
     {

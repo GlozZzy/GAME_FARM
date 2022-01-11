@@ -39,7 +39,7 @@ public class Shop : MonoBehaviour, IPointerClickHandler
     // Update is called once per frame
     public void Update()
     {
-        Debug.Log(Cow.buy_price);
+        
         BakPrice.text = "Price:" + (Bakery.buy_price);
         CowPrice.text = "Price:" + (Cow.buy_price);
         ChikPrice.text = "Price:" + (Chik.buy_price);

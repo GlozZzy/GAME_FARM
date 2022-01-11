@@ -7,5 +7,6 @@ public class BuildingInfo : MonoBehaviour
     
     public int exp;
     public int openlvl;
+    
 
 }
