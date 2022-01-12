@@ -95,8 +95,17 @@ public class BuildingsMenu : MonoBehaviour
 
     public void DestroyBuilding()
     {
-        player.money += 25;
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(building.transform.position, 0.2f);
+        foreach (Collider2D collider in colliders)
+        {
+            if (collider.gameObject.tag != "Plot")
+                continue;
+
+            collider.gameObject.GetComponent<Field>().isBlocked = false;
+            collider.gameObject.GetComponent<Field>().Check();
+        }
         Destroy(building.gameObject);
+        player.Transaction(25);
         CloseMenu();
     }
 }
