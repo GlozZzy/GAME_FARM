@@ -11,19 +11,22 @@ public class BuildingsGrid: MonoBehaviour
 
     public void StartPlacingBuilding(Building buildingPrefab)
     {
-        if (player.LvlRecuired(buildingPrefab.lvl))
+        if (player.Transaction(-buildingPrefab.buy_price))
         {
-            Shop.gameObject.SetActive(false);
-            if (flyingBuilding != null)
+            if (player.LvlRecuired(buildingPrefab.lvl))
             {
-                Destroy(flyingBuilding.gameObject);
-            }
+                Shop.gameObject.SetActive(false);
+                if (flyingBuilding != null)
+                {
+                    Destroy(flyingBuilding.gameObject);
+                }
 
-            flyingBuilding = Instantiate(buildingPrefab);
-            if (flyingBuilding)
-            {
-                flyingBuilding.MainRenderer.enabled = true;
-                flyingBuilding.transform.position = new Vector2(0.65f, -0.45f);
+                flyingBuilding = Instantiate(buildingPrefab);
+                if (flyingBuilding)
+                {
+                    flyingBuilding.MainRenderer.enabled = true;
+                    flyingBuilding.transform.position = new Vector2(0.65f, -0.45f);
+                }
             }
         }
         
@@ -80,6 +83,7 @@ public class BuildingsGrid: MonoBehaviour
         }
         if (Input.GetMouseButtonDown(1))
         {
+            player.Transaction(flyingBuilding.buy_price);
             Destroy(flyingBuilding.gameObject);
             flyingBuilding = null;
             Shop.gameObject.SetActive(true);

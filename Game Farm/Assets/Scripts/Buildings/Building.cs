@@ -22,6 +22,7 @@ public class Building : MonoBehaviour
         MainRenderer = GetComponent<Renderer>();
         price = gameObject.GetComponent<Price>();
         colaider = gameObject.GetComponent<Collider2D>();
+        sell_price = 0.9 * buy_price;
     }
 
     public void Update()
@@ -40,7 +41,7 @@ public class Building : MonoBehaviour
             
             buy_price = price.GetNewP(buy_price, w0);
             
-            sell_price = 0.97 * buy_price;
+            sell_price = 0.9 * buy_price;
 
         }
     }

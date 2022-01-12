@@ -9,6 +9,7 @@ public class ProductInfo : MonoBehaviour
     public double sell_price;
     public int exp;
     public int count;
+    public Texture texture;
     Price price;
     double w0 = 0;
     int iter = 0;
@@ -16,6 +17,7 @@ public class ProductInfo : MonoBehaviour
     private void Start()
     {
         price = gameObject.GetComponent<Price>();
+        sell_price = 0.9 * buy_price;
         
     }
     public void Update()
@@ -31,7 +33,7 @@ public class ProductInfo : MonoBehaviour
             
             buy_price = price.GetNewP(buy_price, w0);
             
-            sell_price = Math.Round(0.97 * buy_price,2);
+            sell_price = Math.Round(0.9 * buy_price,2);
             
         }
         iter++;

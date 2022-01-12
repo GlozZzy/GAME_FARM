@@ -12,4 +12,5 @@ public class Product : MonoBehaviour
     public Sprite[] plantStages;
     public float[] phases;
     public string pname;
+    public Texture texture;
 }

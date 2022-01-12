@@ -30,12 +30,14 @@ public class BuildingsMenu : MonoBehaviour
         {
             if (i == 0)
             {
+                ingridients.transform.GetChild(2).GetChild(0).GetComponent<RawImage>().texture = recipies[i].productToCreate.texture;
                 ingridients.transform.GetChild(2).GetChild(1).GetComponent<Text>().text = recipies[i].productToCreate.pname;
                 ingridients.transform.GetChild(2).GetChild(3).GetComponent<CreateButton>().recipie = recipies[i];
                 ingridients.transform.GetChild(2).GetChild(3).GetComponent<CreateButton>().building = building;
                 ingridients.transform.GetChild(2).GetChild(3).GetComponent<CreateButton>().buildingsMenu = this;
                 ingridients.transform.GetChild(1).GetComponent<CreateButton>().buildingsMenu = this;
                 ingridients.transform.GetChild(3).GetComponent<CreateButton>().buildingsMenu = this;
+                ingridients.transform.GetChild(2).GetChild(2).GetChild(0).GetComponent<RawImage>().texture = recipies[0].ingridients[0].product.texture;
                 ingridients.transform.GetChild(2).GetChild(2).GetChild(1).GetComponent<Text>().text = recipies[0].ingridients[0].product.Pname;
                 ingridients.transform.GetChild(2).GetChild(2).GetChild(2).GetComponent<Text>().text = Convert.ToString(recipies[0].ingridients[0].numberOfProducts);
                 shift++;
@@ -43,7 +45,7 @@ public class BuildingsMenu : MonoBehaviour
                 {
                     GameObject tempObj = Instantiate(initialRecipieField.transform.GetChild(2).gameObject, new Vector3(0, 0, 0), ingridients.transform.rotation);
                     Debug.Log(tempObj.transform.position);
-                    
+                    tempObj.transform.GetChild(0).GetComponent<RawImage>().texture = recipies[i].ingridients[j].product.texture;
                     tempObj.transform.GetChild(1).GetComponent<Text>().text = recipies[i].ingridients[j].product.Pname;
                     tempObj.transform.GetChild(2).GetComponent<Text>().text = Convert.ToString(recipies[i].ingridients[j].numberOfProducts);
                     tempObj.transform.parent = ingridients.transform.GetChild(2);
@@ -56,16 +58,18 @@ public class BuildingsMenu : MonoBehaviour
             }
             else
             {
+                
                 GameObject tempRecipie = Instantiate(initialRecipieField, new Vector2(0,0), ingridients.transform.rotation);
                 shift++;
                 tempRecipie.GetComponent<RectTransform>().anchoredPosition = new Vector3(145,595 - (20 + (60 * shift)), 0);
+                tempRecipie.transform.GetChild(0).GetComponent<RawImage>().texture = recipies[i].productToCreate.texture;
                 tempRecipie.transform.GetChild(1).GetComponent<Text>().text = recipies[i].productToCreate.pname;
                 tempRecipie.transform.GetChild(3).GetComponent<CreateButton>().recipie = recipies[i];
                 tempRecipie.transform.GetChild(3).GetComponent<CreateButton>().building = building;
                 tempRecipie.transform.GetChild(3).GetComponent<CreateButton>().buildingsMenu = this;
 
                 tempRecipie.transform.parent = ingridients.transform;
-
+                tempRecipie.transform.GetChild(2).GetChild(0).GetComponent<RawImage>().texture = recipies[i].ingridients[0].product.texture;
                 tempRecipie.transform.GetChild(2).GetChild(1).GetComponent<Text>().text = recipies[i].ingridients[0].product.Pname;
                 tempRecipie.transform.GetChild(2).GetChild(2).GetComponent<Text>().text = Convert.ToString(recipies[i].ingridients[0].numberOfProducts);
                 shift++;
@@ -73,6 +77,7 @@ public class BuildingsMenu : MonoBehaviour
                 for (int j = 1; j < recipies[i].ingridients.Length; j++)
                 {
                     GameObject tempObj = Instantiate(tempRecipie.transform.GetChild(2).gameObject, new Vector3(0, 0, 0), ingridients.transform.rotation);
+                    tempObj.transform.GetChild(0).GetComponent<RawImage>().texture = recipies[i].ingridients[j].product.texture;
                     tempObj.transform.GetChild(1).GetComponent<Text>().text = recipies[i].ingridients[j].product.Pname;
                     tempObj.transform.GetChild(2).GetComponent<Text>().text = Convert.ToString(recipies[i].ingridients[j].numberOfProducts);
                     tempObj.transform.parent = tempRecipie.transform;
@@ -104,8 +109,9 @@ public class BuildingsMenu : MonoBehaviour
             collider.gameObject.GetComponent<Field>().isBlocked = false;
             collider.gameObject.GetComponent<Field>().Check();
         }
+        
+        player.Transaction(building.GetComponentInParent<Building>().sell_price);
         Destroy(building.gameObject);
-        player.Transaction(25);
         CloseMenu();
     }
 }

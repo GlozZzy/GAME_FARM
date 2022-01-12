@@ -127,7 +127,7 @@ public class Field : MonoBehaviour, IPointerClickHandler
             }
             else
             {
-                if (plantStage != product.plantStages.Length - 1)
+                if (plantStage < product.plantStages.Length - 1)
                     Water();
                 else
                     Harvest();

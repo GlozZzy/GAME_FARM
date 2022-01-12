@@ -159,7 +159,8 @@ MonoBehaviour:
   exp: 0
   plantStages: []
   phases: []
-  pname: Cheese
+  pname: Carrot_cake
+  texture: {fileID: 2800000, guid: f3f9c1e984d6e544bb3da324e201938b, type: 3}
 --- !u!114 &7674018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -189,6 +190,7 @@ MonoBehaviour:
   sell_price: 0
   exp: 0
   count: 0
+  texture: {fileID: 2800000, guid: ef08f0ca21c6bd540827974c966e8826, type: 3}
 --- !u!4 &7674020
 Transform:
   m_ObjectHideFlags: 0
@@ -329,6 +331,7 @@ MonoBehaviour:
   sell_price: 0
   exp: 15
   count: 0
+  texture: {fileID: 2800000, guid: 9634a64596818eb4fae7d94d559d14dc, type: 3}
 --- !u!114 &14543120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -359,6 +362,7 @@ MonoBehaviour:
   plantStages: []
   phases: []
   pname: Wheat
+  texture: {fileID: 2800000, guid: 9634a64596818eb4fae7d94d559d14dc, type: 3}
 --- !u!1001 &34668498
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -4362,6 +4366,7 @@ MonoBehaviour:
   sell_price: 5
   exp: 7
   count: 0
+  texture: {fileID: 2800000, guid: 5ac17ad8474868d4aa1281bf3a8d7ce1, type: 3}
 --- !u!114 &296068943
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4380,6 +4385,7 @@ MonoBehaviour:
   plantStages: []
   phases: []
   pname: Egg
+  texture: {fileID: 2800000, guid: 5ac17ad8474868d4aa1281bf3a8d7ce1, type: 3}
 --- !u!1 &299985845
 GameObject:
   m_ObjectHideFlags: 0
@@ -9293,6 +9299,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   PlayerInfo: {fileID: 853675273}
+  song: {fileID: 1711285838}
+  menusong: {fileID: 8300000, guid: 52201fcd430a77d4bab1378a3feb46c6, type: 3}
+  gamesong: {fileID: 8300000, guid: e05ffcc2953b67341addf880b4971b6a, type: 3}
 --- !u!50 &783280987
 Rigidbody2D:
   serializedVersion: 4
@@ -10216,7 +10225,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d2c43b5dd80fa945be4ca19786ae249, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  money: 10000
+  money: 1000
   exp: 0
   lvl: 100
   lvltemp: 4
@@ -12622,6 +12631,7 @@ MonoBehaviour:
   sell_price: 10
   exp: 10
   count: 0
+  texture: {fileID: 2800000, guid: 535b7c3cda4c21b469c9e1a7ad40de61, type: 3}
 --- !u!114 &1031667663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12640,6 +12650,7 @@ MonoBehaviour:
   plantStages: []
   phases: []
   pname: Meat
+  texture: {fileID: 2800000, guid: 535b7c3cda4c21b469c9e1a7ad40de61, type: 3}
 --- !u!4 &1033849356 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1818018465968439343, guid: 6ffdefed5e76c6544aba266eee680b52, type: 3}
@@ -14178,6 +14189,7 @@ MonoBehaviour:
   sell_price: 0
   exp: 0
   count: 0
+  texture: {fileID: 2800000, guid: 24acb854a6e2af5478ac8444d87e1a40, type: 3}
 --- !u!114 &1204757748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14208,6 +14220,7 @@ MonoBehaviour:
   plantStages: []
   phases: []
   pname: Milk
+  texture: {fileID: 2800000, guid: 24acb854a6e2af5478ac8444d87e1a40, type: 3}
 --- !u!1001 &1210157865
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -14847,6 +14860,7 @@ MonoBehaviour:
   sell_price: 0
   exp: 20
   count: 0
+  texture: {fileID: 2800000, guid: 0dd82e1700adb8b44a18adda3641d0b3, type: 3}
 --- !u!114 &1265646751
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14877,6 +14891,7 @@ MonoBehaviour:
   plantStages: []
   phases: []
   pname: Carrot
+  texture: {fileID: 2800000, guid: 0dd82e1700adb8b44a18adda3641d0b3, type: 3}
 --- !u!1 &1272141515
 GameObject:
   m_ObjectHideFlags: 0
@@ -19206,6 +19221,7 @@ MonoBehaviour:
   sell_price: 0
   exp: 0
   count: 0
+  texture: {fileID: 2800000, guid: ef08f0ca21c6bd540827974c966e8826, type: 3}
 --- !u!114 &1691562937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -19236,6 +19252,7 @@ MonoBehaviour:
   plantStages: []
   phases: []
   pname: Cheese
+  texture: {fileID: 2800000, guid: bc6033a534dd24849a539ac66075ca3f, type: 3}
 --- !u!1 &1691629485
 GameObject:
   m_ObjectHideFlags: 0
@@ -19532,11 +19549,11 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 3026617b0d950f6428fa785408cbb074, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 52201fcd430a77d4bab1378a3feb46c6, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 0.04
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0

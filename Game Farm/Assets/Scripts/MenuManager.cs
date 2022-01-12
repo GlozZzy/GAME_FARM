@@ -8,7 +8,9 @@ public class MenuManager : MonoBehaviour
 {
     public static bool GameIsPaused = true;
     public GameObject PlayerInfo;
-
+    public AudioSource song;
+    public AudioClip menusong;
+    public AudioClip gamesong;
 
     void Start()
     {
@@ -34,6 +36,9 @@ public class MenuManager : MonoBehaviour
         GetComponent<Canvas>().enabled = false;
         PlayerInfo.SetActive(true);
         GameIsPaused = false;
+        song.clip = gamesong;
+        song.Play();
+
     }
 
     public void PauseGame()
@@ -41,11 +46,14 @@ public class MenuManager : MonoBehaviour
         GetComponent<Canvas>().enabled = true;
         PlayerInfo.SetActive(false);
         GameIsPaused = true;
+        song.clip = menusong;
+        song.Play();
     }
 
     public void NewGame()
     {
         SceneManager.LoadScene(0);
+
     }
 
     public void SaveGame()
