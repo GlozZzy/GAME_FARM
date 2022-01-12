@@ -15,16 +15,10 @@ public class SaveSystemPaddock : MonoBehaviour
 
         for (int i = 1; i < cows.Length; i++)
         {
-            print("------------ cows l: " + cows.Length);
-            print("------------ cows[i]: " + cows[i]);
-            print("------------ cows(): " + cows[i].transform.GetComponent<Paddock>());
             listOfCows.Add(new PaddockData(cows[i].transform.GetComponent<Paddock>()));
         }
         for (int i = 1; i < chickens.Length; i++)
         {
-            print("------------ chickens l: " + chickens.Length);
-            print("------------ chickens[i]: " + chickens[i]);
-            print("------------ cchickens(): " + chickens[i].transform.GetComponent<Paddock>());
             listOfChickens.Add(new PaddockData(chickens[i].transform.GetComponent<Paddock>()));
         }
 

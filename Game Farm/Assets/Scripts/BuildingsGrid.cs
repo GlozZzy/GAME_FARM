@@ -43,39 +43,38 @@ public class BuildingsGrid: MonoBehaviour
             int s = 0;
             
             Collider2D[] colliders = Physics2D.OverlapCircleAll(flyingBuilding.transform.position, 0.2f);
-            if (colliders.Length==4)
+            foreach (Collider2D col in colliders)
             {
-                Debug.Log("4");
+                if (col.gameObject.tag != "Plot")
+                    continue;
+                if (col.GetComponentInParent<Field>().isBlocked == false && col.GetComponentInParent<Field>().isPlanted == false)
+                    s++;
+                Debug.Log(col.GetComponentInParent<Field>().transform.position);
+            }
+            if (s == 4)
+            {
+                Vector3 fpos = new Vector3();
+
                 foreach (Collider2D col in colliders)
                 {
-                    if (col.GetComponentInParent<Field>().isBlocked == false && col.GetComponentInParent<Field>().isPlanted == false)
-                        s++;
-                    Debug.Log(col.GetComponentInParent<Field>().transform.position);
+                    if (col.gameObject.tag != "Plot")
+                        continue;
+                    col.GetComponentInParent<Field>().isBlocked = true;
+                    col.GetComponentInParent<Field>().Check();
+                    fpos += col.transform.position;
+
                 }
-                if (s == 4)
+                fpos /= 4;
+                fpos.x += (float)-0.013;
+                fpos.y += (float)+0.6;
+
+
+                if (flyingBuilding)
                 {
-                    foreach (Collider2D col in colliders)
-                    {
-                        col.GetComponentInParent<Field>().isBlocked = true;
-                        col.GetComponentInParent<Field>().Check();
-
-                    }
-                    if (flyingBuilding)
-                    {
-                        if (player.Transaction(-flyingBuilding.buy_price))
-                        {
-                            flyingBuilding.colaider.enabled = true;
-                            PlaceFlyingBuilding(flyingBuilding.transform.position.x, flyingBuilding.transform.position.y);
-                        }
-                        else
-                        {
-                            Destroy(flyingBuilding.gameObject);
-                            flyingBuilding = null;
-                            Shop.gameObject.SetActive(true);
-                        }
-                    }
+                    flyingBuilding.colaider.enabled = true;
+                    flyingBuilding.transform.position = fpos;
+                    PlaceFlyingBuilding(fpos.x, fpos.y);
                 }
-
             }
          
         }

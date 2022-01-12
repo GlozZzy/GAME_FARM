@@ -128,6 +128,7 @@ public class PaddockMenu : MonoBehaviour
         animName.text = paddock.animal.nameAnim;
         productName.text = paddock.animal.productName;
         prodSprite.GetComponent<RawImage>().texture = paddock.animal.textures[0];
+        animSprite.GetComponent<RawImage>().texture = paddock.animal.textures[1];
         fprodSprite.GetComponent<RawImage>().texture = paddock.animal.textures[2];
         feedName.text = paddock.animal.feed;
     }

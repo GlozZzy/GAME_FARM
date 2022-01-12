@@ -7,12 +7,13 @@ public class ProductionBuilding : MonoBehaviour, IPointerClickHandler
     public Recipies[] recipies;
     public Canvas canvasMenu;
     private Recipies currentRecipie = null;
-    private float timer;
+    [System.NonSerialized]
+    public float timer;
     private bool addProduct = false;
     public WareHouse wareHouse;
     // Start is called before the first frame update
 
-   
+
     // Update is called once per frame
     void Update()
     {
@@ -53,5 +54,25 @@ public class ProductionBuilding : MonoBehaviour, IPointerClickHandler
     public void OnPointerClick(PointerEventData eventData)
     {
         FindObjectOfType<BuildingsMenu>().Open(this, recipies, canvasMenu);
+    }
+
+    public void SaveBuilds()
+    {
+        SaveSystemBuild.SaveBuilds(transform.tag);
+    }
+
+    public void LoadBuilds()
+    {
+        SaveSystemBuild.LoadBuilding(transform.tag);
+    }
+
+    public void LoadBuild(BuildData data)
+    {
+        timer = data.timer;
+    }
+
+    public void ResetBuilds()
+    {
+        SaveSystemBuild.ResetData(transform.tag);
     }
 }
