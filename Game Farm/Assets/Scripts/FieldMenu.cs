@@ -50,4 +50,9 @@ public class FieldMenu : MonoBehaviour
         canvas.enabled = false;
         
     }
+    public void SellTheField()
+    {
+        field.SellTheField();
+        Close();
+    }
 }

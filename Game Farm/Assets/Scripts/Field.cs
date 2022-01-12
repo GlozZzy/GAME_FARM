@@ -20,6 +20,7 @@ public class Field : MonoBehaviour, IPointerClickHandler
 
     public Sprite[] plantStages;
     public bool isBlocked;
+    public bool isAlien;
 
     [System.NonSerialized]
     public int plantStage = 0;
@@ -88,8 +89,8 @@ public class Field : MonoBehaviour, IPointerClickHandler
             return;
         }
 
-        if (!isBlocked) OpenMenu();
-        else OpenBlockedMenu();
+        if (!isBlocked && !isAlien) OpenMenu();
+        if (isAlien) OpenBlockedMenu();
     }
 
 
@@ -195,6 +196,7 @@ public class Field : MonoBehaviour, IPointerClickHandler
             }
 
             isBlocked = false; //меняем блок на который тыкали
+            isAlien = false;
             plantStage = 1;
             plant.sprite = plantStages[plantStage];
         } 
@@ -222,6 +224,7 @@ public class Field : MonoBehaviour, IPointerClickHandler
     public void LoadField(FieldData data, bool start = false)
     {
         isBlocked = data.isBlocked;
+        isBlocked = data.isAlien;
         Start();
         started = true;
 
@@ -238,6 +241,102 @@ public class Field : MonoBehaviour, IPointerClickHandler
     public void ResetField()
     {
         SaveSystemFields.ResetData();
+    }
+    public void SellTheField()
+    {
+        player.money += 8;
+        isBlocked = true;
+        isAlien = true;
+        plant.sprite = plantStages[0];
+        choosen = false; //снимаем выделение
+        //RaycastHit2D rayCastHit = Physics2D.Raycast(Vector3.left, transform.position);
+        //Debug.Log(rayCastHit.collider.name);
+        //if (rayCastHit.collider != null)
+        //{
+        //    Debug.Log(rayCastHit.collider.gameObject.transform.position);
+        //    if (rayCastHit.collider.gameObject.tag == "Plot")
+        //    {
+        //        rayCastHit.collider.gameObject.GetComponent<Field>().isBlocked = true;
+        //        rayCastHit.collider.gameObject.GetComponent<Field>().plant.sprite = plantStages[0];
+        //    }
+        //}
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position + new Vector3(0.375f, 0.65f, 0.0375f), 0.01f);
+        foreach (Collider2D collider in colliders)
+        {
+            if (collider.gameObject.tag != "Plot")
+                continue;
+            if (collider.gameObject.GetComponent<Field>().NeedToDelete())
+                Destroy(collider.gameObject);
+        }
+        colliders = Physics2D.OverlapCircleAll(transform.position + new Vector3(-0.375f, 0.65f, 0.0375f), 0.01f);//проверка есть ли объект по таким-то координатам
+        foreach (Collider2D collider in colliders)
+        {
+            if (collider.gameObject.tag != "Plot")
+                continue;
+            if (collider.gameObject.GetComponent<Field>().NeedToDelete())
+                Destroy(collider.gameObject);
+        }
+        colliders = Physics2D.OverlapCircleAll(transform.position + new Vector3(0.375f, 0f), 0.01f);
+        foreach (Collider2D collider in colliders)
+        {
+            if (collider.gameObject.tag != "Plot")
+                continue;
+            if (collider.gameObject.GetComponent<Field>().NeedToDelete())
+                Destroy(collider.gameObject);
+        }
+        colliders = Physics2D.OverlapCircleAll(transform.position + new Vector3(-0.375f, 0f, 0.0375f), 0.01f);
+        foreach (Collider2D collider in colliders)
+        {
+            if (collider.gameObject.tag != "Plot")
+                continue;
+            if (collider.gameObject.GetComponent<Field>().NeedToDelete())
+                Destroy(collider.gameObject);
+        }
+        if (NeedToDelete())
+        {
+            Destroy(this.gameObject);
+        }
+    }
+    public bool NeedToDelete()
+    {
+        if (!isAlien)
+            return false;
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position + new Vector3(0.375f, 0.65f, 0.0375f), 0.01f); //проверка есть ли объект по таким-то координатам
+        foreach (Collider2D collider in colliders)
+        {
+            if (collider.gameObject.tag != "Plot")
+                continue;
+            if (collider.gameObject.GetComponent<Field>().isBlocked == false)
+                return false;
+        }
+
+        colliders = Physics2D.OverlapCircleAll(transform.position + new Vector3(-0.375f, 0.65f, 0.0375f), 0.01f); //повтор для всех сторон света
+        foreach (Collider2D collider in colliders)
+        {
+            if (collider.gameObject.tag != "Plot")
+                continue;
+            if (collider.gameObject.GetComponent<Field>().isBlocked == false)
+                return false;
+        }
+
+        colliders = Physics2D.OverlapCircleAll(transform.position + new Vector3(0.375f, 0f), 0.01f);
+        foreach (Collider2D collider in colliders)
+        {
+            if (collider.gameObject.tag != "Plot")
+                continue;
+            if (collider.gameObject.GetComponent<Field>().isBlocked == false)
+                return false;
+        }
+
+        colliders = Physics2D.OverlapCircleAll(transform.position + new Vector3(-0.375f, 0f, 0.0375f), 0.01f);
+        foreach (Collider2D collider in colliders)
+        {
+            if (collider.gameObject.tag != "Plot")
+                continue;
+            if (collider.gameObject.GetComponent<Field>().isBlocked == false)
+                return false;
+        }
+        return true;
     }
 
 }

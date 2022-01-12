@@ -72,10 +72,18 @@ public class PaddockMenu : MonoBehaviour
     }
     public void Release()
     {
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(paddock.transform.position, 0.2f);
+        foreach (Collider2D collider in colliders)
+        {
+            if (collider.gameObject.tag != "Plot")
+                continue;
+
+            collider.gameObject.GetComponent<Field>().isBlocked = false;
+            collider.gameObject.GetComponent<Field>().Check();
+        }
         Destroy(paddock.gameObject);
         CloseMenu();
 
-        Debug.Log(paddock);
     }
     public void AddAnimal()
     {
@@ -111,6 +119,8 @@ public class PaddockMenu : MonoBehaviour
     }
     public void Open(Paddock p)
     {
+        FieldMenu cellmenu = GameObject.Find("FieldMenu").GetComponent<FieldMenu>();
+        cellmenu.Close();
         if (paddock) paddock.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
         canvas.enabled = true;
         paddock = p;

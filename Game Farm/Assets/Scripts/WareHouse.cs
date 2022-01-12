@@ -20,6 +20,12 @@ public class WareHouse : MonoBehaviour, IPointerClickHandler
     GameObject obj;
     FieldMenu notEnougthSpace;
     FieldMenu notEnougthProducts;
+    public Text carrotCellPrice;
+    public Text wheatCellPrice;
+    public Text eggCellPrice;
+    public Text milkCellPrice;
+    public Text meatCellPrice;
+
 
 
     // Start is called before the first frame update
@@ -39,6 +45,11 @@ public class WareHouse : MonoBehaviour, IPointerClickHandler
     void Update()
     {
         spaceText.text = "Space: " + curspace + "/" + maxspace;
+        carrotCellPrice.text = GameObject.FindGameObjectWithTag("Carrot").GetComponent<ProductInfo>().sell_price + "";
+        wheatCellPrice.text = GameObject.FindGameObjectWithTag("Wheat").GetComponent<ProductInfo>().sell_price + "";
+        milkCellPrice.text = GameObject.FindGameObjectWithTag("Milk").GetComponent<ProductInfo>().sell_price + "";
+        eggCellPrice.text = GameObject.FindGameObjectWithTag("Egg").GetComponent<ProductInfo>().sell_price + "";
+        meatCellPrice.text = GameObject.FindGameObjectWithTag("Meat").GetComponent<ProductInfo>().sell_price + "";
     }
 
     public void OpenMenu()

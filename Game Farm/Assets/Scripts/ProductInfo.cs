@@ -1,7 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using System;
 public class ProductInfo : MonoBehaviour
 {
     public string Pname;
@@ -31,7 +31,7 @@ public class ProductInfo : MonoBehaviour
             
             buy_price = price.GetNewP(buy_price, w0);
             
-            sell_price = 0.97 * buy_price;
+            sell_price = Math.Round(0.97 * buy_price,2);
             
         }
         iter++;

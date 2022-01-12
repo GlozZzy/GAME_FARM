@@ -49,6 +49,8 @@ public class Shop : MonoBehaviour, IPointerClickHandler
     public void OpenMenu()
     {
         CanvasMenu.enabled = true;
+        FieldMenu cellmenu = GameObject.Find("FieldMenu").GetComponent<FieldMenu>();
+        cellmenu.Close();
     }
 
     public void CloseMenu()

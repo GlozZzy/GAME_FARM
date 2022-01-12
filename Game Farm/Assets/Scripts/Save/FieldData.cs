@@ -9,6 +9,7 @@ public class FieldData
     public float timer;
     public bool isPlanted;
     public bool isBlocked;
+    public bool isAlien;
     public string nameProduct;
 
     public float px, py, pz;
@@ -19,6 +20,7 @@ public class FieldData
         timer = field.timer;
         isPlanted = field.isPlanted;
         isBlocked = field.isBlocked;
+        isAlien = field.isAlien;
         if (field.product) nameProduct = field.product.pname;
 
         px = field.transform.position.x;

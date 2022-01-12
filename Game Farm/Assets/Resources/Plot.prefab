@@ -136,6 +136,7 @@ MonoBehaviour:
   - {fileID: -4676226925730873229, guid: ce00fedd09e7b3546bd9b591e89d72b6, type: 3}
   - {fileID: -5721216163508544270, guid: ce00fedd09e7b3546bd9b591e89d72b6, type: 3}
   isBlocked: 1
+  isAlien: 1
 --- !u!50 &1818018465968439376
 Rigidbody2D:
   serializedVersion: 4
