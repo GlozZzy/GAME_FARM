@@ -36,7 +36,7 @@ public class WareHouse : MonoBehaviour, IPointerClickHandler
         notEnougthSpace = GameObject.Find("NotEnoughSpace").GetComponent<FieldMenu>();
         notEnougthProducts = GameObject.Find("NotEnoughProducts").GetComponent<FieldMenu>();
         obj = GameObject.FindGameObjectWithTag("obj");
-        counts = new int[obj.transform.childCount-3];   //без не продуктов
+        counts = new int[obj.transform.childCount-3];   //пїЅпїЅпїЅ пїЅпїЅ пїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅпїЅ
         buy_prices = new double[obj.transform.childCount - 3];
         sell_prices = new double[obj.transform.childCount - 3];
     }

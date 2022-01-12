@@ -15,8 +15,11 @@ public class Building : MonoBehaviour
     float timer = 5;
     public int lvl;
 
+
+
     private void Start()
     {
+        MainRenderer = GetComponent<Renderer>();
         price = gameObject.GetComponent<Price>();
         colaider = gameObject.GetComponent<Collider2D>();
     }
