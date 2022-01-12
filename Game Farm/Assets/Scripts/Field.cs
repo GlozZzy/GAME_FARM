@@ -76,9 +76,14 @@ public class Field : MonoBehaviour, IPointerClickHandler
     // Update is called once per frame
     void Update()
     {
+        
         //if (!choosen) GetComponent<SpriteRenderer>().color = Color.white;
         if (isPlanted && !isBlocked) 
         {
+            if (plantStage == product.plantStages.Length - 2)
+                this.gameObject.transform.GetChild(1).gameObject.SetActive(true);
+            else
+                this.gameObject.transform.GetChild(1).gameObject.SetActive(false);
             if (waterTimer < 0)
             {
                 deathTimer -= Time.deltaTime;
@@ -136,13 +141,17 @@ public class Field : MonoBehaviour, IPointerClickHandler
 
     private void Water()
     {
-        waterTimer = timeTillWater;
-        deathTimer = timeTillDeath;
-        this.gameObject.transform.GetChild(0).gameObject.SetActive(false);
+        if (player.Transaction(-5))
+        {
+            waterTimer = timeTillWater;
+            deathTimer = timeTillDeath;
+            this.gameObject.transform.GetChild(0).gameObject.SetActive(false);
+        }
     }
 
     private void Harvest()
     {
+        this.gameObject.transform.GetChild(1).gameObject.SetActive(false);
         isPlanted = false;
         plant.sprite = plantStages[1];
         if (plantStage == product.plantStages.Length - 2)
@@ -150,12 +159,17 @@ public class Field : MonoBehaviour, IPointerClickHandler
             //player.Transaction(product.sell_price);
             player.GetExp(product.exp);
             warehouse.AddProduct(product);
+            Destroy(fieildObject);
         }
-        Destroy(fieildObject);
+        else if (plantStage == product.plantStages.Length - 1)
+            if (player.Transaction(-1)) Destroy(fieildObject);
+        
     }
 
     public void Plant(string str)
     {
+        deathTimer = timeTillDeath;
+        waterTimer = timeTillWater;
         FieldInstructor(str);
 
         if (player.Transaction(-product.buy_price))
@@ -271,7 +285,7 @@ public class Field : MonoBehaviour, IPointerClickHandler
     public void LoadField(FieldData data, bool start = false)
     {
         isBlocked = data.isBlocked;
-        isBlocked = data.isAlien;
+        isAlien = data.isAlien;
         Start();
         started = true;
 
