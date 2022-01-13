@@ -329,7 +329,7 @@ MonoBehaviour:
   Pname: Wheat
   buy_price: 7
   sell_price: 0
-  exp: 15
+  exp: 17
   count: 0
   texture: {fileID: 2800000, guid: 9634a64596818eb4fae7d94d559d14dc, type: 3}
 --- !u!114 &14543120
@@ -15944,7 +15944,7 @@ MonoBehaviour:
   Pname: Carrot
   buy_price: 10
   sell_price: 0
-  exp: 20
+  exp: 22
   count: 0
   texture: {fileID: 2800000, guid: 0dd82e1700adb8b44a18adda3641d0b3, type: 3}
 --- !u!114 &1265646751
@@ -21026,7 +21026,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 52201fcd430a77d4bab1378a3feb46c6, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.003
+  m_Volume: 0.009
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -26670,7 +26670,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 7728dfe89d4371e43831c85b619c1a46, type: 3}
+  m_Texture: {fileID: 2800000, guid: 9634a64596818eb4fae7d94d559d14dc, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -26880,7 +26880,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 10
+  m_Text: 8
 --- !u!1 &1515415183625525763
 GameObject:
   m_ObjectHideFlags: 0
@@ -27019,7 +27019,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 20
+  m_Text: 5
 --- !u!222 &1515415183756622707
 CanvasRenderer:
   m_ObjectHideFlags: 0
