@@ -12,6 +12,9 @@ public class MenuManager : MonoBehaviour
     public AudioClip menusong;
     public AudioClip gamesong;
 
+    public GameObject musicoffbttn;
+    public GameObject musiconbttn;
+
     void Start()
     {
 
@@ -61,9 +64,18 @@ public class MenuManager : MonoBehaviour
         print("SaveGame");
     }
 
-    public void Settings()
+    public void MusicOff()
     {
-        print("Settings");
+        song.Stop();
+        musicoffbttn.SetActive(false);
+        musiconbttn.SetActive(true);
+    }
+
+    public void MusicOn()
+    {
+        song.Play();
+        musicoffbttn.SetActive(true);
+        musiconbttn.SetActive(false);
     }
 
     public void QuitGame()
