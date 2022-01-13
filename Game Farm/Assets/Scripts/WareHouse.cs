@@ -100,6 +100,7 @@ public class WareHouse : MonoBehaviour, IPointerClickHandler
     public void SellProduct(Text product)
     {
         GameObject obj = GameObject.FindGameObjectWithTag(product.text);
+        print(obj);
         ProductInfo inf = obj.GetComponent<ProductInfo>();
         if (inf.count > 0)
         {
@@ -180,7 +181,7 @@ public class WareHouse : MonoBehaviour, IPointerClickHandler
     public void LoadWareHouse()
     {
         WareHouseData data = SaveSystemWareHouse.LoadWareHouse();
-        string[] names = { "Wheat", "Cheese", "Carrot_cake", "Milk", "Carrot", "Meat", "Egg" };
+        string[] names = { "Wheat", "Cheese", "CarrotCake", "Milk", "Carrot", "Meat", "Egg" };
 
         if (data != null)
         {

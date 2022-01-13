@@ -77,7 +77,6 @@ public class BuildingsMenu : MonoBehaviour
                 tempRecipie.transform.GetChild(2).GetChild(1).GetComponent<Text>().text = recipies[i].ingridients[0].product.Pname;
                 tempRecipie.transform.GetChild(2).GetChild(2).GetComponent<Text>().text = Convert.ToString(recipies[i].ingridients[0].numberOfProducts);
                 shift++;
-                Debug.Log(recipies[i].ingridients.Length);
                 for (int j = 1; j < recipies[i].ingridients.Length; j++)
                 {
                     GameObject tempObj = Instantiate(tempRecipie.transform.GetChild(2).gameObject, new Vector3(0, 0, 0), ingridients.transform.rotation);

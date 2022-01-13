@@ -52,7 +52,6 @@ public class BuildingsGrid: MonoBehaviour
                     continue;
                 if (col.GetComponentInParent<Field>().isBlocked == false && col.GetComponentInParent<Field>().isPlanted == false)
                     s++;
-                Debug.Log(col.GetComponentInParent<Field>().transform.position);
             }
             if (s == 4)
             {

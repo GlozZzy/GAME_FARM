@@ -81,6 +81,7 @@ public class PaddockMenu : MonoBehaviour
             collider.gameObject.GetComponent<Field>().isBlocked = false;
             collider.gameObject.GetComponent<Field>().Check();
         }
+        player.Transaction(paddock.gameObject.GetComponent<Building>().sell_price);
         Destroy(paddock.gameObject);
         CloseMenu();
 
