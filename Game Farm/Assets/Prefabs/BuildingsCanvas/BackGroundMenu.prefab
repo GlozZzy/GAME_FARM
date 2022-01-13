@@ -1081,7 +1081,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Paddock
+  m_Text: Buidling
 --- !u!1 &1002736127230711391
 GameObject:
   m_ObjectHideFlags: 0

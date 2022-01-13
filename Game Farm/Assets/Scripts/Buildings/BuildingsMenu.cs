@@ -13,7 +13,11 @@ public class BuildingsMenu : MonoBehaviour
 
     public void Open(ProductionBuilding p, Recipies[] recipies, Canvas can)
     {
-        if (building) building.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+        if (building) 
+        {
+            building.GetComponent<SpriteRenderer>().color = new Color(1f, 1f, 1f, 1f);
+            CloseMenu();
+        }
         canvas = can;
         canvas.enabled = true;
         building = p;
@@ -61,7 +65,7 @@ public class BuildingsMenu : MonoBehaviour
                 
                 GameObject tempRecipie = Instantiate(initialRecipieField, new Vector2(0,0), ingridients.transform.rotation);
                 shift++;
-                tempRecipie.GetComponent<RectTransform>().anchoredPosition = new Vector3(145,595 - (20 + (60 * shift)), 0);
+                tempRecipie.GetComponent<RectTransform>().anchoredPosition = new Vector3(145,Screen.height - (20 + 60 * shift), 0);
                 tempRecipie.transform.GetChild(0).GetComponent<RawImage>().texture = recipies[i].productToCreate.texture;
                 tempRecipie.transform.GetChild(1).GetComponent<Text>().text = recipies[i].productToCreate.pname;
                 tempRecipie.transform.GetChild(3).GetComponent<CreateButton>().recipie = recipies[i];
