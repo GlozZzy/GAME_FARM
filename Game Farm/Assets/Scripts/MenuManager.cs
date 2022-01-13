@@ -15,6 +15,12 @@ public class MenuManager : MonoBehaviour
     public GameObject musicoffbttn;
     public GameObject musiconbttn;
 
+    public GameObject resetNotification;
+    public GameObject saveNotification;
+
+    public float timeToDisableNotifications;
+    private float curTime;
+
     void Start()
     {
 
@@ -23,9 +29,8 @@ public class MenuManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        //if (firstlaunch) GameObject.Find("ContinueBtn").GetComponent<Button>().interactable = false;
-        //else GameObject.Find("ContinueBtn").GetComponent<Button>().interactable = true;
+        curTime -= Time.deltaTime;
+        if (curTime < 0) DisableNotifications();
 
         if (Input.GetKeyDown(KeyCode.Escape))
         {
@@ -66,14 +71,14 @@ public class MenuManager : MonoBehaviour
 
     public void MusicOff()
     {
-        song.Stop();
+        song.volume = 0f;
         musicoffbttn.SetActive(false);
         musiconbttn.SetActive(true);
     }
 
     public void MusicOn()
     {
-        song.Play();
+        song.volume = 0.003f;
         musicoffbttn.SetActive(true);
         musiconbttn.SetActive(false);
     }
@@ -82,5 +87,17 @@ public class MenuManager : MonoBehaviour
     {
         SaveGame();
         Application.Quit();
+    }
+
+    public void DisableNotifications()
+    {
+        resetNotification.SetActive(false);
+        saveNotification.SetActive(false);
+    }
+
+    public void EnableNotifications(GameObject obj)
+    {
+        obj.SetActive(true);
+        curTime = timeToDisableNotifications;
     }
 }
