@@ -10921,7 +10921,7 @@ MonoBehaviour:
   money: 1000
   exp: 0
   lvl: 100
-  lvltemp: 1
+  lvltemp: 3
   MoneyTxt: {fileID: 138886694}
   ExpTxt: {fileID: 1192013949}
   LVLTxt: {fileID: 1082128877}
