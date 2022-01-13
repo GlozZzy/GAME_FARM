@@ -141,7 +141,7 @@ public class Field : MonoBehaviour, IPointerClickHandler
 
     private void Water()
     {
-        if (player.Transaction(-5))
+        if (player.Transaction(-2))
         {
             waterTimer = timeTillWater;
             deathTimer = timeTillDeath;
@@ -171,7 +171,6 @@ public class Field : MonoBehaviour, IPointerClickHandler
         deathTimer = timeTillDeath;
         waterTimer = timeTillWater;
         FieldInstructor(str);
-
         if (player.Transaction(-product.buy_price))
         {
             isPlanted = true;
