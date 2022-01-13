@@ -369,7 +369,7 @@ public class Field : MonoBehaviour, IPointerClickHandler
         {
             if (collider.gameObject.tag != "Plot")
                 continue;
-            if (collider.gameObject.GetComponent<Field>().isBlocked == false)
+            if (collider.gameObject.GetComponent<Field>().isAlien == false)
                 return false;
         }
 
@@ -378,7 +378,7 @@ public class Field : MonoBehaviour, IPointerClickHandler
         {
             if (collider.gameObject.tag != "Plot")
                 continue;
-            if (collider.gameObject.GetComponent<Field>().isBlocked == false)
+            if (collider.gameObject.GetComponent<Field>().isAlien == false)
                 return false;
         }
 
@@ -387,7 +387,7 @@ public class Field : MonoBehaviour, IPointerClickHandler
         {
             if (collider.gameObject.tag != "Plot")
                 continue;
-            if (collider.gameObject.GetComponent<Field>().isBlocked == false)
+            if (collider.gameObject.GetComponent<Field>().isAlien == false)
                 return false;
         }
 
@@ -396,10 +396,13 @@ public class Field : MonoBehaviour, IPointerClickHandler
         {
             if (collider.gameObject.tag != "Plot")
                 continue;
-            if (collider.gameObject.GetComponent<Field>().isBlocked == false)
+            if (collider.gameObject.GetComponent<Field>().isAlien == false)
                 return false;
         }
         return true;
     }
+
+
+
 
 }

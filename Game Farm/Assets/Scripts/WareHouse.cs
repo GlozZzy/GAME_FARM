@@ -25,6 +25,8 @@ public class WareHouse : MonoBehaviour, IPointerClickHandler
     public Text eggCellPrice;
     public Text milkCellPrice;
     public Text meatCellPrice;
+    public Text cheeseCellPrice;
+    public Text carrotcakeCellPrice;
 
 
 
@@ -50,6 +52,8 @@ public class WareHouse : MonoBehaviour, IPointerClickHandler
         milkCellPrice.text = GameObject.FindGameObjectWithTag("Milk").GetComponent<ProductInfo>().sell_price + "";
         eggCellPrice.text = GameObject.FindGameObjectWithTag("Egg").GetComponent<ProductInfo>().sell_price + "";
         meatCellPrice.text = GameObject.FindGameObjectWithTag("Meat").GetComponent<ProductInfo>().sell_price + "";
+        cheeseCellPrice.text = GameObject.FindGameObjectWithTag("Cheese").GetComponent<ProductInfo>().sell_price + "";
+        carrotcakeCellPrice.text = GameObject.FindGameObjectWithTag("CarrotCake").GetComponent<ProductInfo>().sell_price + "";
     }
 
     public void OpenMenu()

@@ -30,6 +30,8 @@ TagManager:
   - obj
   - Bakery
   - CarrotCake
+  - WarehouseCheese
+  - WarehouseCarrotCake
   layers:
   - Default
   - TransparentFX
