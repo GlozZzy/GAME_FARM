@@ -160,7 +160,7 @@ MonoBehaviour:
   plantStages: []
   phases: []
   pname: Carrot_cake
-  texture: {fileID: 2800000, guid: f3f9c1e984d6e544bb3da324e201938b, type: 3}
+  texture: {fileID: 2800000, guid: 3db3465453e78ba4a89480ccdde9baf6, type: 3}
 --- !u!114 &7674018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,7 +190,7 @@ MonoBehaviour:
   sell_price: 0
   exp: 0
   count: 0
-  texture: {fileID: 2800000, guid: ef08f0ca21c6bd540827974c966e8826, type: 3}
+  texture: {fileID: 2800000, guid: 3db3465453e78ba4a89480ccdde9baf6, type: 3}
 --- !u!4 &7674020
 Transform:
   m_ObjectHideFlags: 0
@@ -20231,7 +20231,7 @@ MonoBehaviour:
   sell_price: 0
   exp: 0
   count: 0
-  texture: {fileID: 2800000, guid: ef08f0ca21c6bd540827974c966e8826, type: 3}
+  texture: {fileID: 2800000, guid: fb7309a55c2528643b46b35a1441e7e6, type: 3}
 --- !u!114 &1691562937
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -20262,7 +20262,7 @@ MonoBehaviour:
   plantStages: []
   phases: []
   pname: Cheese
-  texture: {fileID: 2800000, guid: bc6033a534dd24849a539ac66075ca3f, type: 3}
+  texture: {fileID: 2800000, guid: fb7309a55c2528643b46b35a1441e7e6, type: 3}
 --- !u!1 &1691629485
 GameObject:
   m_ObjectHideFlags: 0
