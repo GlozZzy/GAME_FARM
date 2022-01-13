@@ -77,7 +77,7 @@ public class Player : MonoBehaviour
             money = data.money;
             exp = data.exp;
             lvl = data.lvl;
-            
+            lvltemp = data.lvltemp;
         }
     }
 

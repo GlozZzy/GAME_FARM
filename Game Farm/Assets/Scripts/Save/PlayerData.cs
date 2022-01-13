@@ -6,13 +6,15 @@ using UnityEngine;
 public class PlayerData
 {
     public double money;
-    public int exp = 0;
-    public int lvl = 100;
+    public int exp;
+    public int lvltemp;
+    public int lvl;
 
     public PlayerData(Player player)
     {
         money = player.money;
         exp = player.exp;
         lvl = player.lvl;
+        lvltemp = player.lvltemp;
     }
 }

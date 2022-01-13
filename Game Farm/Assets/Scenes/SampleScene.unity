@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 7674017}
   m_Layer: 0
   m_Name: Carrot cake
-  m_TagString: Cheese
+  m_TagString: CarrotCake
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

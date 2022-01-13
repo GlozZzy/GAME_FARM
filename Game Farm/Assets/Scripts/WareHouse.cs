@@ -176,7 +176,7 @@ public class WareHouse : MonoBehaviour, IPointerClickHandler
     public void LoadWareHouse()
     {
         WareHouseData data = SaveSystemWareHouse.LoadWareHouse();
-        string[] names = { "Wheat", "Cheese", "Milk", "Carrot", "Meat", "Egg" };
+        string[] names = { "Wheat", "Cheese", "Carrot_cake", "Milk", "Carrot", "Meat", "Egg" };
 
         if (data != null)
         {
