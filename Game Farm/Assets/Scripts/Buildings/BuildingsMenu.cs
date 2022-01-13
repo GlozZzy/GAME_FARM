@@ -11,6 +11,20 @@ public class BuildingsMenu : MonoBehaviour
     public GameObject originalMenu;
     private int shift = 1;
 
+    private void Update()
+    {
+        if (building)
+        {
+            if (building.timer > 0.1f)
+            {
+                ingridients.transform.GetChild(4).GetChild(0).GetComponent<Text>().text = Convert.ToString(Math.Round(building.timer, 2));
+            }
+            else
+            {
+                ingridients.transform.GetChild(4).GetChild(0).GetComponent<Text>().text = "Свободно!";
+            }
+        }
+    }
     public void Open(ProductionBuilding p, Recipies[] recipies, Canvas can)
     {
         if (building) 
