@@ -89,7 +89,6 @@ public class Player : MonoBehaviour
     {
         if(lvltemp<lvlr)
         {
-            Debug.Log("NEKEZ");
             notEnougthlvl.SetActive(true);
             LvlReq.text = "Lvl Required:" + lvlr;
             return false;

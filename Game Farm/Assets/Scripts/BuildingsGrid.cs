@@ -11,9 +11,9 @@ public class BuildingsGrid: MonoBehaviour
 
     public void StartPlacingBuilding(Building buildingPrefab)
     {
-        if (player.Transaction(-buildingPrefab.buy_price))
+        if (player.LvlRecuired(buildingPrefab.lvl))
         {
-            if (player.LvlRecuired(buildingPrefab.lvl))
+            if(player.Transaction(-buildingPrefab.buy_price))
             {
                 Shop.gameObject.SetActive(false);
                 if (flyingBuilding != null)
