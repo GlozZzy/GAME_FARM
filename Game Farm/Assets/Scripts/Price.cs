@@ -8,14 +8,20 @@ public class Price : MonoBehaviour
     
     double sig1 =0.0005;
     double mu1 = 0;
-    System.Random random = new System.Random();
+    Random rnd;
+
+    private void Start()
+    {
+        rnd = FindObjectOfType<Random>();
+    }
+
     public double GetPar(double w0)
     {
         
         for (int i = 0; i < 100; i++)
         {
 
-            double r = Math.Sqrt(-2.0 * Math.Log(random.NextDouble())) * Math.Sin(2.0 * Math.PI * random.NextDouble());
+            double r = Math.Sqrt(-2.0 * Math.Log(rnd.NextDouble())) * Math.Sin(2.0 * Math.PI * rnd.NextDouble());
             w0 += r;
 
 

@@ -1405,7 +1405,7 @@ MonoBehaviour:
     ingridients:
     - product: {fileID: 1204757747}
       numberOfProducts: 5
-    timeToCreate: 2
+    timeToCreate: 60
   - productToCreate: {fileID: 7674017}
     ingridients:
     - product: {fileID: 1204757747}
@@ -1416,7 +1416,7 @@ MonoBehaviour:
       numberOfProducts: 10
     - product: {fileID: 14543119}
       numberOfProducts: 4
-    timeToCreate: 2
+    timeToCreate: 420
   canvasMenu: {fileID: 1718343103}
   wareHouse: {fileID: 1978391373}
 --- !u!1 &79537198
@@ -10006,6 +10006,49 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ffdefed5e76c6544aba266eee680b52, type: 3}
+--- !u!1 &798884814
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 798884816}
+  - component: {fileID: 798884815}
+  m_Layer: 0
+  m_Name: Timer
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &798884815
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 798884814}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa0bbe1b749230a4faf87b79035bcc5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &798884816
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 798884814}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 798.727, y: 187.96552, z: -116.478294}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &805316561
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -15269,7 +15312,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Pname: Milk
-  buy_price: 10
+  buy_price: 15
   sell_price: 0
   exp: 0
   count: 0
