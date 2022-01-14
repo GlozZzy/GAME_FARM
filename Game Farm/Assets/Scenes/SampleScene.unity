@@ -10961,7 +10961,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1d2c43b5dd80fa945be4ca19786ae249, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  money: 100
+  money: 1000
   exp: 0
   lvl: 100
   lvltemp: 1

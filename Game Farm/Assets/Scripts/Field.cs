@@ -135,8 +135,16 @@ public class Field : MonoBehaviour, IPointerClickHandler
             return;
         }
 
-        if (!isBlocked && !isAlien) OpenMenu();
-        if (isAlien) OpenBlockedMenu();
+        if (!isBlocked && !isAlien)
+        {
+            GameObject.Find("BlockedCellMenu").GetComponent<FieldMenu>().Close();
+            OpenMenu();
+        }
+        if (isAlien) 
+        {
+            GameObject.Find("FieldMenu").GetComponent<FieldMenu>().Close(); 
+            OpenBlockedMenu(); 
+        }
     }
 
     private void Water()
