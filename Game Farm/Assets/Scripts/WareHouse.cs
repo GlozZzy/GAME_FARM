@@ -72,7 +72,6 @@ public class WareHouse : MonoBehaviour, IPointerClickHandler
         {
             maxspace += 10;
         }
-        else print("NotEnougt money");
     }
 
     public bool AddProduct(Product product)
